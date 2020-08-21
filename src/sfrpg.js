@@ -130,6 +130,22 @@ Hooks.once("setup", function () {
     Handlebars.registerHelper("not", function (value) {
         return !Boolean(value);
     });
+
+    Handlebars.registerHelper('greaterThan', function (v1, v2, options) {
+        'use strict';
+        if (v1 > v2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
+    Handlebars.registerHelper('ellipsis', function (displayedValue, limit) {
+        let str = displayedValue.toString();
+        if (str.length <= limit) {
+            return str;
+        }
+        return str.substring(0, limit) + '…';
+    });
 });
 
 Hooks.once("ready", () => {

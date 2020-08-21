@@ -1091,8 +1091,13 @@ SFRPG.modifierTypes = {
     "untyped": "SFRPG.ModifierTypeUntyped"
 };
 
+// See modules/modifiers/types.js, SFRPGEffectType
 SFRPG.modifierEffectTypes = {
     "ac": "SFRPG.ModifierEffectTypeAC",
+    "hit-points": "SFRPG.ActorSheet.Modifiers.EffectTypes.Hitpoints",
+    "stamina-points": "SFRPG.ActorSheet.Modifiers.EffectTypes.Stamina",
+    "resolve-points": "SFRPG.ActorSheet.Modifiers.EffectTypes.Resolve",
+    "base-attack-bonus": "SFRPG.ActorSheet.Modifiers.EffectTypes.BaseAttackBonus",
     "cmd": "SFRPG.ModifierEffectTypeCMD",
     "acp": "SFRPG.ModifierEffectTypeACP",
     "initiative": "SFRPG.ModifierEffectTypeInit",
@@ -1101,7 +1106,18 @@ SFRPG.modifierEffectTypes = {
     "skill": "SFRPG.ModifierEffectTypeSkill",
     "all-skills": "SFRPG.ModifierEffectTypeAllSkills",
     "saves": "SFRPG.ModifierEffectTypeSaves",
-    "save": "SFRPG.ModifierEffectTypeSave"
+    "save": "SFRPG.ModifierEffectTypeSave",
+    "ranged-attacks": "SFRPG.ActorSheet.Modifiers.EffectTypes.RangedAttackRolls",
+    "melee-attacks": "SFRPG.ActorSheet.Modifiers.EffectTypes.MeleeAttackRolls",
+    "spell-attacks": "SFRPG.ActorSheet.Modifiers.EffectTypes.SpellAttackRolls",
+    "weapon-attacks": "SFRPG.ActorSheet.Modifiers.EffectTypes.SpecificWeaponAttackRolls",
+    "all-attacks": "SFRPG.ActorSheet.Modifiers.EffectTypes.AllAttackRolls",
+    "ranged-damage": "SFRPG.ActorSheet.Modifiers.EffectTypes.RangedAttackDamage",
+    "melee-damage": "SFRPG.ActorSheet.Modifiers.EffectTypes.MeleeAttackDamage",
+    "spell-damage": "SFRPG.ActorSheet.Modifiers.EffectTypes.SpellAttackDamage",
+    "weapon-damage": "SFRPG.ActorSheet.Modifiers.EffectTypes.SpecificWeaponAttackDamage",
+    "all-damage": "SFRPG.ActorSheet.Modifiers.EffectTypes.AllAttackDamage",
+    "weapon-property-damage": "SFRPG.ActorSheet.Modifiers.EffectTypes.WeaponPropertyDamage"
 };
 
 SFRPG.modifierType = {

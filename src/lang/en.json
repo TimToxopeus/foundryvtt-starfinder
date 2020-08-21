@@ -47,6 +47,20 @@
         "ACTooltipMaxDex": "Dexterity Modifier: {maxDex} (armor max dex: {armorMax})",
         "ACTooltipNotProficientMod": "Penalty for non-proficiency: {profMod}",
         "ActorSheet": {
+            "Header": {
+                "Hitpoints": {
+                    "RacialTooltip": "Racial Base: {mod} ({source})",
+                    "ClassTooltip": "Class Base: {mod} ({source})"
+                },
+                "Stamina": {
+                    "ConstitutionTooltip": "Constitution Base: {mod}",
+                    "ClassTooltip": "Class Base: {mod} ({source})"
+                },
+                "Resolve": {
+                    "LevelTooltip": "Level Base: {mod}",
+                    "KeyAbilityTooltip": "Key Ability Score Base: {mod} ({kas}, {source})"
+                }
+            },
             "Inventory": {
                 "Item": {
                     "Create": "Create new item",
@@ -61,6 +75,36 @@
                 },
                 "Weapon": {
                     "Reload": "Reload weapon"
+                }
+            },
+            "Modifiers": {
+                "ModifierTypes": {
+                    "Class": "Class",
+                    "Racial": "Racial"
+                },
+                "EffectTypes": {
+                    "Hitpoints": "Hitpoints",
+                    "HP": "HP",
+                    "Stamina": "Stamina",
+                    "SP": "SP",
+                    "Resolve": "Resolve",
+                    "RP": "RP",
+                    "BaseAttackBonus": "Base Attack Bonus",
+                    "BAB": "BAB",
+                    "RangedAttackRolls": "Ranged Attack Rolls",
+                    "MeleeAttackRolls": "Melee Attack Rolls",
+                    "SpellAttackRolls": "Spell Attack Rolls",
+                    "SpecificWeaponAttackRolls": "Specific Weapon Attack Rolls",
+                    "AllAttackRolls": "All Attack Rolls",
+                    "RangedAttackDamage": "Ranged Damage",
+                    "MeleeAttackDamage": "Melee Damage",
+                    "SpellAttackDamage": "Spell Damage",
+                    "SpecificWeaponAttackDamage": "Specific Weapon Damage",
+                    "WeaponPropertyDamage": "Weapon Property Damage",
+                    "AllAttackDamage": "All Attack Damage"
+                },
+                "UI": {
+                    "LongFormula": "Long Formula"
                 }
             }
         },
@@ -238,6 +282,8 @@
         "DistAny": "Any",
         "DroneSheet": {
             "Chassis": {
+                "Missing": "Missing Chassis",
+                "NotInstalled": "No Chassis installed.",
                 "Details": {
                     "AbilityScores": {
                         "Dexterity": "Base Dexterity",
@@ -496,6 +542,16 @@
         "Necrograft": "Necrograft",
         "None": "None",
         "Notes": "Notes",
+        "NPCSheet": {
+            "Header": {
+                "NamePlaceHolderText": "Character Name",
+                "RaceAndGraftsPlaceHolderText": "Gender, Race, and Class/Grafts",
+                "SourcePlaceHolderText": "Source",
+                "AlignmentPlaceHolderText": "NG",
+                "TypePlaceHolderText": "Type (sub-type)",
+                "AuraPlaceHolderText": "Aura"
+            }
+        },
         "NpcToggleSkillsDialogTitle": "Toggle NPC Skills",
         "NumberOfArms": "Number of Arms",
         "Personal": "Personal",
@@ -621,11 +677,22 @@
         "SpellAreaShapesOther": "Other",
         "SpellAreaShapesShapable": "Shapable",
         "SpellAreaShapesSphere": "Sphere",
-        "Spellbook": "Spellbook",
-        "SpellBookAddSpells": "Add Spell",
-        "SpellBookAttributesNone": "None",
-        "SpellBookNoSpells": "No spells found for this set of filters.",
-        "SpellBookSpellCastingAbility": "Spellcasting Ability",
+        "SpellBook": {
+            "Spellbook": "Spellbook",
+            "Add": "Add",
+            "AddSpells": "Add Spell",
+            "AttributesNone": "None",
+            "Browse": "Spellbook browse",
+            "CreateSpell": "Create Spell",
+            "DeleteItem": "Delete Item",
+            "EditItem": "Edit Item",
+            "NoSpells": "No spells found for this set of filters.",
+            "SearchSpell": "Search Spell",
+            "SpellCastingAbility": "Spellcasting Ability",
+            "SpellSchool": "Spell School",
+            "SpellUsage": "Spell Usage",
+            "Uses": "Uses"
+        },
         "SpellBrowserSearchHint": "",
         "SpellCantripLabel": "Cantrip",
         "SpellPreparationModesAlways": "Always Available",
@@ -751,6 +818,9 @@
         "WeaponTypesSolarian": "Solarian Weapon Crystals",
         "WeaponTypesSpecial": "Special Weapons",
         "WillSave": "Will",
+        "Units": {
+            "Speed": "ft."
+        },
 
         "LocalizationTerminator": ""
     }
