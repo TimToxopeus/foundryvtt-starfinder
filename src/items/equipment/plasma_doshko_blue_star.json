@@ -22,7 +22,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -86,6 +86,7 @@
       "per": "minute"
     },
     "weaponType": "advancedM",
+    "weaponCategory": "plasma",
     "special": "",
     "properties": {
       "one": false,
@@ -115,8 +116,22 @@
       "trip": false,
       "unwieldy": false
     },
-    "proficient": true,
-    "fusions": []
+    "proficient": false,
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 18,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
+    }
   },
   "sort": 400001,
   "flags": {},

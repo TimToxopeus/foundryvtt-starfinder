@@ -201,11 +201,17 @@ async function unpackPacks() {
  * Cook db source json files into .db files with nedb
  */
 var cookErrorCount = 0;
+var cookAborted = false;
+var packErrors = {};
 async function cookPacks() {
     console.log(`Cooking db files`);
     
     let compendiumMap = {};
     let allItems = [];
+    
+    cookErrorCount = 0;
+    cookAborted = false;
+    packErrors = {};
     
     let sourceDir = "./src/items";
     let directories = await fs.readdirSync(sourceDir);
@@ -229,13 +235,29 @@ async function cookPacks() {
         for (let file of files) {
             let filePath = `${itemSourceDir}/${file}`;
             let jsonInput = await fs.readFileSync(filePath);
-            jsonInput = JSON.parse(jsonInput);
+            try {
+                jsonInput = JSON.parse(jsonInput);
+                
+            } catch (err) {
+                if (!(directory in packErrors)) {
+                    packErrors[directory] = [];
+                }
+                packErrors[directory].push(`${filePath}: Error parsing file: ${err}`);
+                cookErrorCount++;
+                continue;
+            }
             
             compendiumMap[directory][jsonInput._id] = jsonInput;
-            allItems.push({pack: directory, data: jsonInput});
+            allItems.push({pack: directory, data: jsonInput, file: file});
             
             await db.asyncInsert(jsonInput);
         }
+    }
+    
+    if (cookErrorCount > 0) {
+        console.log(`\nCritical parsing errors occurred, aborting cook.`);
+        cookAborted = true;
+        return 1;
     }
     
     console.log(`\nStarting consistency check.`);
@@ -250,38 +272,100 @@ async function cookPacks() {
         let pack = item.pack;
         
         let errors = [];
-        let itemMatch = [...desc.matchAll(/@Item\[([^\]]*)\]{([^}]*)}/gm)];
+        let itemMatch = [...desc.matchAll(/@Item\[([^\]]*)\]({([^}]*)})?/gm)];
         if (itemMatch && itemMatch.length > 0) {
             for (let localItem of itemMatch) {
                 let localItemId = localItem[1];
-                let localItemName = localItem[2];
-                if (!(pack in compendiumMap)) {
-                    errors.push(`Referencing non-existing compendium! '${localItemName} (${localItemId})' cannot find pack '${pack}'.`);
-                } else if (!(localItemId in compendiumMap[pack])) {
-                    errors.push(`Referencing non-existing item id! '${localItemName} (${localItemId})' not found in pack '${pack}'.`);
+                let localItemName = localItem[2] || localItemId;
+
+                // @Item links cannot exist in compendiums.
+                if (!(pack in packErrors)) {
+                    packErrors[pack] = [];
                 }
+                packErrors[pack].push(`${item.file}: Using @Item to reference to '${localItemName}' (with id: ${localItemId}), @Item is not allowed in compendiums. Please use '@Compendium[sfrpg.${pack}.${localItemId}]' instead.`);
+                cookErrorCount++;
             }
         }
         
-        let compendiumMatch = [...desc.matchAll(/@Compendium\[sfrpg\.([^\.]*)\.([^\]]*)\]{([^}]*)}/gm)];
+        let journalMatch = [...desc.matchAll(/@JournalEntry\[([^\]]*)\]({([^}]*)})?/gm)];
+        if (journalMatch && journalMatch.length > 0) {
+            for (let localItem of journalMatch) {
+                let localItemId = localItem[1];
+                let localItemName = localItem[2] || localItemId;
+
+                // @Item links cannot exist in compendiums.
+                if (!(pack in packErrors)) {
+                    packErrors[pack] = [];
+                }
+                packErrors[pack].push(`${item.file}: Using @JournalEntry to reference to '${localItemName}' (with id: ${localItemId}), @JournalEntry is not allowed in compendiums. Please use '@Compendium[sfrpg.${pack}.${localItemId}]' instead.`);
+                cookErrorCount++;
+            }
+        }
+        
+        let compendiumMatch = [...desc.matchAll(/@Compendium\[([^\]]*)]({([^}]*)})?/gm)];
         if (compendiumMatch && compendiumMatch.length > 0) {
             for (let otherItem of compendiumMatch) {
-                let otherPack = otherItem[1];
-                let otherItemId = otherItem[2];
-                let otherItemName = otherItem[3];
-                if (!(otherPack in compendiumMap)) {
-                    errors.push(`Referencing non-existing compendium! '${otherItemName} (${otherItemId})' cannot find '${pack}'`);
-                } else if (!(otherItemId in compendiumMap[otherPack])) {
-                    errors.push(`Referencing non-existing item id! '${otherItemName} (${otherItemId})' not found in pack '${otherPack}'.`);
+                let link = otherItem[1];
+                let otherItemName = (otherItem.length == 4) ? otherItem[3] || link : link;
+                
+                let linkParts = link.split('.');
+                if (linkParts.length !== 3) {
+                    if (!(pack in packErrors)) {
+                        packErrors[pack] = [];
+                    }
+                    packErrors[pack].push(`${item.file}: Compendium link to '${link}' is not valid. It does not have enough segments in the link. Expected format is sfrpg.compendiumName.itemId.`);
+                    cookErrorCount++;
+                    continue;
                 }
-            }
-        }
-        
-        if (errors.length > 0) {
-            console.log(`\n> ${data.name} errors:`);
-            for (let error of errors) {
-                console.log(error);
-                cookErrorCount++;
+                
+                let system = linkParts[0];
+                let otherPack = linkParts[1];
+                let otherItemId = linkParts[2];
+
+                // @Compendium links must link to sfrpg compendiums.
+                if (system !== "sfrpg") {
+                    if (!(pack in packErrors)) {
+                        packErrors[pack] = [];
+                    }
+                    packErrors[pack].push(`${item.file}: Compendium link to '${otherItemName}' (with id: ${otherItemId}) is not referencing the sfrpg system, but instead using '${system}'.`);
+                    cookErrorCount++;
+                }
+                
+                // @Compendium links to the same compendium could be @Item links instead.
+                /*if (otherPack === pack) {
+                    if (!(pack in packErrors)) {
+                        packErrors[pack] = [];
+                    }
+                    packErrors[pack].push(`${item.file}: Compendium link to '${otherItemName}' (with id: ${otherItemId}) is referencing the same compendium, consider using @Item[${otherItemId}] instead.`);
+                    cookErrorCount++;
+                }*/
+                
+                // @Compendium links must link to a valid compendium.
+                if (!(otherPack in compendiumMap)) {
+                    if (!(pack in packErrors)) {
+                        packErrors[pack] = [];
+                    }
+                    packErrors[pack].push(`${item.file}: '${otherItemName}' (with id: ${otherItemId}) cannot find '${otherPack}', is there an error in the compendium name?`);
+                    cookErrorCount++;
+                    continue;
+                }
+                
+                // @Compendium links must link to a valid item ID.
+                var itemExists = false;
+                if (otherItemId in compendiumMap[otherPack]) {
+                    itemExists = true;
+                } else {
+                    let foundItem = allItems.find(x => x.pack === otherPack && (x.data.name == otherItemId || x.data.name == otherItemName));
+                    itemExists = foundItem !== null;
+                }
+                
+                if (!itemExists) {
+                    if (!(pack in packErrors)) {
+                        packErrors[pack] = [];
+                    }
+                    packErrors[pack].push(`${item.file}: '${otherItemName}' (with id: ${otherItemId}) not found in '${otherPack}'.`);
+                    cookErrorCount++;
+                }
             }
         }
     }
@@ -296,7 +380,21 @@ async function cookPacks() {
 }
 
 async function postCook() {
-    console.log(`\nCompendiums cooked with ${cookErrorCount} errors!\nDon't forget to restart Foundry to refresh compendium data!\n`);
+    
+    if (Object.keys(packErrors).length > 0) {
+        for (let pack of Object.keys(packErrors)) {
+            console.log(`\n${packErrors[pack].length} Errors cooking ${pack}.db:`);
+            for (let error of packErrors[pack]) {
+                console.log(`> ${error}`);
+            }
+        }
+    }
+    
+    if (!cookAborted) {
+        console.log(`\nCompendiums cooked with ${cookErrorCount} errors!\nDon't forget to restart Foundry to refresh compendium data!\n`);
+    } else {
+        console.log(`\nCook aborted after ${cookErrorCount} critical errors!\n`);
+    }
     return 0;
 }
 

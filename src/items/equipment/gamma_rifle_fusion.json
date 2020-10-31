@@ -22,7 +22,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -82,6 +82,7 @@
       "per": "round"
     },
     "weaponType": "sniper",
+    "weaponCategory": "flame",
     "special": "",
     "properties": {
       "one": false,
@@ -113,8 +114,22 @@
       "radioactive": true,
       "subtle": false
     },
-    "proficient": true,
-    "fusions": []
+    "proficient": false,
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 12,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
+    }
   },
   "flags": {},
   "img": "systems/sfrpg/icons/equipment/weapons/gamma-rifle-fusion.jpg",

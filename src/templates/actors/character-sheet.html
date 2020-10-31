@@ -50,8 +50,7 @@
                         <input name="data.attributes.hp.value" type="text" value="{{data.attributes.hp.value}}"
                             data-dtype="Number" placeholder="10" />
                         <span class="sep"> / </span>
-                        <input name="data.attributes.hp.max" type="text" value="{{data.attributes.hp.max}}"
-                            data-dtype="Number" placeholder="10" />
+                        <div class="attribute-value-max">{{data.attributes.hp.max}}</div>
                     </div>
                     <footer class="attribute-footer">
                         <input name="data.attributes.hp.temp" type="text" class="temphp" placeholder="{{localize "SFRPG.TempHPPlaceHolderText"}}"
@@ -67,8 +66,7 @@
                         <input name="data.attributes.sp.value" type="text" value="{{data.attributes.sp.value}}"
                             data-dtype="Number" placeholder="10" />
                         <span class="sep"> / </span>
-                        <input name="data.attributes.sp.max" type="text" value="{{data.attributes.sp.max}}"
-                            data-dtype="Number" placeholder="10" />
+                        <div class="attribute-value-max">{{data.attributes.sp.max}}</div>
                     </div>                    
                 </li>
 
@@ -147,6 +145,9 @@
 
             {{!-- Skills --}}
             <ul class="skills-list">
+                <h3 class="skill-ranks {{#if (greaterThan data.skillpoints.used data.skillpoints.max)}}red{{/if}}" data-tippy-content="<strong>{{localize "SFRPG.ActorSheet.Attributes.Skills.SkillRanks"}}</strong><br>@skillpoints.used<br>@skillpoints.total<br><br>{{#each data.skillpoints.tooltip as |tip|}}{{tip}}<br>{{/each}}">
+                    {{localize "SFRPG.ActorSheet.Attributes.Skills.SkillRanks"}} ({{data.skillpoints.used}} / {{data.skillpoints.max}})
+                </h3>
                 <li class="skills-header flexrow">
                     <div class="skill-header-prof"></div>
                     <h3 class="skill-header-name flexrow">{{localize "SFRPG.SkillsHeaderName"}}</h3>
@@ -289,8 +290,7 @@
                             <input name="data.attributes.rp.value" type="text" value="{{data.attributes.rp.value}}"
                                 data-dtype="Number" placeholder="10" />
                             <span class="sep"> / </span>
-                            <input name="data.attributes.rp.max" type="text" value="{{data.attributes.rp.max}}"
-                                data-dtype="Number" placeholder="10" />
+                            <div class="attribute-value-max">{{data.attributes.rp.max}}</div>
                         </div>
                     </li>
                 </ul>
@@ -322,7 +322,7 @@
 
         {{!-- Biography Tab --}}
         <div class="tab biography flexcol" data-group="primary" data-tab="biography">
-            {{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+            {{editorPlus content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable rolls=false rollData=data}}
         </div>
     </section>
 </form>

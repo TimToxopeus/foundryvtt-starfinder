@@ -22,7 +22,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -82,6 +82,7 @@
       "per": "round"
     },
     "weaponType": "smallA",
+    "weaponCategory": "shock",
     "special": "",
     "properties": {
       "one": true,
@@ -115,8 +116,22 @@
       "radioactive": false,
       "subtle": false
     },
-    "proficient": true,
-    "fusions": []
+    "proficient": false,
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 1,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
+    }
   },
   "sort": 100001,
   "flags": {},

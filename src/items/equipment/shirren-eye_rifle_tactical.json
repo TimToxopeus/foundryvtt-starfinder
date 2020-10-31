@@ -23,7 +23,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -83,6 +83,7 @@
       "per": "round"
     },
     "weaponType": "sniper",
+    "weaponCategory": "projectile",
     "special": "",
     "properties": {
       "one": false,
@@ -116,8 +117,22 @@
       "mind-affecting": false,
       "living": false
     },
-    "proficient": true,
-    "fusions": []
+    "proficient": false,
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 2,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
+    }
   },
   "flags": {},
   "img": "systems/sfrpg/icons/equipment/weapons/shirren-eye-rifle-tactical.jpg"

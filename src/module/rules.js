@@ -47,10 +47,14 @@ import calculateSkillModifiers from './rules/actions/actor/calculate-skill-modif
 import calculateNpcXp from './rules/actions/actor/calculate-npc-xp.js';
 import calculateNpcAbilityValue from './rules/actions/actor/calculate-npc-ability-value.js';
 import calculateSkillArmorCheckPenalty from './rules/actions/actor/calculate-skill-armor-check-penalty.js';
+import calculateAbilityCheckModifiers from './rules/actions/actor/calculate-ability-check-modifiers.js';
+import calculateEncumbrance from './rules/actions/actor/calculate-encumbrance.js';
 // Character rules
 import calculateHitpoints from './rules/actions/actor/character/calculate-hitpoints.js';
-import calculateStamina from './rules/actions/actor/character/calculate-stamina.js';
 import calculateResolve from './rules/actions/actor/character/calculate-resolve.js';
+import calculateSkillpoints from './rules/actions/actor/character/calculate-skillpoints.js';
+import calculateStamina from './rules/actions/actor/character/calculate-stamina.js';
+import calculateTraits from './rules/actions/actor/calculate-traits.js';
 // Drone rules
 import calculateDroneChassis from './rules/actions/actor/drone/calculate-drone-chassis.js';
 import calculateDroneDefense from './rules/actions/actor/drone/calculate-drone-defense.js';
@@ -89,10 +93,14 @@ export default function (engine) {
     calculateSkillArmorCheckPenalty(engine);
     calculateNpcXp(engine);
     calculateNpcAbilityValue(engine);
+    calculateAbilityCheckModifiers(engine);
+    calculateEncumbrance(engine);
     // Character actions
     calculateHitpoints(engine);
-    calculateStamina(engine);
     calculateResolve(engine);
+    calculateSkillpoints(engine);
+    calculateStamina(engine);
+    calculateTraits(engine);
     // Starship actions
     calculateShipArmorClass(engine);
     calculateShipCritThreshold(engine);
@@ -137,6 +145,8 @@ export default function (engine) {
                 when: { closure: "isActorType", type: "character" },
                 then: [
                     "clearTooltips",
+                    "calculateCharacterLevel",
+                    "calculateTraits",
                     { closure: "calculateBaseAbilityScore", stackModifiers: "stackModifiers" },
                     { closure: "calculateBaseAbilityModifier", stackModifiers: "stackModifiers" },
                     "calculateBaseArmorClass",
@@ -144,18 +154,20 @@ export default function (engine) {
                     { closure: "calculateBaseAttackBonus", stackModifiers: "stackModifiers" },
                     "calculateBaseSaves",
                     { closure: "calculateSaveModifiers", stackModifiers: "stackModifiers"},
-                    "calculateCharacterLevel",
                     "calculateInitiative",
                     {closure: "calculateInitiativeModifiers", stackModifiers: "stackModifiers" },
                     "calculateCMD",
                     { closure: "calculateCMDModifiers", stackModifiers: "stackModifiers" },
                     "calculateXP",
+                    { closure: "calculateSkillpoints", stackModifiers: "stackModifiers" },
                     "calculateBaseSkills",
                     { closure: "calculateSkillArmorCheckPenalty", stackModifiers: "stackModifiers" },
                     { closure: "calculateSkillModifiers", stackModifiers: "stackModifiers" },
                     { closure: "calculateHitpoints", stackModifiers: "stackModifiers" },
                     { closure: "calculateStamina", stackModifiers: "stackModifiers" },
-                    { closure: "calculateResolve", stackModifiers: "stackModifiers" }
+                    { closure: "calculateResolve", stackModifiers: "stackModifiers" },
+                    { closure: "calculateAbilityCheckModifiers", stackModifiers: "stackModifiers"},
+                    { closure: "calculateEncumbrance", stackModifiers: "stackModifiers" }
                 ]
             },
             {
@@ -197,7 +209,9 @@ export default function (engine) {
                     "calculateCMD",
                     { closure: "calculateCMDModifiers", stackModifiers: "stackModifiers" },
                     { closure: "calculateDroneHitpoints", stackModifiers: "stackModifiers" },
-                    { closure: "calculateDroneResolve", stackModifiers: "stackModifiers" }
+                    { closure: "calculateDroneResolve", stackModifiers: "stackModifiers" },
+                    { closure: "calculateAbilityCheckModifiers", stackModifiers: "stackModifiers"},
+                    { closure: "calculateEncumbrance", stackModifiers: "stackModifiers" }
                 ]
             }
         ]

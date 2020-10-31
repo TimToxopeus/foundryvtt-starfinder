@@ -16,6 +16,7 @@ export class ActorSFRPG extends Actor {
     /** @override */
     getRollData() {
         const data = super.getRollData();
+        let casterLevel = 0;
         data.classes = this.data.items.reduce((obj, i) => {
             if (i.type === "class") {
                 const classData = {
@@ -25,10 +26,16 @@ export class ActorSFRPG extends Actor {
                     skillRanksPerLevel: i.data.skillRanks.value
                 };
 
+                if (i.data.isCaster) {
+                    casterLevel += i.data.levels
+                }
+
                 obj[i.name.slugify({replacement: "_", strict: true})] = classData;
             }
             return obj;
         }, {});
+
+        data.cl = casterLevel;
 
         return data;
     }
@@ -57,6 +64,7 @@ export class ActorSFRPG extends Actor {
         const theme = items.find(item => item.type === "theme");
         const mods = items.filter(item => item.type === "mod");
         const armorUpgrades = items.filter(item => item.type === "upgrade");
+        const asis = items.filter(item => item.type === "asi");
         game.sfrpg.engine.process("process-actors", {
             data,
             armor,
@@ -68,9 +76,17 @@ export class ActorSFRPG extends Actor {
             modifiers,
             theme,
             mods,
-            armorUpgrades
+            armorUpgrades,
+            asis
         });
     }
+
+    /**
+     * TODO: Use these two methods to properly setup actor data for use
+     * in the new Active Effects API.
+     */
+    prepareBaseData() { super.prepareBaseData(); }
+    prepareDerivedData() { super.prepareDerivedData(); }
 
     /**
      * Check to ensure that this actor has a modifiers data object set, if not then set it. 
@@ -122,9 +138,9 @@ export class ActorSFRPG extends Actor {
      * @returns {Promise}
      */
     async createEmbeddedEntity(embeddedName, itemData, options) {
-        if (!this.isPC) {
+        if (!this.hasPlayerOwner) {
             let t = itemData.type;
-            let initial = {};
+            let initial = {};           
             if (t === "weapon") initial['data.proficient'] = true;
             if (["weapon", "equipment"].includes(t)) initial['data.equipped'] = true;
             if (t === "spell") initial['data.prepared'] = true;
@@ -291,6 +307,11 @@ export class ActorSFRPG extends Actor {
             let modifiersToConcat = [];
             switch (item.type) {
                 default:
+                    if (item.data.equipped !== false) {
+                        modifiersToConcat = item.data.modifiers;
+                    }
+                    break;
+                case "augmentation":
                     modifiersToConcat = item.data.modifiers;
                     break;
                 case "feat":
@@ -355,7 +376,7 @@ export class ActorSFRPG extends Actor {
             skillId = `pro${++counter}`;
         }
 
-        const formData = await AddEditSkillDialog.create(skillId, skill, false),
+        const formData = await AddEditSkillDialog.create(skillId, skill, false, this.hasPlayerOwner, this.owner),
             isTrainedOnly = Boolean(formData.get('isTrainedOnly')),
             hasArmorCheckPenalty = Boolean(formData.get('hasArmorCheckPenalty')),
             value = Boolean(formData.get('value')) ? 3 : 0,
@@ -364,7 +385,7 @@ export class ActorSFRPG extends Actor {
             ability = formData.get('ability'),
             subname = formData.get('subname');
 
-        return this.update({
+        let newSkillData = {
             [`data.skills.${skillId}`]: {},
             [`data.skills.${skillId}.isTrainedOnly`]: isTrainedOnly,
             [`data.skills.${skillId}.hasArmorCheckPenalty`]: hasArmorCheckPenalty,
@@ -372,8 +393,12 @@ export class ActorSFRPG extends Actor {
             [`data.skills.${skillId}.misc`]: misc,
             [`data.skills.${skillId}.ranks`]: ranks,
             [`data.skills.${skillId}.ability`]: ability,
-            [`data.skills.${skillId}.subname`]: subname
-        });
+            [`data.skills.${skillId}.subname`]: subname,
+            [`data.skills.${skillId}.mod`]: value + misc + ranks,
+            [`data.skills.${skillId}.enabled`]: true
+        };
+
+        return this.update(newSkillData);
     }
 
     /**
@@ -382,34 +407,35 @@ export class ActorSFRPG extends Actor {
      * @param {string} skillId      The skill id (e.g. "ins")
      * @param {Object} options      Options which configure how the skill check is rolled
      */
-    rollSkill(skillId, options = {}) {
+    async rollSkill(skillId, options = {}) {
         const skl = this.data.data.skills[skillId];
 
-        if (!this.isPC) {
-            this.rollSkillCheck(skillId, skl, options);
-            return;
+        if (!this.hasPlayerOwner) {
+            return await this.rollSkillCheck(skillId, skl, options);
         }
 
         if (skl.isTrainedOnly && !(skl.ranks > 0)) {
             let content = `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]} is a trained only skill, but ${this.name} is not trained in that skill.
                 Would you like to roll anyway?`;
 
-            new Dialog({
-                title: `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]} is trained only`,
-                content: content,
-                buttons: {
-                    yes: {
-                        label: "Yes",
-                        callback: () => this.rollSkillCheck(skillId, skl, options)
+            return new Promise(resolve => {
+                new Dialog({
+                    title: `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]} is trained only`,
+                    content: content,
+                    buttons: {
+                        yes: {
+                            label: "Yes",
+                            callback: () => resolve(this.rollSkillCheck(skillId, skl, options))
+                        },
+                        cancel: {
+                            label: "No"
+                        }
                     },
-                    cancel: {
-                        label: "No"
-                    }
-                },
-                default: "cancel"
-            }).render(true);
+                    default: "cancel"
+                }).render(true);
+            });
         } else {
-            this.rollSkillCheck(skillId, skl, options);
+            return await this.rollSkillCheck(skillId, skl, options);
         }
     }
 
@@ -419,15 +445,31 @@ export class ActorSFRPG extends Actor {
      * @param {String} abilityId The ability id (e.g. "str")
      * @param {Object} options Options which configure how ability tests are rolled
      */
-    rollAbility(abilityId, options = {}) {
+    async rollAbility(abilityId, options = {}) {
         const label = CONFIG.SFRPG.abilities[abilityId];
         const abl = this.data.data.abilities[abilityId];
+        
+        let parts = [];
+        let data = this.getRollData();
 
-        return DiceSFRPG.d20Roll({
+        if (abl.rolledMods) {
+            parts.push(...abl.rolledMods.map(x => x.mod));
+        }
+
+        //Include ability check bonus only if it's not 0
+        if(abl.abilityCheckBonus) {
+            parts.push('@abilityCheckBonus');
+            data.abilityCheckBonus = abl.abilityCheckBonus;
+        }
+        parts.push('@mod')
+
+        mergeObject(data, { mod: abl.mod });
+
+        return await DiceSFRPG.d20Roll({
             event: options.event,
             actor: this,
-            parts: ["@mod"],
-            data: { mod: abl.mod },
+            parts: parts,
+            data: data,
             flavor: game.settings.get('sfrpg', 'useCustomChatCard') ? `${label}` : `Ability Check - ${label}`,
             title:  `Ability Check`,
             speaker: ChatMessage.getSpeaker({ actor: this })
@@ -440,27 +482,47 @@ export class ActorSFRPG extends Actor {
      * @param {String} saveId The save id (e.g. "will")
      * @param {Object} options Options which configure how saves are rolled
      */
-    rollSave(saveId, options = {}) {
+    async rollSave(saveId, options = {}) {
         const label = CONFIG.SFRPG.saves[saveId];
         const save = this.data.data.attributes[saveId];
 
-        return DiceSFRPG.d20Roll({
+        let parts = [];
+        let data = this.getRollData();
+
+        if (save.rolledMods) {
+            parts.push(...save.rolledMods.map(x => x.mod));
+        }
+        parts.push('@mod');
+
+        mergeObject(data, { mod: save.bonus });
+
+        return await DiceSFRPG.d20Roll({
             event: options.event,
             actor: this,
-            parts: ["@mod"],
-            data: { mod: save.bonus },
+            parts: parts,
+            data: data,
             title: `Save`,
             flavor: game.settings.get('sfrpg', 'useCustomChatCard') ? `${label}` : `Save - ${label}`,
             speaker: ChatMessage.getSpeaker({ actor: this })
         });
     }
 
-    rollSkillCheck(skillId, skill, options = {}) {
-        return DiceSFRPG.d20Roll({
+    async rollSkillCheck(skillId, skill, options = {}) {
+        let parts = [];
+        let data = this.getRollData();
+
+        if (skill.rolledMods) {
+            parts.push(...skill.rolledMods.map(x => x.mod));
+        }
+
+        parts.push('@mod');
+        mergeObject(data, { mod: skill.mod });
+        
+        return await DiceSFRPG.d20Roll({
             actor: this,
             event: options.event,
-            parts: ["@mod"],
-            data: { mod: skill.mod },
+            parts: parts,
+            data: data,
             title: 'Skill Check',
             flavor: game.settings.get('sfrpg', 'useCustomChatCard') ? `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]}`: `Skill Check - ${CONFIG.SFRPG.skills[skillId.substring(0, 3)]}`,
             speaker: ChatMessage.getSpeaker({ actor: this })

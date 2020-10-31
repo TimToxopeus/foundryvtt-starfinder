@@ -22,7 +22,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -81,6 +81,7 @@
       "per": "round"
     },
     "weaponType": "smallA",
+    "weaponCategory": "laser",
     "special": "",
     "properties": {
       "two": false,
@@ -110,8 +111,22 @@
       "trip": false,
       "unwieldy": false
     },
-    "proficient": true,
-    "fusions": []
+    "proficient": false,
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 1,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
+    }
   },
   "sort": 100000,
   "flags": {},

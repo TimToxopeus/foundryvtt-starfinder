@@ -22,7 +22,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -86,6 +86,7 @@
       "per": "round"
     },
     "weaponType": "smallA",
+    "weaponCategory": "plasma",
     "special": "",
     "properties": {
       "one": true,
@@ -115,8 +116,22 @@
       "trip": false,
       "unwieldy": true
     },
-    "proficient": true,
-    "fusions": []
+    "proficient": false,
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 15,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
+    }
   },
   "sort": 1500000,
   "flags": {},

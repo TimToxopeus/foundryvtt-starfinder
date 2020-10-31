@@ -23,7 +23,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -83,6 +83,7 @@
       "per": "round"
     },
     "weaponType": "smallA",
+    "weaponCategory": "plasma",
     "special": "",
     "properties": {
       "one": true,
@@ -116,10 +117,24 @@
       "radioactive": false,
       "subtle": false
     },
-    "proficient": true,
-    "fusions": [],
+    "proficient": false,
     "abilityMods": {
       "parts": []
+    },
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 16,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
     }
   },
   "flags": {},

@@ -22,7 +22,7 @@
     "identified": true,
     "activation": {
       "type": "none",
-      "cost": 0,
+      "cost": null,
       "condition": ""
     },
     "duration": {
@@ -82,6 +82,7 @@
       "per": "minute"
     },
     "weaponType": "advancedM",
+    "weaponCategory": "cryo",
     "special": "",
     "properties": {
       "one": false,
@@ -167,10 +168,24 @@
       "variantBoost": false,
       "wideLine": false
     },
-    "proficient": true,
-    "fusions": [],
+    "proficient": false,
     "abilityMods": {
       "parts": []
+    },
+    "container": {
+      "contents": [],
+      "storage": [
+        {
+          "type": "slot",
+          "subtype": "fusion",
+          "amount": 12,
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "weightProperty": "level"
+        }
+      ]
     }
   },
   "sort": 200001,
