@@ -1,77 +1,84 @@
 {
   "_id": "VQJ68qx5UIbzz8oK",
   "name": "Situational Awareness (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.hIhgdXnqGHBm0A64]{Envoy Improvisation}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl48_LabelName\">If you ready an action, once before the trigger you selected occurs, you can spend 1 Resolve Point to change both the trigger and the action you have ready. You must ready an action that takes the same kind of action as your originally readied action, or you must ready a lesser action. (For example, if you readied a standard action, you could switch to another standard action, a move action, or a swift action, and if you readied a move action, you could switch to another move action or a swift action.)</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Improvisation",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/situational_awareness.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": null,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": null
     },
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": null,
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.hIhgdXnqGHBm0A64]{Envoy Improvisation}</p>\n<p>If you @UUID[Compendium.sfrpg.rules.JournalEntry.U37n5tY5hn1ctzQL.JournalEntryPage.PiWpd7yZ4sLOkphL#ready-an-action]{ready an action}, once before the trigger you selected occurs, you can spend 1 Resolve Point to change both the trigger and the action you have ready. You must ready an action that takes the same kind of action as your originally readied action, or you must ready a lesser action. (For example, if you readied a standard action, you could switch to another standard action, a move action, or a swift action, and if you readied a move action, you could switch to another move action or a swift action.)</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "8th Level (Envoy)",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "8th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "CRB pg. 64",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

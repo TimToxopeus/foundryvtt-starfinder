@@ -1,92 +1,96 @@
 {
   "_id": "Yddy2XOG018cNesC",
-  "name": "Vigilant Junkbot*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Vigilant Junkbot",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You turn the target into a robot that can guard you. This spell works like&nbsp;handy junkbot&nbsp;insofar as targeting parameters and your inability to target the same equipment after the spell ends. The junkbot you create is Tiny and appears in your space.<br>A vigilant junkbot can take no actions. Instead, you instruct the junkbot to perform its melee protocol or ranged protocol. You can change the protocol telepathically as a move action. In its melee protocol, the junkbot attaches to you, granting you a +1 bonus to KAC for every 4 technomancer levels you have. In its ranged protocol, the vigilant junkbot hovers at strategic angles to cover you, granting you concealment against ranged attacks. Additionally, when you take damage from an attack that matches the protocol (melee or ranged), the junkbot takes the first 3 damage. Any additional damage passes to you.<br>Enemies can target the junkbot instead of you. Its KAC and EAC are each 10 + your caster level, and it has Hit Points equal to one-quarter of your own (but no Stamina Points). The junkbot uses your saving throw bonuses, and it is a construct with the magical and technological subtypes.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 143",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/vigilant_junkbot.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "full",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 2,
-    "school": "trs",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You turn the target into a robot that can guard you. This spell works like handy junkbot insofar as targeting parameters and your inability to target the same equipment after the spell ends. The junkbot you create is Tiny and appears in your space.</p>\n<p>A vigilant junkbot can take no actions. Instead, you instruct the junkbot to perform its melee protocol or ranged protocol. You can change the protocol telepathically as a move action. In its melee protocol, the junkbot attaches to you, granting you a +1 bonus to KAC for every 4 technomancer levels you have. In its ranged protocol, the vigilant junkbot hovers at strategic angles to cover you, granting you concealment against ranged attacks. Additionally, when you take damage from an attack that matches the protocol (melee or ranged), the junkbot takes the first 3 damage. Any additional damage passes to you.</p>\n<p>Enemies can target the junkbot instead of you. Its KAC and EAC are each 10 + your caster level, and it has Hit Points equal to one-quarter of your own (but no Stamina Points). The junkbot uses your saving throw bonuses, and it is a construct with the magical and technological subtypes.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "round",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 2,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "trs",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 143",
+    "sr": false,
+    "target": {
+      "value": "1 bulk of inert electronic equipment; see text"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/vigilant_junkbot.PNG"
+  }
 }

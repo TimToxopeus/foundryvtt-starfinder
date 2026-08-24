@@ -1,91 +1,96 @@
 {
   "_id": "7HZVlS48z55YO78b",
   "name": "Discern Lies",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">Each round, you concentrate on one target within range. You know if the target deliberately and knowingly speaks a lie by discerning disturbances in its aura caused by lying. The spell does not reveal the truth or uncover unintentional inaccuracies, and it doesn’t necessarily reveal evasions. Each round, you can concentrate on a different target.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 349",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/discern-lies.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "concentration, up to 1 round/level",
-      "units": ""
-    },
-    "target": {
-      "value": "up to one creature/level, no two of which can be more than 30 ft. apart",
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "save",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": true,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "will",
-      "dc": null,
-      "descriptor": "negate"
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "level": 4,
-    "school": "div",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Each round, you concentrate on one target within range. You know if the target deliberately and knowingly speaks a lie by discerning disturbances in its aura caused by lying. The spell does not reveal the truth or uncover unintentional inaccuracies, and it doesn’t necessarily reveal evasions. Each round, you can concentrate on a different target.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": true,
+    "duration": {
+      "units": "instantaneous",
+      "value": "concentration, up to 1 round/level"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 4,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "div",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 349",
+    "sr": false,
+    "target": {
+      "value": "up to one creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/discern-lies.jpg"
+  }
 }

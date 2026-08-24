@@ -1,92 +1,116 @@
 {
   "_id": "xsvEqr436J1Haiy5",
-  "name": "Synapse Overload*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Synapse Overload",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">To affect the target, you must hit with a melee attack against its EAC; you can add your key ability score modifier to this attack roll instead of your Strength modifier if it is higher. You then overload the target’s mind, causing the target’s synapses to violently trigger. The target takes 18d8 damage and is staggered for 1 minute. A target can negate the staggered effect with a successful Fortitude saving throw, but still takes full damage.<br><br>Casting this spell doesn’t provoke attacks of opportunity.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 380",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/synapse_overload.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "msak",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [
+        {
+          "name": "",
+          "formula": "18d8",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 5,
-    "school": "div",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>To affect the target, you must hit with a melee attack against its EAC; you can add your key ability score modifier to this attack roll instead of your Strength modifier if it is higher. You then overload the target’s mind, causing the target’s synapses to violently trigger. The target takes 18d8 damage and is @UUID[Compendium.sfrpg.conditions.Item.aAQ6SW6iK0EVq8Ce]{Staggered} for 1 minute. A target can negate the @UUID[Compendium.sfrpg.conditions.Item.aAQ6SW6iK0EVq8Ce]{Staggered} effect with a successful Fortitude saving throw, but still takes full damage.</p>\n<p>Casting this spell doesn’t provoke attacks of opportunity.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 5,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "fort",
+      "dc": "",
+      "descriptor": "partial"
+    },
+    "school": "div",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 380",
+    "sr": true,
+    "target": {
+      "value": "one living creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/synapse_overload.png"
+  }
 }

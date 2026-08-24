@@ -1,92 +1,96 @@
 {
   "_id": "v2zuuUuYEgBTMHWY",
   "name": "Stabilize",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">If the target of this spell has 0 Hit Points and is dying, it automatically stabilizes. If the creature later takes damage, it is no longer stable.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 378",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/stabilize.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "one living creature",
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "save",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "will",
-      "dc": null,
-      "descriptor": "harmless"
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 0,
-    "school": "con",
-    "sr": true,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>If the target of this spell has 0 Hit Points and is @UUID[Compendium.sfrpg.conditions.Item.4MxAK5uS0zMNWhUK]{Dying}, it automatically stabilizes. If the creature later takes damage, it is no longer @UUID[Compendium.sfrpg.conditions.Item.H51jmhxF9XuwDOE7]{Stable}.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 0,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "harmless"
+    },
+    "school": "con",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 378",
+    "sr": true,
+    "target": {
+      "value": "one living creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/stabilize.PNG"
+  }
 }

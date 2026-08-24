@@ -1,77 +1,84 @@
 {
   "_id": "7oAN67N73slk45WW",
   "name": "Convincing Liar (Ex; Bluff)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.DR8JvF0xiwsXggxj]{Expertise Talent}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl08_LabelName\">When you attempt a Bluff check, you can choose not to roll your expertise die until later. After you determine what the check’s result would be, you can choose to either roll your expertise die and add the result to the total or forgo the expertise die and reroll the check (see page 243). At 9th level, you can spend 1 Resolve Point to reroll the check and add the result of your expertise die.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Expertise Talent",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/convincing_liar.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.DR8JvF0xiwsXggxj]{Expertise Talent}</p>\n<p>When you attempt a Bluff check, you can choose not to roll your expertise die until later. After you determine what the check’s result would be, you can choose to either roll your expertise die and add the result to the total or forgo the expertise die and reroll the check (see page 243). At 9th level, you can spend 1 Resolve Point to reroll the check and add the result of your expertise die.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "3rd Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "3rd Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Expertise Talent",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

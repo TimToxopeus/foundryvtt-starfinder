@@ -1,122 +1,187 @@
 {
-  "name": "Diasporan Rifle, Ultra",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
+  "_id": "8re7PxUQQ7eBQVgS",
+  "name": "Diasporan rifle, ultra",
   "type": "weapon",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">These sleek firearms were developed by the finest sarcesian engineers for use by elite mercenaries. The most common manufacturer is MuniTech, one of the only corporations fully owned and operated by sarcesians. Diasporan rifles are sniper rifles that belong to the laser category.</span></p>\n<h3 class=\"framing\"><strong>Laser Weapons</strong></h3>\n<hr>\n<p>Laser weapons emit highly focused beams of light that deal fire damage. These beams can pass through glass and other transparent physical barriers, dealing damage to such barriers as they pass through. Barriers of energy or magical force block lasers. Invisible creatures don’t take damage from lasers, as the beams pass through them harmlessly. Fog, smoke, and other clouds provide both cover and concealment from laser attacks. Lasers can penetrate darkness, but they don’t provide any illumination.</p>\n<p>Laser weapons use various means to concentrate beams of light into deadly intensity. Some focus light through a faceted crystal, while others focus the beam through a chemical cloud or ionized gas.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Alien Archive",
-    "type": "",
-    "quantity": 1,
-    "bulk": "2",
-    "price": 110000,
-    "level": 15,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "systems/sfrpg/icons/equipment/weapons/diasporan-rifle-ultra.webp",
+  "system": {
+    "ability": "dex",
+    "actionTarget": "eac",
+    "actionType": "rwak",
     "activation": {
       "type": "none",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": null
     },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
-    },
+    "ammunitionType": "charge",
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 80,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "dex",
-    "actionType": "rwak",
     "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": "5"
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": "35"
+      },
+      "hp": {
+        "max": "90",
+        "value": 90
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "2",
+    "capacity": {
+      "max": 30,
+      "value": 0
+    },
     "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 15,
+          "subtype": "fusion",
+          "weightProperty": "level"
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "goods"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 1,
+          "subtype": "",
+          "weightMultiplier": 1,
+          "weightProperty": ""
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "ammunition"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 1,
+          "subtype": "ammunitionSlot",
+          "weightProperty": ""
+        }
+      ]
+    },
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
       "parts": [
-        [
-          "6d8",
-          "fire"
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "6d8",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": true,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>These sleek firearms were developed by the finest sarcesian engineers for use by elite mercenaries. The most common manufacturer is MuniTech, one of the only corporations fully owned and operated by sarcesians. Diasporan rifles are sniper rifles that belong to the laser category.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
     "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 15,
+    "modifiers": [],
+    "price": 110000,
+    "proficient": false,
+    "properties": {
+      "sniper": {
+        "extension": "",
+        "value": true
+      },
+      "two": {
+        "extension": "",
+        "value": true
+      },
+      "unwieldy": {
+        "extension": "",
+        "value": true
+      }
+    },
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": "ft",
+      "value": "80"
+    },
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": "negate"
     },
-    "descriptors": [],
-    "capacity": {
-      "value": 30,
-      "max": 30
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AA1 pg. 99",
+    "special": "",
+    "specialMaterials": {},
+    "target": {
+      "value": ""
     },
     "usage": {
-      "value": 1,
-      "per": "round"
+      "per": "shot",
+      "value": 1
     },
-    "weaponType": "sniper",
-    "special": "",
-    "properties": {
-      "one": false,
-      "two": true,
-      "amm": false,
-      "analog": false,
-      "archaic": false,
-      "automatic": false,
-      "blast": false,
-      "block": false,
-      "boost": false,
-      "bright": false,
-      "disarm": false,
-      "entangle": false,
-      "explode": false,
-      "injection": false,
-      "line": false,
-      "nonlethal": false,
-      "operative": false,
-      "penetrating": false,
-      "powered": false,
-      "qreload": false,
-      "reach": false,
-      "sniper": true,
-      "stun": false,
-      "thrown": false,
-      "trip": false,
-      "unwieldy": true,
-      "radioactive": false,
-      "subtle": false
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     },
-    "proficient": true,
-    "fusions": []
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/weapons/diasporan-rifle-ultra.jpg",
-  "_id": "8re7PxUQQ7eBQVgS"
+    "weaponCategory": "laser",
+    "weaponType": "sniper"
+  }
 }

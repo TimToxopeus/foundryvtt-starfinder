@@ -1,77 +1,85 @@
 {
   "_id": "YMCpBDLSA6feLBen",
   "name": "Clever Feint (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.hIhgdXnqGHBm0A64]{Envoy Improvisation}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl01_LabelName\">As a standard action, you can fake out an enemy within 60 feet, making that enemy open to your attacks. Attempt a Bluff check with the same DC as a check to feint against that enemy (though this isn&rsquo;t a standard check to feint, so Improved Feint and Greater Feint don&rsquo;t apply). Even if you fail, that enemy is flat-footed against your attacks (see page 276) until the end of your next turn. If you succeed, the enemy is also flat-footed against your allies&rsquo; attacks until the end of your next turn. You can&rsquo;t use clever feint against a creature that lacks an Intelligence score.<br /><br />At 6th level, you can spend 1 Resolve Point to treat a failed Bluff check for clever feint as if it were a success.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Improvisation",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/clever_feint.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": 1
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "ft",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "none",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.hIhgdXnqGHBm0A64]{Envoy Improvisation}</p>\n<p>@Icon[type:sense-dependent]</p>\n<p>As a standard action, you can fake out an enemy within 60 feet, making that enemy open to your attacks. Attempt a @Check[type:bluff] with the same DC as a check to @UUID[Compendium.sfrpg.rules.JournalEntry.U37n5tY5hn1ctzQL.JournalEntryPage.R33uiOMesYP0ISWl#feint]{feint} against that enemy (though this isn’t a standard check to feint, so Improved Feint and Greater Feint don’t apply). Even if you fail, that enemy is @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-Footed} against your attacks (see page 276) until the end of your next turn. If you succeed, the enemy is also @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-Footed} against your allies’ attacks until the end of your next turn. You can’t use clever feint against a creature that lacks an Intelligence score.</p>\n<p>At 6th level, you can spend 1 Resolve Point to treat a failed Bluff check for clever feint as if it were a success.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "text",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "ft",
+      "value": "60"
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "1st Level (Envoy)",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "1st Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "CRB pg. 62",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/images/cup/gameplay/sense.png"
+  }
 }

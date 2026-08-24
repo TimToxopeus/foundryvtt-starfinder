@@ -1,92 +1,96 @@
 {
   "_id": "ofa69R8Ao3xmB7Cb",
-  "name": "Wall of Stone*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Wall Of Stone",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You cause a flat, vertical stone wall to spring into existence. The stress of casting this spell requires you to spend 1 Resolve Point. The wall can fit into any space of surrounding nonliving material if its area is sufficient to do so. The wall can’t be conjured so that it occupies the same space as a creature or another object. It must always be a flat plane, though you can shape its edges to fit the available space.<br><br>A wall of stone is 4 inches thick. You can double the wall’s area by halving its thickness. Each 5-foot square of the wall has hardness 10 and 15 Hit Points per inch of thickness. A section of wall that is reduced to 0 Hit Points is breached. The DC of the Strength check for a creature to break through the wall with a single attack is 25. The wall is firmly anchored to its surroundings, and it doesn’t easily tip over; it can’t be summoned into any area where it is likely to fall or collapse.<br><br>Like any stone wall, this wall is subject to perforation and other natural phenomena, though it doesn’t rust or corrode under typical circumstances. The metal created by this spell is not suitable for use in the creation of other objects and can’t be sold.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder #17: Solar Strike pg. 58",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/wall_of_stone.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 4,
-    "school": "con",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You cause a flat, vertical stone wall to spring into existence. The stress of casting this spell requires you to spend 1 Resolve Point. The wall can fit into any space of surrounding nonliving material if its area is sufficient to do so. The wall can’t be conjured so that it occupies the same space as a creature or another object. It must always be a flat plane, though you can shape its edges to fit the available space.</p>\n<p>A wall of stone is 4 inches thick. You can double the wall’s area by halving its thickness. Each 5-foot square of the wall has hardness 10 and 15 Hit Points per inch of thickness. A section of wall that is reduced to 0 Hit Points is breached. The DC of the Strength check for a creature to break through the wall with a single attack is 25. The wall is firmly anchored to its surroundings, and it doesn’t easily tip over; it can’t be summoned into any area where it is likely to fall or collapse.</p>\n<p>Like any stone wall, this wall is subject to perforation and other natural phenomena, though it doesn’t rust or corrode under typical circumstances. The metal created by this spell is not suitable for use in the creation of other objects and can’t be sold.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 4,
+    "materials": {
+      "consumed": true,
+      "cost": 0,
+      "supply": 0,
+      "value": "1 Resolve Point"
+    },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "con",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AP #17 pg. 58",
+    "sr": false,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/wall_of_stone.png"
+  }
 }

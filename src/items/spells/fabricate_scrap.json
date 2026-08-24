@@ -1,92 +1,96 @@
 {
   "_id": "mokTvzXcvubYC8tz",
   "name": "Fabricate Scrap",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You turn 1 bulk of inert matter, such as debris, dust, rocks, or other unattended 0-level items, into 1 bulk of junked electronic equipment suitable for targeting with spells such as&nbsp;battle junkbot,&nbsp;handy junkbot,&nbsp;healing junkbot,&nbsp;junk armor, or&nbsp;junksword. The junked electronics have no resale value and cannot be repaired into any functioning item. Any direct examination by a character trained in Engineering or Physical Science reveals the useless nature of the junk.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Pact Worlds pg. 205",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/fabricate_scrap.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "instantaneous",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "save",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "will",
-      "dc": null,
-      "descriptor": "negate"
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 0,
-    "school": "universal;",
-    "sr": true,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You turn 1 bulk of inert matter, such as debris, dust, rocks, or other unattended 0-level items, into 1 bulk of junked electronic equipment suitable for targeting with spells such as @UUID[Compendium.sfrpg.spells.Item.j6s8awSNQrtd9eA3]{Battle Junkbot}, @UUID[Compendium.sfrpg.spells.Item.TQV8YIT3HlhSszMr]{Handy Junkbot}, @UUID[Compendium.sfrpg.spells.Item.J9H196LxSVvMguhe]{Healing Junkbot}, @UUID[Compendium.sfrpg.spells.Item.eemr4YD0xuzF67Zq]{Junk Armor}, or @UUID[Compendium.sfrpg.spells.Item.T4uX647wYIcHS8rj]{Junksword}. The junked electronics have no resale value and cannot be repaired into any functioning item. Any direct examination by a character trained in Engineering or Physical Science reveals the useless nature of the junk.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 0,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "object"
+    },
+    "school": "uni",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "SA:JD pg. 58, #1 PW pg. 205",
+    "sr": true,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/fabricate_scrap.PNG"
+  }
 }

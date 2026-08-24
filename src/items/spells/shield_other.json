@@ -1,92 +1,96 @@
 {
   "_id": "qbeQtgCtP8avY2ny",
-  "name": "Shield Other*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Shield Other",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">This spell wards the target and creates a mystic connection between you and the target so that some of its wounds are transferred to you. Casting this spell requires you to spend 1 Resolve Point. The target takes only half damage from all wounds and attacks (including those dealt by special abilities) that deal Hit Point damage, and you take the amount of damage not taken by the target. Only Hit Point damage is transferred in this manner; the target’s Stamina Points are damaged as normal. If you still have Stamina Points, you take the damage to your Stamina Points before Hit Points, as with normal damage.<br><br>Forms of harm that do not involve Hit Points, such as charm effects, temporary ability damage, ability drain, permanent negative levels, and death effects, are not affected. When the spell ends, subsequent damage is no longer divided between the target and you, but damage already split is not reassigned to the target. If you and the target of the spell move out of range of each other, the spell ends.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 377",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/shield_other.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>This spell wards the target and creates a mystic connection between you and the target so that some of its wounds are transferred to you. Casting this spell requires you to spend 1 Resolve Point. The target takes only half damage from all wounds and attacks (including those dealt by special abilities) that deal Hit Point damage, and you take the amount of damage not taken by the target. Only Hit Point damage is transferred in this manner; the target’s Stamina Points are damaged as normal. If you still have Stamina Points, you take the damage to your Stamina Points before Hit Points, as with normal damage.</p>\n<p>Forms of harm that do not involve Hit Points, such as @UUID[Compendium.sfrpg.rules.Item.PqV3OCbUTyk2upPD]{Charm effects}, temporary ability damage, ability drain, permanent negative levels, and death effects, are not affected. When the spell ends, subsequent damage is no longer divided between the target and you, but damage already split is not reassigned to the target. If you and the target of the spell move out of range of each other, the spell ends.</p>"
+    },
+    "descriptors": {},
+    "dismissible": true,
+    "duration": {
+      "units": "hour",
+      "value": "@details.cl.value"
+    },
     "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "modifiers": [],
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 2,
-    "school": "abj",
-    "sr": false,
-    "dismissible": false,
-    "concentration": false,
     "materials": {
-      "value": "",
-      "consumed": false,
+      "consumed": true,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": "1 Resolve Point"
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "harmless"
+    },
+    "school": "abj",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 377",
+    "sr": true,
+    "target": {
+      "value": "one creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/shield_other.png"
+  }
 }

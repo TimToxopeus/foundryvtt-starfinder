@@ -1,18 +1,46 @@
 {
+  "_id": "lf8pbezocjYIvR9y",
   "name": "Unconscious",
-  "permission": {
-    "default": 0,
-    "hg1bBCAUsIDPKim6": 3
-  },
-  "flags": {
-    "exportSource": {
-      "world": "SF_AG-OP",
-      "system": "sfrpg",
-      "coreVersion": "0.6.0",
-      "systemVersion": "0.2.5"
-    }
-  },
-  "content": "<table style=\"width: 703px;\" border=\"1\">\n<tbody>\n<tr style=\"height: 72px;\">\n<td style=\"text-align: center; height: 72px; width: 398px;\">\n<h1><strong>Unconscious</strong></h1>\n<h3><strong>Source</strong>&nbsp;CRB.277</h3>\n<h3><strong>Related </strong>@Compendium[sfrpg.conditions.bPDAhCFEP5Jvybhg]{Conditions}</h3>\n</td>\n<td style=\"text-align: center; width: 398px;\">\n<p><img src=\"systems/sfrpg/icons/conditions/unconscious.png\" alt=\"\" width=\"100\" height=\"100\" /></p>\n</td>\n</tr>\n</tbody>\n</table>\n<h3 style=\"text-align: justify;\">You are knocked out and helpless. Unconsciousness can result from having 0 Hit Points.</h3>\n<hr />\n<p>&nbsp;</p>",
-  "img": "systems/sfrpg/icons/conditions/unconscious.png",
-  "_id": "lf8pbezocjYIvR9y"
+  "type": "effect",
+  "img": "systems/sfrpg/icons/conditions/unconscious.webp",
+  "system": {
+    "type": "condition",
+    "abilityMods": {
+      "parts": []
+    },
+    "activeDuration": {
+      "activationTime": 0,
+      "endsOn": "onTurnStart",
+      "expiryInit": 0,
+      "expiryMode": {
+        "type": "turn",
+        "turn": "parent"
+      },
+      "unit": "permanent",
+      "value": 0
+    },
+    "context": {},
+    "critical": {
+      "effect": "",
+      "parts": []
+    },
+    "damage": {
+      "parts": []
+    },
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.rules.Item.0yJjfyvWg5pDLcVR]{Conditions}</p>\n<p>&gt;@UUID[Compendium.sfrpg.conditions.Item.4MxAK5uS0zMNWhUK]{Dying} + @UUID[Compendium.sfrpg.conditions.Item.H51jmhxF9XuwDOE7]{Stable} + @UUID[Compendium.sfrpg.conditions.Item.nEJIWMKbPjqKuelo]{Dead}</p>\n<hr />\n<p>You are knocked out and @UUID[Compendium.sfrpg.conditions.Item.RxvbSB9ZgSCBu2jw]{Helpless}.</p>\n<p>Unconsciousness can result from having 0 Hit Points.</p>"
+    },
+    "enabled": true,
+    "modifiers": [],
+    "requirements": "Condition",
+    "showOnToken": true,
+    "slug": "unconscious",
+    "source": "CRB.277",
+    "sourceActorId": null,
+    "turnEvents": []
+  }
 }

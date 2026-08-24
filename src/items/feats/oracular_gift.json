@@ -1,73 +1,119 @@
 {
   "_id": "Ascxt6wWMDv5ieDY",
   "name": "Oracular Gift",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You have a particular knack for predicting the future.<br><strong>Prerequisites</strong>: Ability to cast&nbsp;augury.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>:&nbsp;</span>You gain a +1 bonus to Perception checks to act in the surprise round, as well as to initiative checks. Additionally, you can cast augury once per day without spending a Resolve Point to do so, and add your caster level to the percentage chance of the spell giving you a meaningful reply.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/oracular_gift.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You have a particular knack for predicting the future.</p>\n<p><strong>Prerequisites</strong>: Ability to cast&nbsp;augury.</p>\n<hr />\n<p><strong>Benefit</strong>:You gain a +1 bonus to Perception checks to act in the surprise round, as well as to initiative checks. Additionally, you can cast augury once per day without spending a Resolve Point to do so, and add your caster level to the percentage chance of the spell giving you a meaningful reply.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "58d16cfe-4d60-4af6-949d-18040681d023",
+        "name": "Oracular Gift",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "skill",
+        "enabled": false,
+        "limitTo": null,
+        "max": 1,
+        "modifier": "1",
+        "modifierType": "formula",
+        "notes": "You gain a bonus to Perception checks to act in the surprise round.",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": "per"
+      },
+      {
+        "_id": "53312f81-7218-48fa-88c8-b976abb2cac3",
+        "name": "Oracular Gift",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "initiative",
+        "enabled": true,
+        "limitTo": null,
+        "max": 1,
+        "modifier": "1",
+        "modifierType": "constant",
+        "notes": "",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": ""
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Character Operations Manual",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/oracular_gift.png"
+  }
 }

@@ -1,92 +1,96 @@
 {
   "_id": "dNNUCRXmCtrucIKf",
-  "name": "Mental Block*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Mental Block",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You cause targets of this spell to lose access to their procedural memory, preventing them from using any feat, extraordinary ability, spell, spell-like ability, or supernatural ability that requires an action of any kind. Each round at the end a target’s turn, that target can attempt another Will save to end this effect.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Pact Worlds pg. 206",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/mental_block.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": 100,
-      "units": "ft",
-      "additional": "10",
-      "per": "level"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 3,
-    "school": "enc",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You cause targets of this spell to lose access to their procedural memory, preventing them from using any feat, extraordinary ability, spell, spell-like ability, or supernatural ability that requires an action of any kind. Each round at the end a target’s turn, that target can attempt another Will save to end this effect.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "round",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 3,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "enc",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "PW pg. 206",
+    "sr": true,
+    "target": {
+      "value": "up to one creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/mental_block.PNG"
+  }
 }

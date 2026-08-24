@@ -1,91 +1,96 @@
 {
   "_id": "IVvO4mcUq3NwLJ9f",
   "name": "Charming Veneer",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">You pull gossamer threads from other, more genteel realities and wrap the target in them, smoothing the edges of their personality and accentuating their charms. The target gains a +1 circumstance bonus to Charisma checks and Charisma-based skill checks. Additionally, a creature affected by this spell can attempt a Diplomacy check to gather information in only 10 minutes. Once any individual under the effects of a <em>charming veneer</em> spell you cast has used this benefit to gather information in a specific settlement or local region, no target of a <em>charming veneer</em> spell you cast can do so again for 24 hours.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 133",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/charming_veneer.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "10 minutes",
-      "units": ""
-    },
-    "target": {
-      "value": "one creature",
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": 100,
-      "units": "ft",
-      "additional": "10",
-      "per": "level"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "will",
-      "dc": null,
-      "descriptor": "negate"
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "level": 0,
-    "school": "ill",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You pull gossamer threads from other, more genteel realities and wrap the target in them, smoothing the edges of their personality and accentuating their charms. The target gains a +1 circumstance bonus to Charisma checks and Charisma-based skill checks. Additionally, a creature affected by this spell can attempt a Diplomacy check to gather information in only 10 minutes. Once any individual under the effects of a <em>charming veneer</em> spell you cast has used this benefit to gather information in a specific settlement or local region, no target of a <em>charming veneer</em> spell you cast can do so again for 24 hours.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "minute",
+      "value": "10"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 0,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "ill",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 133",
+    "sr": false,
+    "target": {
+      "value": "one creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/charming_veneer.png"
+  }
 }

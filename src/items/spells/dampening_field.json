@@ -1,92 +1,96 @@
 {
   "_id": "jpx99euQYR6RfQAc",
-  "name": "Dampening Field*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Dampening Field",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">The target becomes encased in a field that dampens sounds and vibrations. For the duration of the spell, the target has total concealment against creatures whose only sense is blindsense (sound) or blindsense (vibration) and can attempt Stealth checks to hide from creatures whose only sense is blindsight (sound) or blindsight (vibration) with a +10 circumstance bonus to their checks. All sounds the target makes intentionally are muffled, increasing the DC of Perception checks to hear them by 5.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Near Space pg. 155",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/dampening_field.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": true,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 2,
-    "school": "abj",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>The target becomes encased in a field that dampens sounds and vibrations. For the duration of the spell, the target has total concealment against creatures whose only sense is @UUID[Compendium.sfrpg.rules.rX5rK6UWAIOeeipl.JournalEntryPage.p0o9tmWtKZ0qy8DI#blindsense]{Blindsense} (sound) or blindsense (vibration) and can attempt Stealth checks to hide from creatures whose only sense is @UUID[Compendium.sfrpg.rules.rX5rK6UWAIOeeipl.JournalEntryPage.p0o9tmWtKZ0qy8DI#blindsight]{Blindsight} (sound) or blindsight (vibration) with a +10 circumstance bonus to their checks. All sounds the target makes intentionally are muffled, increasing the DC of Perception checks to hear them by 5.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "minute",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 2,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": true,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "harmless"
+    },
+    "school": "abj",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "NS pg. 155",
+    "sr": true,
+    "target": {
+      "value": "one creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/dampening_field.png"
+  }
 }

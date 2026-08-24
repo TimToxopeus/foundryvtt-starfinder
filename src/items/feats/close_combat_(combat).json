@@ -1,73 +1,84 @@
 {
   "_id": "s62I7YXaphNefRWq",
   "name": "Close Combat (Combat)",
-  "permission": {
-    "default": 0,
-    "QKfICymYNdnzinV1": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>When you are attacking a foe in melee, you know how to maneuver to make it more difficult for other foes to target you.<br><strong>Prerequisites</strong>: Base attack bonus +1.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: When you hit an adjacent foe with a melee attack, as long as you are adjacent to that target, you gain a +2 circumstance bonus to your AC against attacks from other creatures that are not adjacent to you until the beginning of your next turn.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Pact Worlds",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/close_combat.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>When you are attacking a foe in melee, you know how to maneuver to make it more difficult for other foes to target you.</p>\n<p><strong>Prerequisites</strong>: Base attack bonus +1.</p>\n<hr />\n<p><strong>Benefit</strong>: When you hit an adjacent foe with a melee attack, as long as you are adjacent to that target, you gain a +2 circumstance bonus to your AC against attacks from other creatures that are not adjacent to you until the beginning of your next turn.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": true,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": "Until beginning of your next turn."
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Pact Worlds",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/close_combat.png"
+  }
 }

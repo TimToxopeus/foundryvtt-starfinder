@@ -1,77 +1,88 @@
 {
   "_id": "C67aAPs0OwEppnWF",
   "name": "Focus (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.hIhgdXnqGHBm0A64]{Envoy Improvisation}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl21_LabelName\">As a standard action, you can encourage a single ally within 60 feet to focus on the danger at hand. If that ally is flat-footed or off-target, you end that condition. If circumstances would cause the ally to immediately become flat-footed or off-target again, you instead suppress that condition for 1 round.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Improvisation",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/focus.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": 1
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "ft",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "none",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.hIhgdXnqGHBm0A64]{Envoy Improvisation}</p>\n<p>@Icon[type:mind-affecting] @Icon[type:sense-dependent]</p>\n<p>As a standard action, you can encourage a single ally within 60 feet to focus on the danger at hand. If that ally is @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-Footed} or @UUID[Compendium.sfrpg.conditions.Item.yUtkoIshf4dPruNd]{off-target}, you end that condition. If circumstances would cause the ally to immediately become Flat-Footed or off-target again, you instead suppress that condition for 1 round.</p>"
+    },
+    "descriptors": {
+      "mind-affecting": true,
+      "sense-dependent": true
+    },
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "text",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "ft",
+      "value": "60"
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "4th Level (Envoy)",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "4th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "CRB pg. 63",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

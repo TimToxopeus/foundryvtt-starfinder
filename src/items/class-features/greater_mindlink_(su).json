@@ -1,77 +1,84 @@
 {
   "_id": "pSliBXyC3sD2gisa",
   "name": "Greater Mindlink (Su)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.Hj7rGHmzQGP8rEGB]{Empath}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">You can use your mindlink ability on the same creature as many times per day as you wish, and the communication can be both ways, though the maximum of 10 minutes of communication per round still applies.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Empathy Connection",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/greater_mindlink.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": null,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": null
     },
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": null,
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.Hj7rGHmzQGP8rEGB]{Empath}</p>\n<p>You can use your mindlink ability on the same creature as many times per day as you wish, and the communication can be both ways, though the maximum of 10 minutes of communication per round still applies.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "su"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "3rd Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "3rd Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Empathy Connection",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

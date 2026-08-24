@@ -1,92 +1,96 @@
 {
   "_id": "XGi2g9pQwzebQtHR",
-  "name": "Mind of Three*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Mind Of Three",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You split your mind, retaining your normal consciousness but gaining two other personas. These personas are nearly identical to your original personality, but each emphasize a different aspect of your personality. Your divided personas are aware of and can psychically communicate with one another, allowing them to coordinate their efforts and assist each other. At any point during the spell’s duration, you can focus a persona on assisting with a task, granting you one of the following abilities. A persona granting one of these abilities doesn’t take an action, but it causes that persona to merge with your normal consciousness, disappearing. When the two additional personas are reintegrated, the spell ends.</p>\n<ul>\n<li style=\"text-align: justify;\">When you fail a saving throw against a mind-affecting effect, you can compartmentalize it within one persona. If you do so, you are unaffected.</li>\n<li style=\"text-align: justify;\">When you fail an Intelligence-, Wisdom-, or Charisma-based skill check, you can reroll it.</li>\n<li style=\"text-align: justify;\">When you fail a caster level check, you can reroll it.</li>\n</ul>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder #22: The Forever Reliquary pg. 52",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/implant_data.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "personal",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 3,
-    "school": "enc",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You split your mind, retaining your normal consciousness but gaining two other personas. These personas are nearly identical to your original personality, but each emphasize a different aspect of your personality. Your divided personas are aware of and can psychically communicate with one another, allowing them to coordinate their efforts and assist each other. At any point during the spell’s duration, you can focus a persona on assisting with a task, granting you one of the following abilities. A persona granting one of these abilities doesn’t take an action, but it causes that persona to merge with your normal consciousness, disappearing. When the two additional personas are reintegrated, the spell ends.</p>\n<ul>\n<li>When you fail a saving throw against a mind-affecting effect, you can compartmentalize it within one persona. If you do so, you are unaffected.</li>\n<li>When you fail an Intelligence-, Wisdom-, or Charisma-based skill check, you can reroll it.</li>\n<li>When you fail a caster level check, you can reroll it.</li>\n</ul>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "hour",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 3,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "personal"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "enc",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AP #22 pg. 52",
+    "sr": false,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/mind_of_three.png"
+  }
 }

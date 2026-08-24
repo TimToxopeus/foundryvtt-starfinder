@@ -1,92 +1,96 @@
 {
   "_id": "8FNA793CY1hNWUEP",
-  "name": "Id Insinuation*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Id Insinuation",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">By invading targets with your psychic presence, you isolate parts of their minds, preventing them from functioning in a coherent manner. Targets who fail their save are confused for the duration. Each round, a target rolls twice to determine their behavior due to the confused condition, and you choose which result applies.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder #23: Hive of Minds pg. 52",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/id_insinuation.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": true,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 3,
-    "school": "enc",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>By invading targets with your psychic presence, you isolate parts of their minds, preventing them from functioning in a coherent manner. Targets who fail their save are @UUID[Compendium.sfrpg.conditions.Item.8rIj0ewW4bL8Uph5]{Confused} for the duration. Each round, a target rolls twice to determine their behavior due to the @UUID[Compendium.sfrpg.conditions.Item.8rIj0ewW4bL8Uph5]{Confused} condition, and you choose which result applies.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": true,
+    "duration": {
+      "units": "instantaneous",
+      "value": "concentration + 1 round"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 3,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "enc",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AP #23 pg. 52",
+    "sr": true,
+    "target": {
+      "value": "up to one creature/4 levels, no two of which can be more than 30 ft. apart"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/id_insinuation.png"
+  }
 }

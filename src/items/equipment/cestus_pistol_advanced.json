@@ -1,182 +1,179 @@
 {
+  "_id": "vZRzeFwCiixDC4sL",
   "name": "Cestus pistol, advanced",
   "type": "weapon",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "COM",
-    "type": "",
-    "quantity": 1,
-    "bulk": "",
-    "price": 4170,
-    "level": 6,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
-    "activation": {
-      "type": "action",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
-    },
-    "area": {
-      "value": null,
-      "units": "none",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 1,
-      "max": 0,
-      "per": ""
-    },
+  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "system": {
     "ability": "dex",
+    "actionTarget": "kac",
     "actionType": "rwak",
+    "activation": {
+      "type": "none",
+      "condition": "",
+      "cost": null
+    },
+    "ammunitionType": "roundS",
+    "area": {
+      "effect": "",
+      "shapable": false,
+      "shape": "",
+      "units": "none",
+      "value": ""
+    },
     "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "",
+    "capacity": {
+      "max": 1,
+      "value": 0
+    },
     "chatFlavor": "Conceal, punch gun",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 6,
+          "subtype": "fusion",
+          "weightProperty": "level"
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "ammunition"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 1,
+          "subtype": "ammunitionSlot",
+          "weightProperty": ""
+        }
+      ]
+    },
     "critical": {
-      "parts": [
-        [
-          "1d4",
-          ""
-        ]
-      ],
-      "effect": "Bleed"
+      "effect": "Bleed 1d4",
+      "parts": []
     },
     "damage": {
       "parts": [
-        [
-          "1d12",
-          "piercing"
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "1d10",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": true,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
     "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 6,
+    "modifiers": [],
+    "price": 4170,
+    "proficient": false,
+    "properties": {
+      "amm": {
+        "extension": "",
+        "value": true
+      },
+      "conceal": {
+        "extension": "",
+        "value": true
+      },
+      "one": {
+        "extension": "",
+        "value": true
+      },
+      "punchGun": {
+        "extension": "",
+        "value": true
+      }
+    },
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": "ft"
+    },
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
-      "descriptor": ""
+      "dc": "",
+      "descriptor": "negate"
     },
-    "descriptors": [],
-    "capacity": {
-      "value": 1,
-      "max": 1
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM",
+    "special": "",
+    "specialMaterials": {},
+    "target": {
+      "value": ""
     },
     "usage": {
-      "value": 1,
-      "per": "shot"
+      "per": "shot",
+      "value": 1
     },
-    "modifiers": [],
-    "weaponType": "smallA",
-    "special": "",
-    "properties": {
-      "one": true,
-      "two": false,
-      "amm": true,
-      "analog": false,
-      "archaic": false,
-      "automatic": false,
-      "blast": false,
-      "block": false,
-      "boost": false,
-      "bright": false,
-      "disarm": false,
-      "entangle": false,
-      "explode": false,
-      "injection": false,
-      "line": false,
-      "living": false,
-      "mind-affecting": false,
-      "nonlethal": false,
-      "operative": false,
-      "penetrating": false,
-      "powered": false,
-      "qreload": false,
-      "radioactive": false,
-      "reach": false,
-      "sniper": false,
-      "stun": false,
-      "subtle": false,
-      "thrown": false,
-      "trip": false,
-      "unwieldy": false,
-      "aeon": false,
-      "antibiological": false,
-      "aurora": false,
-      "breach": false,
-      "breakdown": false,
-      "cluster": false,
-      "conceal": true,
-      "deconstruct": false,
-      "deflect": false,
-      "double": false,
-      "drainCharge": false,
-      "echo": false,
-      "extinguish": false,
-      "feint": false,
-      "fiery": false,
-      "firstArc": false,
-      "flexibleLine": false,
-      "force": false,
-      "freeHands": false,
-      "fueled": false,
-      "grapple": false,
-      "gravitation": false,
-      "guided": false,
-      "harrying": false,
-      "holyWater": false,
-      "ignite": false,
-      "indirect": false,
-      "integrated": false,
-      "lockdown": false,
-      "mine": false,
-      "mire": false,
-      "modal": false,
-      "necrotic": false,
-      "polarize": false,
-      "polymorphic": false,
-      "professional": false,
-      "punchGun": true,
-      "recall": false,
-      "relic": false,
-      "reposition": false,
-      "shape": false,
-      "shells": false,
-      "shield": false,
-      "sunder": false,
-      "swarm": false,
-      "tail": false,
-      "teleportive": false,
-      "thought": false,
-      "throttle": false,
-      "underwater": false,
-      "variantBoost": false,
-      "wideLine": false
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 1
     },
-    "proficient": true,
-    "fusions": [],
-    "abilityMods": {
-      "parts": []
-    }
-  },
-  "folder": null,
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "vZRzeFwCiixDC4sL"
+    "weaponCategory": "uncategorized",
+    "weaponType": "smallA"
+  }
 }

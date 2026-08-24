@@ -1,18 +1,46 @@
 {
+  "_id": "aAQ6SW6iK0EVq8Ce",
   "name": "Staggered",
-  "permission": {
-    "default": 0,
-    "hg1bBCAUsIDPKim6": 3
-  },
-  "flags": {
-    "exportSource": {
-      "world": "SF_AG-OP",
-      "system": "sfrpg",
-      "coreVersion": "0.6.0",
-      "systemVersion": "0.2.5"
-    }
-  },
-  "content": "<table style=\"width: 703px;\" border=\"1\">\n<tbody>\n<tr style=\"height: 72px;\">\n<td style=\"text-align: center; height: 72px; width: 398px;\">\n<h1><strong>Staggered</strong></h1>\n<h3><strong>Source</strong>&nbsp;CRB.277</h3>\n<h3><strong>Related </strong>@Compendium[sfrpg.conditions.bPDAhCFEP5Jvybhg]{Conditions}</h3>\n</td>\n<td style=\"text-align: center; width: 398px;\">\n<p><img src=\"systems/sfrpg/icons/conditions/staggered.png\" alt=\"\" width=\"100\" height=\"100\" /></p>\n</td>\n</tr>\n</tbody>\n</table>\n<h3 style=\"text-align: justify;\">You can take a single move action or standard action each round, but not both, nor can you take full actions. You can still take swift actions, but not reactions.</h3>\n<hr />\n<p>&nbsp;</p>",
-  "img": "systems/sfrpg/icons/conditions/staggered.png",
-  "_id": "aAQ6SW6iK0EVq8Ce"
+  "type": "effect",
+  "img": "systems/sfrpg/icons/conditions/staggered.webp",
+  "system": {
+    "type": "condition",
+    "abilityMods": {
+      "parts": []
+    },
+    "activeDuration": {
+      "activationTime": 0,
+      "endsOn": "onTurnStart",
+      "expiryInit": 0,
+      "expiryMode": {
+        "type": "turn",
+        "turn": "parent"
+      },
+      "unit": "permanent",
+      "value": 0
+    },
+    "context": {},
+    "critical": {
+      "effect": "",
+      "parts": []
+    },
+    "damage": {
+      "parts": []
+    },
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.rules.Item.0yJjfyvWg5pDLcVR]{Conditions}</p>\n<hr />\n<p>You can take a single move action or standard action each round, but not both, nor can you take full actions. You can still take swift actions, but not reactions.</p>"
+    },
+    "enabled": true,
+    "modifiers": [],
+    "requirements": "Condition",
+    "showOnToken": true,
+    "slug": "staggered",
+    "source": "CRB.277",
+    "sourceActorId": null,
+    "turnEvents": []
+  }
 }

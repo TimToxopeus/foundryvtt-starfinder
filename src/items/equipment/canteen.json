@@ -1,30 +1,46 @@
 {
   "_id": "iIsrT88K5PTUnjHf",
   "name": "Canteen",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "goods",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListOtherItems_ctl00_LabelName\">This hollow plastic or metal container can hold up to a half gallon of liquid.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
+  "img": "systems/sfrpg/icons/equipment/goods/canteen.webp",
+  "system": {
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": false
     },
-    "source": "Armory",
-    "type": "",
-    "quantity": 1,
     "bulk": "L",
-    "price": 1,
-    "level": 1,
-    "attuned": false,
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>This hollow plastic or metal container can hold up to a half gallon of liquid.</p>"
+    },
+    "equippable": false,
     "equipped": false,
     "identified": true,
-    "damage": {
-      "parts": []
-    }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/goods/canteen.jpg"
+    "isEquipment": false,
+    "level": 1,
+    "modifiers": [],
+    "price": 1,
+    "proficient": false,
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "slug": "",
+    "source": "Armory"
+  }
 }

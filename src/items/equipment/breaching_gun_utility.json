@@ -1,182 +1,208 @@
 {
+  "_id": "MoyRvK3WqvttIGQA",
   "name": "Breaching gun, utility",
   "type": "weapon",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "AR",
-    "type": "",
-    "quantity": 1,
-    "bulk": "1",
-    "price": 2350,
-    "level": 4,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
-    "activation": {
-      "type": "action",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
-    },
-    "area": {
-      "value": null,
-      "units": "none",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": 20,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 1,
-      "max": 0,
-      "per": ""
-    },
+  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "system": {
     "ability": "dex",
+    "actionTarget": "kac",
     "actionType": "rwak",
+    "activation": {
+      "type": "none",
+      "condition": "",
+      "cost": null
+    },
+    "ammunitionType": "shell",
+    "area": {
+      "effect": "",
+      "shapable": false,
+      "shape": "",
+      "units": "none",
+      "value": ""
+    },
     "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "1",
+    "capacity": {
+      "max": 4,
+      "value": 0
+    },
     "chatFlavor": "Analog, breach, penetrating",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 4,
+          "subtype": "fusion",
+          "weightProperty": "level"
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "ammunition"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 1,
+          "subtype": "ammunitionSlot",
+          "weightProperty": ""
+        }
+      ]
+    },
     "critical": {
+      "effect": "Knockdown",
       "parts": [
-        [
-          "",
-          ""
-        ]
-      ],
-      "effect": "Knockdown"
+        {
+          "name": "",
+          "formula": "",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ]
     },
     "damage": {
       "parts": [
-        [
-          "1d10",
-          "piercing"
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "1d10",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": true,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
     "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 4,
+    "modifiers": [],
+    "price": 2350,
+    "proficient": false,
+    "properties": {
+      "amm": {
+        "extension": "",
+        "value": true
+      },
+      "analog": {
+        "extension": "",
+        "value": true
+      },
+      "breach": {
+        "extension": "",
+        "value": true
+      },
+      "penetrating": {
+        "extension": "",
+        "value": true
+      },
+      "reach": {
+        "extension": "",
+        "value": true
+      },
+      "two": {
+        "extension": "",
+        "value": true
+      }
+    },
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": "ft",
+      "value": "20"
+    },
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "capacity": {
-      "value": 4,
-      "max": 4
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AR",
+    "special": "",
+    "specialMaterials": {},
+    "target": {
+      "value": ""
     },
     "usage": {
-      "value": 1,
-      "per": "shot"
+      "per": "shot",
+      "value": 1
     },
-    "modifiers": [],
-    "weaponType": "longA",
-    "special": "",
-    "properties": {
-      "one": false,
-      "two": true,
-      "amm": true,
-      "analog": true,
-      "archaic": false,
-      "automatic": false,
-      "blast": false,
-      "block": false,
-      "boost": false,
-      "bright": false,
-      "disarm": false,
-      "entangle": false,
-      "explode": false,
-      "injection": false,
-      "line": false,
-      "living": false,
-      "mind-affecting": false,
-      "nonlethal": false,
-      "operative": false,
-      "penetrating": true,
-      "powered": false,
-      "qreload": false,
-      "radioactive": false,
-      "reach": true,
-      "sniper": false,
-      "stun": false,
-      "subtle": false,
-      "thrown": false,
-      "trip": false,
-      "unwieldy": false,
-      "aeon": false,
-      "antibiological": false,
-      "aurora": false,
-      "breach": true,
-      "breakdown": false,
-      "cluster": false,
-      "conceal": false,
-      "deconstruct": false,
-      "deflect": false,
-      "double": false,
-      "drainCharge": false,
-      "echo": false,
-      "extinguish": false,
-      "feint": false,
-      "fiery": false,
-      "firstArc": false,
-      "flexibleLine": false,
-      "force": false,
-      "freeHands": false,
-      "fueled": false,
-      "grapple": false,
-      "gravitation": false,
-      "guided": false,
-      "harrying": false,
-      "holyWater": false,
-      "ignite": false,
-      "indirect": false,
-      "integrated": false,
-      "lockdown": false,
-      "mine": false,
-      "mire": false,
-      "modal": false,
-      "necrotic": false,
-      "polarize": false,
-      "polymorphic": false,
-      "professional": false,
-      "punchGun": false,
-      "recall": false,
-      "relic": false,
-      "reposition": false,
-      "shape": false,
-      "shells": false,
-      "shield": false,
-      "sunder": false,
-      "swarm": false,
-      "tail": false,
-      "teleportive": false,
-      "thought": false,
-      "throttle": false,
-      "underwater": false,
-      "variantBoost": false,
-      "wideLine": false
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 1
     },
-    "proficient": true,
-    "fusions": [],
-    "abilityMods": {
-      "parts": []
-    }
-  },
-  "folder": null,
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "MoyRvK3WqvttIGQA"
+    "weaponCategory": "projectile",
+    "weaponType": "longA"
+  }
 }

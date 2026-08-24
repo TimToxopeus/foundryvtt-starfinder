@@ -1,179 +1,189 @@
 {
+  "_id": "k1Z7QLYD38mFjxfu",
   "name": "Syringe stick, supreme-pointed",
   "type": "weapon",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "COM",
-    "type": "",
-    "quantity": 1,
-    "bulk": "L",
-    "price": 225000,
-    "level": 17,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
-    "activation": {
-      "type": "action",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
-    },
-    "area": {
-      "value": null,
-      "units": "none",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": null,
-      "max": 0,
-      "per": ""
-    },
+  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "system": {
     "ability": "str",
-    "actionType": "rwak",
+    "actionTarget": "kac",
+    "actionType": "mwak",
+    "activation": {
+      "type": "none",
+      "condition": "",
+      "cost": null
+    },
+    "ammunitionType": "",
+    "area": {
+      "effect": "",
+      "shapable": false,
+      "shape": "",
+      "units": "none",
+      "value": ""
+    },
     "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "L",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
     "chatFlavor": "Conceal, injection, operative",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 17,
+          "subtype": "fusion",
+          "weightProperty": "level"
+        }
+      ]
+    },
     "critical": {
+      "effect": "Injection DC +2",
       "parts": [
-        ""
-      ],
-      "effect": "Injection DC +2"
+        {
+          "name": "",
+          "formula": "",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ]
     },
     "damage": {
       "parts": [
-        [
-          "10d4 + @mod",
-          "Piercing"
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "10d4 + @abilities.str.mod",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>This weapon is a lightweight, handheld auto-injector device designed to quickly inject drugs, poison, and similar substance into a creature when pressed against its body. A syringe stick’s patented spring-loaded design features a sturdy needle able to punch through the toughest armor, chitin, and hide. Despite its deadliness, it is difficult to discern a syringe stick from a medicinal auto-injector.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
     "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 17,
+    "modifiers": [],
+    "price": 225000,
+    "proficient": false,
+    "properties": {
+      "conceal": {
+        "extension": "",
+        "value": true
+      },
+      "injection": {
+        "extension": "",
+        "value": true
+      },
+      "one": {
+        "extension": "",
+        "value": true
+      },
+      "operative": {
+        "extension": "",
+        "value": true
+      }
+    },
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": "ft"
+    },
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "capacity": {
-      "value": null,
-      "max": null
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM",
+    "special": "",
+    "specialMaterials": {},
+    "target": {
+      "value": ""
     },
     "usage": {
-      "value": null,
-      "per": ""
+      "per": "",
+      "value": 0
     },
-    "modifiers": [],
-    "weaponType": "basicM",
-    "special": "",
-    "properties": {
-      "one": true,
-      "two": false,
-      "amm": false,
-      "analog": false,
-      "archaic": false,
-      "automatic": false,
-      "blast": false,
-      "block": false,
-      "boost": false,
-      "bright": false,
-      "disarm": false,
-      "entangle": false,
-      "explode": false,
-      "injection": true,
-      "line": false,
-      "living": false,
-      "mind-affecting": false,
-      "nonlethal": false,
-      "operative": true,
-      "penetrating": false,
-      "powered": false,
-      "qreload": false,
-      "radioactive": false,
-      "reach": false,
-      "sniper": false,
-      "stun": false,
-      "subtle": false,
-      "thrown": false,
-      "trip": false,
-      "unwieldy": false,
-      "aeon": false,
-      "antibiological": false,
-      "aurora": false,
-      "breach": false,
-      "breakdown": false,
-      "cluster": false,
-      "conceal": true,
-      "deconstruct": false,
-      "deflect": false,
-      "double": false,
-      "drainCharge": false,
-      "echo": false,
-      "extinguish": false,
-      "feint": false,
-      "fiery": false,
-      "firstArc": false,
-      "flexibleLine": false,
-      "force": false,
-      "freeHands": false,
-      "fueled": false,
-      "grapple": false,
-      "gravitation": false,
-      "guided": false,
-      "harrying": false,
-      "holyWater": false,
-      "ignite": false,
-      "indirect": false,
-      "integrated": false,
-      "lockdown": false,
-      "mine": false,
-      "mire": false,
-      "modal": false,
-      "necrotic": false,
-      "polarize": false,
-      "polymorphic": false,
-      "professional": false,
-      "punchGun": false,
-      "recall": false,
-      "relic": false,
-      "reposition": false,
-      "shape": false,
-      "shells": false,
-      "shield": false,
-      "sunder": false,
-      "swarm": false,
-      "tail": false,
-      "teleportive": false,
-      "thought": false,
-      "throttle": false,
-      "underwater": false,
-      "variantBoost": false,
-      "wideLine": false
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": null
     },
-    "proficient": true,
-    "fusions": [],
-    "abilityMods": {
-      "parts": []
-    }
-  },
-  "folder": null,
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "k1Z7QLYD38mFjxfu"
+    "weaponCategory": "uncategorized",
+    "weaponType": "basicM"
+  }
 }

@@ -1,73 +1,84 @@
 {
   "_id": "S5lEh2oJ8VW1gVlP",
   "name": "Spell Penetration",
-  "permission": {
-    "default": 0,
-    "QKfICymYNdnzinV1": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>Your spells break through spell resistance more easily than those of other spellcasters.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: You gain a +2 bonus to caster level checks to overcome a creature’s spell resistance (see page 265).</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Core Rulebook",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/spell_penetration.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": null,
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Your spells break through spell resistance more easily than those of other spellcasters.</p>\n<hr />\n<p><strong>Benefit</strong>: You gain a +2 bonus to caster level checks to overcome a creature’s spell resistance (see page 265).</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": "negate"
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Core Rulebook",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/spell_penetration.png"
+  }
 }

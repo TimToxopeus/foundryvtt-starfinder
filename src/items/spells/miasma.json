@@ -1,92 +1,96 @@
 {
   "_id": "UQYaZbfgch9AGnJJ",
-  "name": "Miasma*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Miasma",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You turn the atmosphere in your immediate area into a hazy, green miasma that does not flow like normal air. It instead remains in its area for the duration and penetrates armor environmental protections. Creatures within the miasma have concealment against attackers. A creature that breathes in the miasma must attempt a Fortitude saving throw. On a failure, the creature is nauseated while it remains in the area and is sickened for a number of rounds equal to your caster level once it leaves the area. If the creature succeeds at its saving throw, it is instead sickened while in the spell’s area and unaffected after leaving that area. If a creature leaves the spell’s area but reenters it, the creature must attempt a new saving throw.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 138",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/miasme.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": 100,
+      "effect": "spread",
+      "shapable": false,
+      "shape": "sphere",
       "units": "ft",
-      "additional": "10",
-      "per": "level"
+      "value": "30"
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 4,
-    "school": "con",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You turn the atmosphere in your immediate area into a hazy, green miasma that does not flow like normal air. It instead remains in its area for the duration and penetrates armor @UUID[Compendium.sfrpg.rules.Item.WP7hddXW4mLXXXOg]{Environmental protections}. Creatures within the miasma have concealment against attackers. A creature that breathes in the miasma must attempt a Fortitude saving throw. On a failure, the creature is @UUID[Compendium.sfrpg.conditions.Item.LoRydw1D4bqlbkA2]{Nauseated} while it remains in the area and is sickened for a number of rounds equal to your caster level once it leaves the area. If the creature succeeds at its saving throw, it is instead sickened while in the spell’s area and unaffected after leaving that area. If a creature leaves the spell’s area but reenters it, the creature must attempt a new saving throw.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "round",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 4,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "fort",
+      "dc": "",
+      "descriptor": "partial"
+    },
+    "school": "con",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 138",
+    "sr": false,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/miasme.png"
+  }
 }

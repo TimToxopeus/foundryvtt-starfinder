@@ -1,182 +1,182 @@
 {
+  "_id": "fPQmVaaDP3H1JHxD",
   "name": "Flare axe, blue star",
   "type": "weapon",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "AR",
-    "type": "",
-    "quantity": 1,
-    "bulk": "1",
-    "price": 148000,
-    "level": 16,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
-    "activation": {
-      "type": "action",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
-    },
-    "area": {
-      "value": null,
-      "units": "none",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 1,
-      "max": 0,
-      "per": ""
-    },
+  "img": "icons/weapons/polearms/halberd-crescent-glowing.webp",
+  "system": {
     "ability": "str",
-    "actionType": "rwak",
+    "actionTarget": "eac",
+    "actionType": "mwak",
+    "activation": {
+      "type": "none",
+      "condition": "",
+      "cost": null
+    },
+    "ammunitionType": "charge",
+    "area": {
+      "effect": "",
+      "shapable": false,
+      "shape": "",
+      "units": "none",
+      "value": ""
+    },
     "attackBonus": 0,
-    "chatFlavor": "Powered",
+    "attributes": {
+      "ac": {
+        "value": "5"
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": "37"
+      },
+      "hp": {
+        "max": "93",
+        "value": 93
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "1",
+    "capacity": {
+      "max": 20,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "fusion"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 16,
+          "subtype": "fusion",
+          "weightProperty": "level"
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "goods"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 1,
+          "subtype": "",
+          "weightMultiplier": 1,
+          "weightProperty": ""
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "ammunition"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 1,
+          "subtype": "ammunitionSlot",
+          "weightProperty": ""
+        }
+      ]
+    },
     "critical": {
-      "parts": [
-        [
-          "3d6",
-          "fire"
-        ]
-      ],
-      "effect": "Burn"
+      "effect": "Burn 3d6",
+      "parts": []
     },
     "damage": {
       "parts": [
-        [
-          "5d12 + @mod",
-          "electricity+fire"
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "5d12 + @abilities.str.mod",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": true,
+            "fire": true,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>A flare axe pushes a magnetically contained wave of plasma in a semicircular arc parallel to the haft that resembles a miniature solar flare. The color of plasma indicates the relative temperature (and therefore damage output) of each weapon: red star flare axes are the standard model, yellow star and white star flare axes are more dangerous, and blue star flare axes inflict the most destruction.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
     "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 16,
+    "modifiers": [],
+    "price": 148000,
+    "proficient": false,
+    "properties": {
+      "powered": {
+        "extension": "",
+        "value": true
+      },
+      "two": {
+        "extension": "",
+        "value": true
+      }
+    },
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": "touch"
+    },
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
-      "descriptor": ""
+      "dc": "",
+      "descriptor": "negate"
     },
-    "descriptors": [],
-    "capacity": {
-      "value": 20,
-      "max": 20
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AR pg. 12",
+    "special": "",
+    "specialMaterials": {},
+    "target": {
+      "value": ""
     },
     "usage": {
-      "value": 1,
-      "per": "minute"
+      "per": "minute",
+      "value": 1
     },
-    "modifiers": [],
-    "weaponType": "advancedM",
-    "special": "",
-    "properties": {
-      "one": false,
-      "two": true,
-      "amm": true,
-      "analog": false,
-      "archaic": false,
-      "automatic": false,
-      "blast": false,
-      "block": false,
-      "boost": false,
-      "bright": false,
-      "disarm": false,
-      "entangle": false,
-      "explode": false,
-      "injection": false,
-      "line": false,
-      "living": false,
-      "mind-affecting": false,
-      "nonlethal": false,
-      "operative": false,
-      "penetrating": false,
-      "powered": true,
-      "qreload": false,
-      "radioactive": false,
-      "reach": false,
-      "sniper": false,
-      "stun": false,
-      "subtle": false,
-      "thrown": false,
-      "trip": false,
-      "unwieldy": false,
-      "aeon": false,
-      "antibiological": false,
-      "aurora": false,
-      "breach": false,
-      "breakdown": false,
-      "cluster": false,
-      "conceal": false,
-      "deconstruct": false,
-      "deflect": false,
-      "double": false,
-      "drainCharge": false,
-      "echo": false,
-      "extinguish": false,
-      "feint": false,
-      "fiery": false,
-      "firstArc": false,
-      "flexibleLine": false,
-      "force": false,
-      "freeHands": false,
-      "fueled": false,
-      "grapple": false,
-      "gravitation": false,
-      "guided": false,
-      "harrying": false,
-      "holyWater": false,
-      "ignite": false,
-      "indirect": false,
-      "integrated": false,
-      "lockdown": false,
-      "mine": false,
-      "mire": false,
-      "modal": false,
-      "necrotic": false,
-      "polarize": false,
-      "polymorphic": false,
-      "professional": false,
-      "punchGun": false,
-      "recall": false,
-      "relic": false,
-      "reposition": false,
-      "shape": false,
-      "shells": false,
-      "shield": false,
-      "sunder": false,
-      "swarm": false,
-      "tail": false,
-      "teleportive": false,
-      "thought": false,
-      "throttle": false,
-      "underwater": false,
-      "variantBoost": false,
-      "wideLine": false
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     },
-    "proficient": true,
-    "fusions": [],
-    "abilityMods": {
-      "parts": []
-    }
-  },
-  "folder": null,
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "fPQmVaaDP3H1JHxD"
+    "weaponCategory": "plasma",
+    "weaponType": "advancedM"
+  }
 }

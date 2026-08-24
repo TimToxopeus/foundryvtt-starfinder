@@ -1,91 +1,141 @@
 {
-  "name": "Stationwear, Elite",
-  "permission": {
-    "default": 0,
-    "QKfICymYNdnzinV1": 3
-  },
+  "_id": "8NCkpC14SAbRgd18",
+  "name": "Stationwear, elite",
   "type": "equipment",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">Many types of reinforced clothing afford protection without sacrificing comfort or fashion. The prevalence of this kind of light armor on Absalom Station has led to the colloquial term “stationwear.” Stationwear ranges in style from casual wear to business suits and more formal garb. The usual environmental protections of armor are concealed in the design of these outfits. The grades of armor—business, casual, elite, and flight suit—refer to the quality of the garments, not the style.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Core Rulebook",
-    "type": "",
-    "quantity": 1,
-    "bulk": "L",
-    "price": 4100,
-    "level": 6,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "systems/sfrpg/icons/equipment/armor/stationwear-elite.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": 0
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
-    },
+    "ammunitionType": "",
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
-    "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
-      "parts": []
-    },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
     "armor": {
       "type": "light",
+      "acp": 0,
+      "dex": 7,
       "eac": 4,
       "kac": 5,
-      "dex": 7,
-      "acp": 0,
-      "speedAdjust": 0,
-      "upgradeSlots": 0,
-      "upgrades": []
+      "speedAdjust": 0
     },
-    "strength": 0,
-    "speed": "",
-    "size": "",
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": "5"
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": "17"
+      },
+      "hp": {
+        "max": "33",
+        "value": 33
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "L",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "upgrade",
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 0,
+          "subtype": "armorUpgrade",
+          "weightProperty": "slots"
+        }
+      ]
+    },
+    "critical": {
+      "effect": "",
+      "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Many types of reinforced clothing afford protection without sacrificing comfort or fashion. The prevalence of this kind of light armor on @UUID[Compendium.sfrpg.setting.Item.hepqXl6gFvs5sDQu]{Absalom Station} has led to the colloquial term “stationwear.” Stationwear ranges in style from casual wear to business suits and more formal garb. The usual @UUID[Compendium.sfrpg.rules.Item.WP7hddXW4mLXXXOg]{Environmental protections} of armor are concealed in the design of these outfits. The grades of armor—business, casual, elite, and flight suit—refer to the quality of the garments, not the style.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
+    "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 6,
+    "modifiers": [],
+    "price": 4100,
+    "proficient": false,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
     "reach": "",
-    "weaponSlots": 0,
-    "proficient": true
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/armor/stationwear-elite.jpg",
-  "_id": "8NCkpC14SAbRgd18"
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 197",
+    "specialMaterials": {},
+    "speed": "",
+    "strength": 0,
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
+    }
+  }
 }

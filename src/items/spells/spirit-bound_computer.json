@@ -1,92 +1,96 @@
 {
   "_id": "y8gV7OICXyfxlSlO",
   "name": "Spirit-bound Computer",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You divert a benevolent spirit from the River of Souls to inhabit a computer. You can communicate with the spirit while you concentrate; the spirit is trained in Computers and can make Computers checks you request with a total bonus equal to 3 + your caster level + your key ability score modifier.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 142",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/spirit_bound_computer.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "concentration, up to 1 minute/level",
-      "units": ""
-    },
-    "target": {
-      "value": "one computer system",
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "touch",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": true,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 1,
-    "school": "nec",
-    "sr": true,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You divert a benevolent spirit from the River of Souls to inhabit a computer. You can communicate with the spirit while you concentrate; the spirit is trained in Computers and can make Computers checks you request with a total bonus equal to 3 + your caster level + your key ability score modifier.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": true,
+    "duration": {
+      "units": "instantaneous",
+      "value": "concentration, up to 1 minute/level"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 1,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "nec",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 142",
+    "sr": true,
+    "target": {
+      "value": "one computer system"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/spirit_bound_computer.png"
+  }
 }

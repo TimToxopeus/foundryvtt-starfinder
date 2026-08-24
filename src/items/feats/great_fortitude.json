@@ -2,87 +2,101 @@
   "_id": "UwmeR3lCfm936vxe",
   "name": "Great Fortitude",
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You are resistant to diseases, poisons, and other maladies.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: You gain a +2 bonus to Fortitude saving throws.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Core Rulebook, pg 159",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/great_fortitude.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You are resistant to @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.gBhZDjh30JEyh7DY]{Diseases}, @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.ZaS9H4rwaFIQTUBC]{Poisons}, and other maladies.</p>\n<hr />\n<p><strong>Benefit</strong>: You gain a +2 bonus to Fortitude saving throws.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
-    },
+    "isActive": false,
     "modifiers": [
       {
+        "_id": "c4c41a35-d24b-4c0e-b313-e4e9981c6e18",
         "name": "Great Fortitude",
-        "modifier": 2,
         "type": "untyped",
-        "effectType": "save",
-        "valueAffected": "fortitude",
-        "enabled": true,
-        "source": "Core Rulebook, pg 159",
-        "notes": "",
-        "modifierType": "constant",
         "condition": "",
+        "damage": null,
+        "effectType": "save",
+        "enabled": true,
+        "limitTo": null,
+        "max": 0,
+        "modifier": "2",
+        "modifierType": "constant",
+        "notes": "",
+        "source": "Core Rulebook, pg 159",
         "subtab": "misc",
-        "_id": "c4c41a35-d24b-4c0e-b313-e4e9981c6e18"
+        "valueAffected": "fort"
       }
     ],
-    "abilityMods": {
-      "parts": []
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Core Rulebook, pg 159",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/great_fortitude.png"
+  }
 }

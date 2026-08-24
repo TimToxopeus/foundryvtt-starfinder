@@ -1,77 +1,102 @@
 {
+  "_id": "GoXXOPGD32mckcuD",
   "name": "Melee Striker (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">&gt;@Item[wFTC0sGqdpnZUib4]{Gear Boost}</span></p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl03_LabelName\"><span id=\"ctl00_MainContent_DataListTalentsAll_ctl15_LabelName\">Add an additional bonus equal to half your Strength bonus to damage rolls with melee weapons.</span><br></span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Gear Boost",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/melee_striker.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": null,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": null
     },
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": null,
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.wFTC0sGqdpnZUib4]{Gear Boost}</p>\n<p>Add an additional bonus equal to half your Strength bonus to damage rolls with melee weapons.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "bce3a77e-0453-4810-b7f8-54e9c389f286",
+        "name": "Melee Striker (Ex) - Melee Damage Rolls",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "melee-damage",
+        "enabled": true,
+        "limitTo": null,
+        "max": 0,
+        "modifier": "floor(@abilities.str.mod/2)",
+        "modifierType": "constant",
+        "notes": "Add an additional bonus equal to half your Strength bonus to damage rolls with melee weapons.",
+        "source": "Melee Striker (Ex)",
+        "subtab": "misc",
+        "valueAffected": ""
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Gear Boost",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "GoXXOPGD32mckcuD"
+  }
 }

@@ -1,77 +1,104 @@
 {
   "_id": "AtWIrO6jKqmGr0sm",
   "name": "Superior Overcharge (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.YMGOKoZtKgJqIsAD]{Mechanic Trick}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl49_LabelName\">The additional damage of the overcharge mechanic trick increases to 4d6. You must have the overcharge and improved overcharge mechanic tricks to learn this trick. You can select this trick multiple times. Each time you do after the first, increase the damage by 1d6 (to a maximum of 7d6 if you select it all four times).</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Mechanic",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/superior_overcharge.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "other",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "ft",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [
+        {
+          "name": "",
+          "formula": "4d6",
+          "group": null,
+          "isPrimarySection": true,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.YMGOKoZtKgJqIsAD]{Mechanic Trick}</p>\n<p>The additional damage of the @UUID[Compendium.sfrpg.class-features.Item.cHiFkhnxdxD5CXCD]{overcharge} mechanic trick increases to 4d6. You must have the overcharge and @UUID[Compendium.sfrpg.class-features.Item.SWU8kc6giwSN38PS]{improved overcharge} mechanic tricks to learn this trick. You can select this trick multiple times. Each time you do after the first, increase the damage by 1d6 (to a maximum of 7d6 if you select it all four times).</p>\n<p><em>(You will need to update the damage for multiple selections of this trick)</em></p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "none"
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "14th Level (Mechanic)",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
-      "descriptor": ""
+      "dc": "",
+      "descriptor": "negate"
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "14th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "CRB, p. 73",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

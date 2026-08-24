@@ -1,77 +1,85 @@
 {
   "_id": "7Cnp0Vs4uzJuuh8R",
   "name": "Scoutbot (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.YMGOKoZtKgJqIsAD]{Mechanic Trick}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl37_LabelName\">You’re always crafting rudimentary bots in your spare time, and can use them to scout. It takes you 10 minutes and 1 Resolve Point to create a scoutbot. A scoutbot is a Small technological construct, its EAC and KAC are equal to 10 + your mechanic level, and it has 1 Hit Point per mechanic level you have (and no Stamina Points). It has a land speed of 30 feet, and you can control its movements with your custom rig as a move action. It has a camera that streams visual and auditory data back to your rig. The scoutbot uses your saving throw bonuses if necessary. It is untrained in all skills and has a +0 bonus in all of them, though you can use your own Perception skill when examining the feed from its stream. Once created, the scoutbot lasts for 1 minute per mechanic level you have before falling apart unless otherwise destroyed.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Mechanic",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/scoutbot.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "type": "min",
+      "condition": "Costs 1 RP",
+      "cost": 10
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "ft",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.YMGOKoZtKgJqIsAD]{Mechanic Trick}</p>\n<p>You’re always crafting rudimentary bots in your spare time, and can use them to scout. It takes you 10 minutes and 1 Resolve Point to create a scoutbot. A scoutbot is a Small technological construct, its EAC and KAC are equal to 10 + your mechanic level [[10+@classes.mechanic.levels]], and it has 1 Hit Point per mechanic level you have [[@classes.mechanic.levels]] (and no Stamina Points). It has a land speed of 30 feet, and you can control its movements with your @UUID[Compendium.sfrpg.class-features.Item.uWZ3LvxQ3yezLB4j]{custom rig} as a move action. It has a camera that streams visual and auditory data back to your rig. The scoutbot uses your saving throw bonuses if necessary. It is untrained in all skills and has a +0 bonus in all of them, though you can use your own Perception skill when examining the feed from its stream. Once created, the scoutbot lasts for 1 minute per mechanic level you have before falling apart unless otherwise destroyed.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "text",
+      "value": "1 minute/ Mechanic level"
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "none",
+      "value": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "8th Level (Mechanic)",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "8th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "CRB, p 73",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

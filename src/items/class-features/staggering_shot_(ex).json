@@ -1,77 +1,84 @@
 {
   "_id": "o2GDNS1g87yquIMS",
   "name": "Staggering Shot (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.On2ZrPJTe8FURsXY]{Operative Exploit}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl37_LabelName\">For your debilitating trick, you can attempt to stagger your target. The target must succeed at a Fortitude save or be staggered until the beginning of your next turn. Once you’ve used this ability to attempt to stagger a creature, that creature is immune to your staggering shot for 24 hours.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Operative Exploit",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/staggering_shot.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "type": "none",
+      "condition": "",
+      "cost": null
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "ft",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.On2ZrPJTe8FURsXY]{Operative Exploit}</p>\n<p>For your @UUID[Compendium.sfrpg.class-features.Item.bhSrjkuWxz2DQHXC]{Debilitating Trick}, you can attempt to stagger your target. The target must succeed at a Fortitude save or be @UUID[Compendium.sfrpg.conditions.Item.aAQ6SW6iK0EVq8Ce]{Staggered} until the beginning of your next turn. Once you’ve used this ability to attempt to stagger a creature, that creature is immune to your staggering shot for 24 hours.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "text",
+      "value": "Until the beginning of your next turn"
     },
     "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
+    "isActive": false,
     "modifiers": [],
-    "requirements": "6th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "properties": {},
+    "range": {
+      "units": "none"
     },
-    "abilityMods": {
-      "parts": []
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "6th Level",
+    "rollNotes": "",
+    "save": {
+      "type": "fort",
+      "dc": "10+floor(@classes.operative.levels/2) + @abilities.dex.mod",
+      "descriptor": "negate"
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Operative Exploit",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

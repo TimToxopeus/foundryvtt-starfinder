@@ -1,92 +1,96 @@
 {
   "_id": "8VyUd9YylLi4b13E",
-  "name": "Transport Passengers*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Transport Passengers",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You create an extradimensional space in the passenger area of a vehicle or Tiny starship, allowing it to carry one additional Medium creature per caster level. This spell must be cast on a vehicle able to carry more than one passenger, or the spell fails. The extradimensional space appears in the vehicle’s seating area or the starship’s bridge or passenger section, and it looks like a thin, glowing gap in reality. Creatures that step through this gap are shunted into the extradimensional space, which appears to be and functions as another compartment in the vehicle. A creature can exit the extradimensional space as part of a move action to move through the gap in reality, though a creature cannot exit the extradimensional space unless room to accommodate it exists in the normal seating area.<br>Creatures that are encumbered or overburdened cannot enter the extradimensional space. If a creature is larger than Medium, each size category counts as one additional creature for determining the capacity of the extradimensional space.<br>Creatures within the extradimensional space can’t interact with anything outside the vehicle, nor can creatures outside the vehicle perceive or interact with occupants and contents of the space. If the vehicle is destroyed or the extradimensional space is dispelled, the extradimensional space collapses. Anything within the extradimensional space when the vehicle or starship is destroyed, the space is dispelled, or this spell ends are shunted to the nearest open spaces outside the target.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 142",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/transport_passenger.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "min",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 4,
-    "school": "trs",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You create an extradimensional space in the passenger area of a vehicle or Tiny starship, allowing it to carry one additional Medium creature per caster level. This spell must be cast on a vehicle able to carry more than one passenger, or the spell fails. The extradimensional space appears in the vehicle’s seating area or the starship’s bridge or passenger section, and it looks like a thin, glowing gap in reality. Creatures that step through this gap are shunted into the extradimensional space, which appears to be and functions as another compartment in the vehicle. A creature can exit the extradimensional space as part of a move action to move through the gap in reality, though a creature cannot exit the extradimensional space unless room to accommodate it exists in the normal seating area.</p>\n<p>Creatures that are @UUID[Compendium.sfrpg.conditions.Item.OwZA6flUQPH0jPA0]{Encumbered} or @UUID[Compendium.sfrpg.conditions.Item.11k3ObUIXEYFGrg9]{Overburdened} cannot enter the extradimensional space. If a creature is larger than Medium, each size category counts as one additional creature for determining the capacity of the extradimensional space.</p>\n<p>Creatures within the extradimensional space can’t interact with anything outside the vehicle, nor can creatures outside the vehicle perceive or interact with occupants and contents of the space. If the vehicle is destroyed or the extradimensional space is dispelled, the extradimensional space collapses. Anything within the extradimensional space when the vehicle or starship is destroyed, the space is dispelled, or this spell ends are shunted to the nearest open spaces outside the target.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "hour",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 4,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "trs",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 142",
+    "sr": false,
+    "target": {
+      "value": "one vehicle or Tiny starship; see text"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/transport_passenger.PNG"
+  }
 }

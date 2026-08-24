@@ -1,10 +1,10 @@
-export class ActorSheetFlags extends BaseEntitySheet {
+export class ActorSheetFlags extends DocumentSheet {
     static get defaultOptions() {
         const options = super.defaultOptions;
-        return mergeObject(options, {
+        return foundry.utils.mergeObject(options, {
             id: "actor-flags",
             classes: ["sfrpg"],
-            template: "systems/sfrpg/templates/apps/actor-flags.html",
+            template: "systems/sfrpg/templates/apps/actor-flags.hbs",
             width: 500,
             closeOnSubmit: true
         });
@@ -23,13 +23,13 @@ export class ActorSheetFlags extends BaseEntitySheet {
 
     _getFlags() {
         const flags = {};
-        for (let [k, v] of Object.entries(CONFIG.SFRPG.characterFlags)) {
+        for (const [k, v] of Object.entries(CONFIG.SFRPG.characterFlags)) {
             if (!flags.hasOwnProperty(v.section)) flags[v.section] = {};
-            let flag = duplicate(v);
+            const flag = foundry.utils.deepClone(v);
             flag.type = v.type.name;
             flag.isCheckbox = v.type === Boolean;
             flag.isSelect = v.hasOwnProperty('choices');
-            flag.value = this.entity.getFlag("sfrpg", k);
+            flag.value = this.document.getFlag("sfrpg", k);
             flags[v.section][k] = flag;
         }
 
@@ -40,7 +40,7 @@ export class ActorSheetFlags extends BaseEntitySheet {
         const actor = this.object;
 
         const updateData = {};
-        for (let [k, v] of Object.entries(CONFIG.SFRPG.characterFlags)) {
+        for (const [k, v] of Object.entries(CONFIG.SFRPG.characterFlags)) {
             if ([undefined, null, "", false].includes(formData[k])) updateData[`-=${k}`] = null;
             else if ((v.type === Number) && (formData[k] === 0)) updateData[`-=${k}`] = null;
             else updateData[k] = formData[k];

@@ -1,77 +1,84 @@
 {
   "_id": "nrxvApxevr02w8xN",
   "name": "Share Pain (Su)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.6zrV67znbGCh4EjF]{Mindbreaker}</p>\n<p>Whenever a foe deals damage to you, you can spend 1 Resolve Point as a reaction to shift some of the pain back onto that foe. Unless the foe succeeds at a Will save, reduce the damage you take from the attack by your mystic level (to a maximum of the attack’s damage), and the foe takes an equal amount of damage. This is a mind-affecting pain effect.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Mindbreaker Connection",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/share_pain.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "reaction",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": 1
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "none",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.6zrV67znbGCh4EjF]{Mindbreaker}</p>\n<p>Whenever a foe deals damage to you, you can spend 1 Resolve Point as a reaction to shift some of the pain back onto that foe. Unless the foe succeeds at a Will save, reduce the damage you take from the attack by your mystic level (to a maximum of the attack’s damage), and the foe takes an equal amount of damage. This is a mind-affecting pain effect.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "su"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "none"
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "1st Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "1st Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Mindbreaker Connection",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

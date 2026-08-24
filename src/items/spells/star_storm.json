@@ -1,101 +1,135 @@
 {
   "_id": "SSEw9AIr2K5w5jlg",
   "name": "Star Storm",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">Stellar plasma rains down in the area, dealing 6d8 electricity damage and 6d8 fire damage to creatures and objects in the area.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 142",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/star_storm.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": 40,
+      "effect": "",
+      "shapable": false,
+      "shape": "cylinder",
       "units": "ft",
-      "shape": "sphere",
-      "effect": ""
+      "value": "40"
     },
-    "range": {
-      "value": 100,
-      "units": "ft",
-      "additional": "10",
-      "per": "level"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "save",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
       "parts": [
-        [
-          "6d8",
-          "electricity"
-        ],
-        [
-          "6d8",
-          "fire"
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "6d8",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": true,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        },
+        {
+          "name": "",
+          "formula": "6d8",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": true,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Stellar plasma rains down in the area, dealing 6d8 electricity damage and 6d8 fire damage to creatures and objects in the area.</p>"
+    },
+    "descriptors": {},
+    "dismissible": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
-    "save": {
-      "type": "reflex",
-      "dc": 16,
-      "descriptor": "half"
-    },
-    "descriptors": [],
-    "modifiers": [],
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 6,
-    "school": "evo",
-    "sr": false,
-    "dismissible": false,
-    "concentration": false,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "always",
       "prepared": true
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "reflex",
+      "dc": "",
+      "descriptor": "half"
+    },
+    "school": "evo",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 142",
+    "sr": true,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/star_storm.png"
+  }
 }

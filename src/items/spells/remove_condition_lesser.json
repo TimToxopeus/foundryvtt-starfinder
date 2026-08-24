@@ -1,92 +1,96 @@
 {
   "_id": "tzBzAK2mkdtaTRXw",
-  "name": "Remove Condition, Lesser*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Remove Condition, Lesser",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You remove any one of the following conditions affecting the target: shaken, sickened, or staggered. If the condition is the result of a disease or another ongoing effect, this spell removes the condition but does not cure the disease or ongoing effect, and the target can regain the condition from that effect as normal, potentially immediately.&nbsp;Lesser remove condition&nbsp;also doesn’t cure or remove other damage or conditions the target is suffering from any source, even the same source that caused the removed condition. Since this spell’s duration is instantaneous, it does not prevent the target from gaining the condition again.<br><br>Casting this spell doesn’t provoke attacks of opportunity.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/remove_condition_lesser.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "instantaneous",
-      "units": ""
-    },
-    "target": {
-      "value": "one creature",
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "touch",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "touch",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "none",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "rsak",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "fort",
-      "dc": null,
-      "descriptor": "harmless"
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 1,
-    "school": "con",
-    "sr": true,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You remove any one of the following conditions affecting the target: <strong>@UUID[Compendium.sfrpg.conditions.Item.nywSVEeDvp1bk7L3]{Shaken}, @UUID[Compendium.sfrpg.conditions.Item.ZacF0l6IwqBwToTJ]{Sickened}, or @UUID[Compendium.sfrpg.conditions.Item.aAQ6SW6iK0EVq8Ce]{Staggered}</strong>. If the condition is the result of a @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.gBhZDjh30JEyh7DY]{Disease} or another ongoing effect, this spell removes the condition but does not cure the @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.gBhZDjh30JEyh7DY]{Disease} or ongoing effect, and the target can regain the condition from that effect as normal, potentially immediately.&nbsp;Lesser remove condition&nbsp;also doesn’t cure or remove other damage or conditions the target is suffering from any source, even the same source that caused the removed condition. Since this spell’s duration is instantaneous, it does not prevent the target from gaining the condition again.</p>\n<p>Casting this spell doesn’t provoke attacks of opportunity.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 1,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": ""
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "fort",
+      "dc": "",
+      "descriptor": "harmless"
+    },
+    "school": "con",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 373",
+    "sr": true,
+    "target": {
+      "value": "one creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/remove_condition_lesser.png"
+  }
 }

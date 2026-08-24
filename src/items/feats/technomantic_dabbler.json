@@ -1,73 +1,84 @@
 {
   "_id": "xBENKYPlDKF0yGp1",
   "name": "Technomantic Dabbler",
-  "permission": {
-    "default": 0,
-    "QKfICymYNdnzinV1": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You dabble with coding in the language of magic.<br><strong>Prerequisites</strong>: Intelligence 15, character level 5th, no levels in technomancer.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: Choose two 0-level technomancer spells and one 1st-level technomancer spell. You can cast the 0-level spells at will and the 1st-level spell once per day for every 3 character levels you have. Your caster level is equal to your character level, and the key ability score for these spells is Intelligence. If you later gain levels in technomancer, you lose the benefits of this feat and can replace it with either Spell Focus or Spell Penetration.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Core Rulebook",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/technomantic_dabbler.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": null,
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You dabble with coding in the language of magic.</p>\n<p><strong>Prerequisites</strong>: Intelligence 15, character level 5th, no levels in @UUID[Compendium.sfrpg.classes.Item.IvLuq2pxKkHJJpae]{Technomancer}.</p>\n<hr />\n<p><strong>Benefit</strong>: Choose two 0-level technomancer spells and one 1st-level technomancer spell. You can cast the 0-level spells at will and the 1st-level spell once per day for every 3 character levels you have. For these spells, your caster level is equal to your character level and the key ability score is Intelligence. If you later gain levels in technomancer, you lose the benefits of this feat and can replace it with either @UUID[Compendium.sfrpg.feats.Item.X0Vh8DqE3ZSpyXpC]{Spell Focus} or @UUID[Compendium.sfrpg.feats.Item.S5lEh2oJ8VW1gVlP]{Spell Penetration}.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": "negate"
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Core Rulebook",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/technomantic_dabbler.png"
+  }
 }

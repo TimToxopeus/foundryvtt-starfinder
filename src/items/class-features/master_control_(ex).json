@@ -1,77 +1,84 @@
 {
   "_id": "CAJawcaQ4qyMPSjB",
   "name": "Master Control (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.cA0NuGh484BwlDjX]{Drone}</p>\n<p>As a move action, you can directly control your drone. This allows the drone to take both a move action and any standard action this turn (one from your control, and one from its limited AI). If you also take a swift action, your drone can take a swift action as well, or it can combine its actions into a full action. Your drone must be able to see or hear you, or be within range of your custom rig, for you to directly control your drone.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Mechanic",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/master_control.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "move",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": 1
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "none",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.cA0NuGh484BwlDjX]{Drone}</p>\n<p>As a move action, you can directly control your drone. This allows the drone to take both a move action and any standard action this turn (one from your control, and one from its limited AI). If you also take a swift action, your drone can take a swift action as well, or it can combine its actions into a full action. Your drone must be able to see or hear you, or be within range of your custom rig, for you to directly control your drone.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "none"
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "1st Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "1st Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Mechanic",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

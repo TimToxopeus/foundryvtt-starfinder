@@ -1,73 +1,102 @@
 {
   "_id": "TxmBrHaJDwGEuCre",
   "name": "Steel Nerves",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You retain your reason when you’re scared.<br><strong>Prerequisites</strong>: Wis 13, character level 3rd.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: You gain a +2 bonus to saving throws against fear effects. In addition, when you have the frightened condition, you can choose to fight rather than flee. When you have the panicked condition, you don’t drop what you’re holding.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "The Diaspora Strain",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/steel_nerves.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You retain your reason when you’re scared.</p>\n<p><strong>Prerequisites</strong>: Wis 13, character level 3rd.</p>\n<hr />\n<p><strong>Benefit</strong>: You gain a +2 bonus to saving throws against @UUID[Compendium.sfrpg.rules.Item.PqV3OCbUTyk2upPD]{Fear} effects. In addition, when you have the @UUID[Compendium.sfrpg.conditions.Item.DtwiUWi8dpzkq4tM]{Frightened} condition, you can choose to fight rather than flee. When you have the @UUID[Compendium.sfrpg.conditions.Item.BVdjvpucmvQU4cc1]{Panicked} condition, you don’t drop what you’re holding.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "dac5156b-df53-478a-b46e-70de72c9466e",
+        "name": "Steel Nerves",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "saves",
+        "enabled": true,
+        "limitTo": null,
+        "max": 2,
+        "modifier": "2",
+        "modifierType": "formula",
+        "notes": "Bonus to saving throws against fear effects.",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": ""
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "The Diaspora Strain",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/steel_nerves.png"
+  }
 }

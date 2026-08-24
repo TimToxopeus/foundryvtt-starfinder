@@ -3,7 +3,7 @@
  * @type {Dialog}
  */
 export class ShortRestDialog extends Dialog {
-    constructor(actor, dialogData={}, options={}) {
+    constructor(actor, dialogData = {}, options = {}) {
         super(dialogData, options);
         this.options.classes = ["sfrpg", "dialog"];
 
@@ -13,11 +13,11 @@ export class ShortRestDialog extends Dialog {
          */
         this.actor = actor;
     }
-    
+
     activateListeners(html) {
         super.activateListeners(html);
 
-        let restoreStaminaCheckbox = html.find('#restoreStaminaCheckbox');
+        const restoreStaminaCheckbox = html.find('#restoreStaminaCheckbox');
         restoreStaminaCheckbox.disabled = this.data.canRestoreStaminaPoints;
         restoreStaminaCheckbox.click(this._onRestoreStaminaPoints.bind(this));
     }
@@ -32,22 +32,22 @@ export class ShortRestDialog extends Dialog {
         ShortRestDialog.restoreStaminaPoints = restoreStaminaCheckbox.checked;
     }
 
-    static async shortRestDialog({actor, canRestoreStaminaPoints=true}={}) {
+    static async shortRestDialog({actor, canRestoreStaminaPoints = true} = {}) {
         ShortRestDialog.restoreStaminaPoints = false;
-        const html = await renderTemplate("systems/sfrpg/templates/apps/short-rest.html");
+        const html = await foundry.applications.handlebars.renderTemplate("systems/sfrpg/templates/apps/short-rest.hbs");
         return new Promise(resolve => {
             const dlg = new this(actor, {
-                title: game.i18n.format("SFRPG.RestSTitle"),
+                title: game.i18n.format("SFRPG.Rest.Short.DialogTitle"),
                 content: html,
                 buttons: {
                     rest: {
                         icon: '<i class="fas fa-bed"></i>',
-                        label: game.i18n.format("SFRPG.RestButton"),
+                        label: game.i18n.format("SFRPG.Rest.Button"),
                         callback: () => resolve({resting: true, restoreStaminaPoints: this.restoreStaminaPoints})
                     },
                     cancel: {
                         icon: '<i class="fas fa-times"></i>',
-                        label: game.i18n.format("SFRPG.RestCancel"),
+                        label: game.i18n.format("SFRPG.Rest.Cancel"),
                         callback: () => resolve({resting: false, restoreStaminaPoints: false})
                     }
                 },
@@ -60,31 +60,28 @@ export class ShortRestDialog extends Dialog {
     /**
    * A helper constructor function which displays the Long Rest confirmation dialog and returns a Promise once it's
    * workflow has been resolved.
-   * @param {ActorSFRPG} actor
    * @return {Promise}
    */
-    static async longRestDialog({actor}={}) {
-        const content = `<p>Take a night's rest?</p><p>On a night's rest you will recover 1 hit point per character level, all stamina points,
-            all resolve points, class resources, limited use item charges, and spell slots.</p>`;
+    static async longRestDialog() {
+        const content = game.i18n.localize("SFRPG.Rest.Long.Dialog.Description");
 
         return new Promise((resolve, reject) => {
             new Dialog({
-                title: "Night's Rest",
+                title: game.i18n.localize("SFRPG.Rest.Long.Dialog.Title"),
                 content: content,
                 buttons: {
                     rest: {
                         icon: '<i class="fas fa-bed"></i>',
-                        label: "Rest",
+                        label: game.i18n.localize("SFRPG.Rest.Button"),
                         callback: resolve
                     },
                     cancel: {
                         icon: '<i class="fas fa-times"></i>',
-                        label: "Cancel",
+                        label: game.i18n.localize("SFRPG.Rest.Cancel"),
                         callback: reject
                     }
                 },
-                default: 'rest',
-                close: reject
+                default: 'rest'
             }, {classes: ["sfrpg", "dialog"]}).render(true);
         });
     }

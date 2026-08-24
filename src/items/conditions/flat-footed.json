@@ -1,18 +1,61 @@
 {
+  "_id": "MZ8OoH1GE9qDMyCD",
   "name": "Flat-Footed",
-  "permission": {
-    "default": 0,
-    "hg1bBCAUsIDPKim6": 3
-  },
-  "flags": {
-    "exportSource": {
-      "world": "SF_AG-OP",
-      "system": "sfrpg",
-      "coreVersion": "0.6.0",
-      "systemVersion": "0.2.5"
-    }
-  },
-  "content": "<table style=\"width: 703px;\" border=\"1\">\n<tbody>\n<tr style=\"height: 72px;\">\n<td style=\"text-align: center; height: 72px; width: 398px;\">\n<h1><strong>Flat-Footed</strong></h1>\n<h3><strong>Source</strong>&nbsp;CRB.276</h3>\n<h3><strong>Related </strong>@Compendium[sfrpg.conditions.bPDAhCFEP5Jvybhg]{Conditions}</h3>\n</td>\n<td style=\"text-align: center; width: 398px;\">\n<p><img src=\"systems/sfrpg/icons/conditions/flatfooted.png\" alt=\"\" width=\"100\" height=\"100\" /></p>\n</td>\n</tr>\n</tbody>\n</table>\n<h3 style=\"text-align: justify;\">At the start of a combat, if you are surprised, you are flat-footed until you become aware of combat and have had a chance to act. Many other effects can cause you to become flat-footed. You take a &ndash;2 penalty to your AC and cannot take reactions while flat-footed.</h3>\n<hr />\n<p>&nbsp;</p>",
-  "img": "systems/sfrpg/icons/conditions/flatfooted.png",
-  "_id": "MZ8OoH1GE9qDMyCD"
+  "type": "effect",
+  "img": "systems/sfrpg/icons/conditions/flatfooted.webp",
+  "system": {
+    "type": "condition",
+    "abilityMods": {
+      "parts": []
+    },
+    "activeDuration": {
+      "activationTime": 0,
+      "endsOn": "onTurnStart",
+      "expiryInit": 0,
+      "expiryMode": {
+        "type": "turn",
+        "turn": "parent"
+      },
+      "unit": "permanent",
+      "value": 0
+    },
+    "context": {},
+    "critical": {
+      "effect": "",
+      "parts": []
+    },
+    "damage": {
+      "parts": []
+    },
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.rules.Item.0yJjfyvWg5pDLcVR]{Conditions}</p>\n<hr />\n<p>At the start of a combat, if you are surprised, you are @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-Footed} until you become aware of combat and have had a chance to act.</p>\n<p>Many other effects can cause you to become @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-Footed}.</p>\n<p>You take a –2 penalty to your AC and cannot take reactions while @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-Footed}.</p>"
+    },
+    "enabled": true,
+    "modifiers": [
+      {
+        "_id": "34ea6bbe-b405-4412-a31a-5a3e279ace48",
+        "name": "Flat-Footed",
+        "type": "untyped",
+        "condition": "",
+        "effectType": "ac",
+        "enabled": true,
+        "modifier": -2,
+        "modifierType": "constant",
+        "notes": "",
+        "source": "Condition",
+        "subtab": "misc",
+        "valueAffected": "both"
+      }
+    ],
+    "requirements": "Condition",
+    "showOnToken": true,
+    "slug": "flat-footed",
+    "source": "CRB.276",
+    "sourceActorId": null,
+    "turnEvents": []
+  }
 }

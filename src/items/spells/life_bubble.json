@@ -1,92 +1,96 @@
 {
   "_id": "2l5Xk1YMzp0hlUok",
   "name": "Life Bubble",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You surround the target creatures with a constant and movable 1-inch shell of tolerable living conditions customized for each creature. This shell enables the targets to breathe freely in a variety of atmospheric conditions (including in corrosive, thick, thin, and toxic atmospheres), as well as underwater or in a vacuum. It also makes the targets immune to harmful gases and vapors, including inhaled diseases and poisons as well as spells with a harmful gaseous effect. In addition, the shell protects targets (and their equipment) from extreme temperatures (between –50° and 140° F) without having to attempt Fortitude saving throws, as well as extreme pressures.<br><br>Life bubble&nbsp;doesn’t provide protection from energy damage, negative or positive energy (such as found on the Negative and Positive Energy Planes), or radiation; it also doesn’t provide the ability to see in conditions of poor visibility (such as in smoke or fog) or the ability to move or act normally in conditions that impede movement (such as underwater).</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 363",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/life_bubble.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": "1 day/level",
-      "units": ""
-    },
-    "target": {
-      "value": "up to one creature/level, no two of which can be more than 30 ft. apart",
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": true,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 100,
-      "units": "ft",
-      "additional": "10",
-      "per": "level"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "save",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "reflex",
-      "dc": null,
-      "descriptor": "harmless"
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 1,
-    "school": "abj",
-    "sr": true,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You surround the target creatures with a constant and movable 1-inch shell of tolerable living conditions customized for each creature. This shell enables the targets to breathe freely in a variety of atmospheric conditions (including in corrosive, thick, thin, and toxic atmospheres), as well as underwater or in a vacuum. It also makes the targets immune to harmful gases and vapors, including inhaled @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.gBhZDjh30JEyh7DY]{Diseases} and @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.ZaS9H4rwaFIQTUBC]{Poisons} as well as spells with a harmful gaseous effect. In addition, the shell protects targets (and their equipment) from extreme temperatures (between –50° and 140° F) without having to attempt Fortitude saving throws, as well as extreme pressures.</p>\n<p>Life bubble&nbsp;doesn’t provide protection from energy damage, negative or positive energy (such as found on the Negative and Positive Energy Planes), or radiation; it also doesn’t provide the ability to see in conditions of poor visibility (such as in smoke or fog) or the ability to move or act normally in conditions that impede movement (such as underwater).</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "day",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 1,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": true,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "harmless"
+    },
+    "school": "abj",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 363",
+    "sr": true,
+    "target": {
+      "value": "up to one creature/level, no two of which can be more than 30 ft. apart"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/life_bubble.png"
+  }
 }

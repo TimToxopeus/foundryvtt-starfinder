@@ -1,92 +1,116 @@
 {
   "_id": "HzCGLOfSmLZokppJ",
-  "name": "Ectoplasmic Snare*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Ectoplasmic Snare",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You launch a writhing tendril of ectoplasm to snare a creature. Make a ranged attack roll against your target’s EAC. If you hit, the target can attempt a Reflex save. On a successful save, the target is entangled for the duration. If the target fails, it is grappled and takes 2d6 bludgeoning damage each round it remains so. If the target escapes the grapple, it remains entangled for the duration. While the target remains grappled, you can move it up to 15 feet each time you concentrate on the spell. If the distance between you and the target ever exceeds the spell’s range, the snare disappears. This spell affects ethereal and incorporeal creatures.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder #23: Hive of Minds pg. 52",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/ectoplasmic_snare.webp",
+  "system": {
+    "ability": "dex",
+    "actionTarget": "eac",
+    "actionType": "rsak",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": true,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [
+        {
+          "name": "",
+          "formula": "2d6",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": true,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You launch a writhing tendril of ectoplasm to snare a creature. Make a ranged attack roll against your target’s EAC. If you hit, the target can attempt a Reflex save. On a successful save, the target is @UUID[Compendium.sfrpg.conditions.Item.nFBcsp5FS1Wi46Fc]{Entangled} for the duration. If the target fails, it is @UUID[Compendium.sfrpg.conditions.Item.4AkWDHGM6gHDepHN]{Grappled} and takes 2d6 bludgeoning damage each round it remains so. If the target escapes the grapple, it remains @UUID[Compendium.sfrpg.conditions.Item.nFBcsp5FS1Wi46Fc]{Entangled} for the duration. While the target remains @UUID[Compendium.sfrpg.conditions.Item.4AkWDHGM6gHDepHN]{Grappled}, you can move it up to 15 feet each time you concentrate on the spell. If the distance between you and the target ever exceeds the spell’s range, the snare disappears. This spell affects ethereal and incorporeal creatures.</p>"
+    },
+    "descriptors": {},
+    "dismissible": true,
+    "duration": {
+      "units": "instantaneous",
+      "value": "concentration, up to 1 round/level (D)"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 2,
-    "school": "evo",
-    "sr": false,
-    "dismissible": false,
-    "concentration": true,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "reflex",
+      "dc": "",
+      "descriptor": "partial"
+    },
+    "school": "evo",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AP #23 pg. 52",
+    "sr": false,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/ectoplasmic_snare.png"
+  }
 }

@@ -1,95 +1,144 @@
-import { DiceSFRPG } from "../dice.js";
-import { ShortRestDialog } from "../apps/short-rest.js";
-import { SpellCastDialog } from "../apps/spell-cast-dialog.js";
+import { ChoiceDialog } from "../apps/choice-dialog.js";
 import { AddEditSkillDialog } from "../apps/edit-skill-dialog.js";
 import { NpcSkillToggleDialog } from "../apps/npc-skill-toggle-dialog.js";
-import { SFRPGModifierType, SFRPGModifierTypes, SFRPGEffectType } from "../modifiers/types.js";
-import SFRPGModifier from "../modifiers/modifier.js";
-import SFRPGModifierApplication from "../apps/modifier-app.js";
-import { DroneRepairDialog } from "../apps/drone-repair-dialog.js";
+import { SpellCastDialog } from "../apps/spell-cast-dialog.js";
+import { SFRPG } from "../config.js";
+import { DiceSFRPG } from "../dice.js";
+import RollContext from "../rolls/rollcontext.js";
+import { TokenEffect } from "../token/token-effect.js";
+import { Mix } from "../utils/custom-mixer.js";
+import { ActorConditionsMixin } from "./mixins/actor-conditions.js";
+import { ActorCrewMixin } from "./mixins/actor-crew.js";
+import { ActorDamageMixin } from "./mixins/actor-damage.js";
+import { ActorInventoryMixin } from "./mixins/actor-inventory.js";
+import { ActorModifiersMixin } from "./mixins/actor-modifiers.js";
+import { ActorResourcesMixin } from "./mixins/actor-resources.js";
+import { ActorRestMixin } from "./mixins/actor-rest.js";
+
+import { ItemSFRPG } from "../item/item.js";
+import { ItemSheetSFRPG } from "../item/sheet.js";
+import SFRPGTimedEffect from "../timedEffect/timedEffect.js";
+import { } from "./crew-update.js";
 
 /**
- * Extend the base :class:`Actor` to implement additional logic specialized for SFRPG
+ * A data structure for storing damage statistics.
+ *
+ * @typedef {Object} DamagePart
+ * @property {string}                     formula  The roll formula to use.
+ * @property {{[key: string]: boolean}}   types    A set of key value pairs that determines the available damage types.
+ * @property {string}                     operator An operator that determines how damage is split between multiple types.
  */
-export class ActorSFRPG extends Actor {
+
+/** @import RollResult from '../dice.js' */
+
+/** @extends {foundry.documents.Actor} */
+export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorConditionsMixin, ActorCrewMixin, ActorDamageMixin, ActorInventoryMixin, ActorModifiersMixin, ActorResourcesMixin, ActorRestMixin) {
+
+    constructor(data, context) {
+        super(data, context);
+    }
+
+    // appliedEffects effects can be displayed on the token, so hijack it and include shown effects
+    get appliedEffects() {
+        const fromEffects = this.items
+            .filter((e) => e.type === "effect" && e.system.showOnToken && e.system.enabled)
+            .map((e) => new TokenEffect(e));
+
+        return [...super.appliedEffects, ...fromEffects];
+    }
+
+    // Temporary effects are displayed on the token, so hijack it and include effects
+    // This is no longer called in Foundry V14 but the code is still present so we'll keep it here for now in case they call it again.
+    get temporaryEffects() {
+        const fromEffects = this.items
+            .filter((e) => e.type === "effect" && e.system.showOnToken && e.system.enabled)
+            .map((e) => new TokenEffect(e));
+
+        return [...super.temporaryEffects, ...fromEffects];
+    }
 
     /** @override */
     getRollData() {
         const data = super.getRollData();
-        data.classes = this.data.items.reduce((obj, i) => {
-            if (i.type === "class") {
-                const classData = {
-                    keyAbilityMod: this.data.data.abilities[i.data.kas].mod,
-                    levels: i.data.levels,
-                    keyAbilityScore: i.data.kas,
-                    skillRanksPerLevel: i.data.skillRanks.value
-                };
-
-                obj[i.name.slugify({replacement: "_", strict: true})] = classData;
-            }
-            return obj;
-        }, {});
 
         return data;
     }
 
     /**
      * Augment the basic actor data with additional dynamic data.
-     * 
+     *
      * @param {Object} actorData The data for the actor
-     * @returns {Object} The actors data
+     * @returns {Promise} A promise for the automation process triggered at the end.
      */
     prepareData() {
         super.prepareData();
-        const actorData = this.data;
-        const data = actorData.data;
-        const flags = actorData.flags;
-        const actorType = actorData.type;
 
-        this._ensureHasModifiers(data);
-        const modifiers = this.getAllModifiers();
+        // Store all modifiers, from the actor and from items, on the actor in an instantiated state.
+        const modifiers = this.getAllModifiers(false, false, true);
+        this.system.allModifiers = modifiers;
 
-        const items = actorData.items;
-        const armor = items.find(item => item.type === "equipment" && item.data.equipped);
-        const weapons = items.filter(item => item.type === "weapon" && item.data.equipped);
+        // const timedEffects = SFRPGTimedEffect.getAllTimedEffects(this);
+        this.system.timedEffects = new Map();
+
+        const items = this.items;
+        const armors = items.filter(item => item.type === "equipment" && item.system.equipped);
+        const shields = items.filter(item => item.type === "shield" && item.system.equipped);
+        const weapons = items.filter(item => item.type === "weapon" && item.system.equipped);
         const races = items.filter(item => item.type === "race");
-        const classes = items.filter(item => item.type === "class" || item.type === "chassis");
+        const frames = items.filter(item => item.type === "starshipFrame");
+        const classes = items.filter(item => item.type === "class");
+        const chassis = items.filter(item => item.type === "chassis");
         const theme = items.find(item => item.type === "theme");
         const mods = items.filter(item => item.type === "mod");
         const armorUpgrades = items.filter(item => item.type === "upgrade");
-        game.sfrpg.engine.process("process-actors", {
-            data,
-            armor,
+        const asis = items.filter(item => item.type === "asi");
+        const actorResources = items.filter(item => item.type === "actorResource");
+        return game.sfrpg.engine.process("process-actors", {
+            actorId: this.id,
+            actor: this,
+            type: this.type,
+            data: this.system,
+            flags: this.flags,
+            items: this.items,
+            armors,
+            shields,
             weapons,
             races,
             classes,
-            flags,
-            type: actorType,
+            chassis,
             modifiers,
+            // timedEffects,
             theme,
             mods,
-            armorUpgrades
+            armorUpgrades,
+            asis,
+            frames,
+            actorResources
         });
     }
 
-    /**
-     * Check to ensure that this actor has a modifiers data object set, if not then set it. 
-     * These will always be needed from hence forth, so we'll just make sure that they always exist.
-     * 
-     * @param {Object}      data The actor data to check against.
-     * @param {String|Null} prop A specific property name to check.
-     * 
-     * @returns {Object}         The modified data object with the modifiers data object added.
-     */
-    _ensureHasModifiers(data, prop = null) {
-        if (!hasProperty(data, "modifiers")) {
-            console.log(`SFRPG | ${this.name} does not have the modifiers data object, attempting to create them...`);
-            data.modifiers = [];
+    /** @override */
+    render(force, context = {}) {
+        /** Clear out deleted item sheets. */
+        const keysToDelete = [];
+        for (const [appId, app] of Object.entries(this.apps)) {
+            if (app instanceof ItemSheetSFRPG) {
+                const item = app.object;
+                if (!this.items.find(x => x.id === item.id)) {
+                    keysToDelete.push(appId);
+                }
+            }
+        }
+        if (keysToDelete.length > 0) {
+            for (const key of keysToDelete) {
+                delete this.apps[key];
+            }
         }
 
-        return data;
+        /** Now render this actor. */
+        return super.render(force, context);
     }
-    
+
     /**
      * Extend the default update method to enhance data before submission.
      * See the parent Entity.update method for full details.
@@ -99,13 +148,22 @@ export class ActorSFRPG extends Actor {
      * @return {Promise}        A Promise which resolves to the updated Entity
      */
     async update(data, options = {}) {
-        const newSize = data['data.traits.size'];
-        if (newSize && (newSize !== getProperty(this.data, "data.traits.size"))) {
-            let size = CONFIG.SFRPG.tokenSizes[data['data.traits.size']];
+        const newSize = data['system.traits.size'];
+        if (newSize && (newSize !== foundry.utils.getProperty(this.system, "traits.size"))) {
+            const size = CONFIG.SFRPG.tokenSizes[data['system.traits.size']];
             if (this.isToken) this.token.update({ height: size, width: size });
-            else if (!data["token.width"] && !hasProperty(data, "token.width")) {
-                setProperty(data, 'token.height', size);
-                setProperty(data, 'token.width', size);
+            else if (!data["token.width"] && !foundry.utils.hasProperty(data, "token.width")) {
+                foundry.utils.setProperty(data, 'token.height', size);
+                foundry.utils.setProperty(data, 'token.width', size);
+            }
+        }
+
+        if (!["drone", "starship", "vehicle"].includes(this.type)) {
+            const oldMainMovement = this.system?.attributes?.speed?.mainMovement;
+            const newMainMovement = data['system.attributes.speed.mainMovement'];
+            if (newMainMovement && (newMainMovement !== oldMainMovement)) {
+                data['prototypeToken.movementAction'] = CONFIG.SFRPG.movementOptions[newMainMovement];
+                console.log(`Starfinder | Updated prototype token movement action on ${this.name} (${this.id}) to '${CONFIG.SFRPG.movementOptions[newMainMovement]}'`);
             }
         }
 
@@ -113,48 +171,232 @@ export class ActorSFRPG extends Actor {
     }
 
     /**
-     * Extend OwnedItem creation logic for the SFRPG system to make weapons proficient by default when dropped on a NPC sheet
-     * See the base Actor class for API documentation of this method
-     * 
-     * @param {String} embeddedName The type of Entity being embedded.
-     * @param {Object} itemData The data object of the item
-     * @param {Object} options Any options passed in
-     * @returns {Promise}
+     * Remove ability to create "NPC V1" from the UI
+     * @inheritdoc
      */
-    async createEmbeddedEntity(embeddedName, itemData, options) {
-        if (!this.isPC) {
-            let t = itemData.type;
-            let initial = {};
-            if (t === "weapon") initial['data.proficient'] = true;
-            if (["weapon", "equipment"].includes(t)) initial['data.equipped'] = true;
-            if (t === "spell") initial['data.prepared'] = true;
-            mergeObject(itemData, initial);
-        }
+    static async createDialog(data, createOptions, dialogOptions) {
+        dialogOptions.types = (dialogOptions?.types ?? this.TYPES).filter(t => t !== "npc");
 
-        return super.createEmbeddedEntity(embeddedName, itemData, options);
+        return super.createDialog(data, createOptions, dialogOptions);
     }
 
-    async useSpell(item, { configureDialog = true } = {}) {
-        if (item.data.type !== "spell") throw new Error("Wrong item type");
+    /**
+     * Extend preCreate to apply some defaults to newly created characters
+     * @inheritdoc
+     */
+    async _preCreate(data, options, user) {
+        const autoLinkedTypes = ['character', 'drone'];
+        const updates = {};
 
-        let lvl = item.data.data.level;
-        const usesSlots = (lvl > 0) && item.data.data.preparation.mode === "";
-        if (!usesSlots) return item.roll();
+        // Auto link PCs and drones
+        if (autoLinkedTypes.includes(this.type)) {
+            updates.prototypeToken = { actorLink:  true };
+        }
 
-        let consume = true;
-        if (configureDialog) {
-            const spellFormData = await SpellCastDialog.create(this, item);
-            lvl = parseInt(spellFormData.get("level"));
-            consume = Boolean(spellFormData.get("consume"));
-            if (lvl !== item.data.data.level) {
-                item = item.constructor.createOwned(mergeObject(item.data, { "data.level": lvl }, { inplace: false }), this);
+        // Auto add unarmed strike if setting is enabled
+        if (this.type === "character" && game.settings.get("sfrpg", "autoAddUnarmedStrike")) {
+            const ITEM_UUID = "Compendium.sfrpg.equipment.AWo4DU0s18agsFtJ"; // Unarmed strike
+            const source = (await fromUuid(ITEM_UUID)).toObject();
+            source.system.proficient = true;
+            source.flags = foundry.utils.mergeObject(source.flags ?? {}, { core: { sourceId: ITEM_UUID } });
+
+            updates.items = [source];
+        }
+
+        // Apply a default icon to the actor based on its type if it doesn't already have an icon selected
+        if (Object.values(SFRPG.foundryDefaultIcons).includes(this.img)) {
+            if (Object.keys(SFRPG.defaultActorIcons).includes(this.type)) {
+                updates.img = ["systems/sfrpg/icons/default/", SFRPG.defaultActorIcons[this.type]].join("");
             }
         }
 
-        if (consume && (lvl > 0)) {
-            await this.update({
-                [`data.spells.spell${lvl}.value`]: Math.max(parseInt(this.data.data.spells[`spell${lvl}`].value) - 1, 0)
+        // Set the prototype token's movement type to the main movement defined in the actor's speed
+        if (this.type === "starship") {
+            updates.prototypeToken = {movementAction: "fly"};
+        } else if (CONFIG.SFRPG.actorsCharacterScale.includes(this.type)) {
+            const mainMovementAction = CONFIG.SFRPG.movementOptions[this.system.attributes?.speed?.mainMovement] ?? null;
+            updates.prototypeToken = {movementAction: mainMovementAction};
+        }
+
+        // Lock artwork rotation if setting is enabled and actor is a character/drone/npc/hazard
+        if (game.settings.get("sfrpg", "lockArtworkRotationDefault") && CONFIG.SFRPG.actorsCharacterScale.includes(this.type)) {
+            updates.prototypeToken = foundry.utils.mergeObject(updates.prototypeToken ?? {}, { lockRotation : true });
+        }
+
+        this.updateSource(updates);
+
+        return super._preCreate(data, options, user);
+    }
+
+    /**
+     * Extend preUpdate to clamp certain PC changes
+     * @inheritdoc
+     */
+    async _preUpdate(changed, options, user) {
+
+        // Clamp HP/SP/RP values to 0 and their max
+        const changedHP = changed.system?.attributes?.hp?.value;
+        const changedSP = changed.system?.attributes?.sp?.value;
+        const changedRP = changed.system?.attributes?.rp?.value;
+
+        if (changedHP) {
+            const clampedHP = Math.clamp(changedHP, 0, this.system.attributes.hp.max);
+            changed.system.attributes.hp.value = clampedHP;
+        }
+
+        if (changedSP) {
+            const clampedSP = Math.clamp(changedSP, 0, this.system.attributes.sp.max);
+            changed.system.attributes.sp.value = clampedSP;
+        }
+
+        if (changedRP) {
+            const clampedRP = Math.clamp(changedRP, 0, this.system.attributes.rp.max);
+            changed.system.attributes.rp.value = clampedRP;
+        }
+
+        try {
+            this.floatingHpOnPreUpdate(this, changed, options, user);
+        } catch {
+            console.warn("Starfinder | Floating HP preupdate failed!");
+        }
+
+        return super._preUpdate(changed, options, user);
+
+    }
+
+    /** @inheritdoc */
+    _onUpdate(data, options, userId) {
+        super._onUpdate(data, options, userId);
+        try {
+            this.floatingHpOnUpdate(this, data, options, userId);
+        } catch {
+            console.warn("Starfinder | Floating HP update failed!");
+        }
+    }
+
+    /**
+     * Delete any of corresponding timedEffect objects of the actor's items.
+     * Also remove linked hotbar instances from item apps before deleting so the hotbar isn't closed.
+     * @inheritdoc
+     */
+    async _onDelete(options, userId) {
+        for (const item of this.items) {
+            game.sfrpg.timedEffects.get(item.uuid)?.delete();
+            delete item.apps[ui.hotbar.id];
+        }
+
+        return super._onDelete(options, userId);
+    }
+
+    /**
+     * Toggle scrolling text for created effects
+     * @inheritdoc
+     */
+    _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
+        for (const item of documents) {
+            const itemData = item.system;
+
+            if (item.type === "effect" && itemData.showOnToken && itemData.enabled) {
+                SFRPGTimedEffect.createScrollingText(item, true);
+            }
+        }
+
+        super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
+    }
+
+    /**
+     * Delete item's corresponding timedEffect objects
+     * @inheritdoc
+     */
+    _onDeleteDescendantDocuments(parent, collection, documents, data, options, userId) {
+        for (const item of documents) {
+            game.sfrpg.timedEffects.get(item.uuid)?.delete();
+        }
+
+        return super._onDeleteDescendantDocuments(parent, collection, documents, data, options, userId);
+    }
+
+    async useSpell(item, { configureDialog = true } = {}) {
+        if (item.type !== "spell") throw new Error("Wrong item type");
+
+        let spellLevel = item.system.level;
+        const usesSlots = (spellLevel > 0) && item.system.preparation.mode === "";
+        if (!usesSlots) {
+            if (item.system.uses?.max > 0) {
+                if (item.system.uses.value <= 0) {
+                    ui.notifications.error(game.i18n.localize("SFRPG.Items.Spell.ErrorNoUses", {permanent: true}));
+                    return;
+                }
+
+                const itemUpdatePromise = item.update({
+                    [`system.uses.value`]: Math.max(item.system.uses.value - 1, 0)
+                });
+                itemUpdatePromise.then(() => {
+                    item.roll();
+                });
+                return itemUpdatePromise;
+            } else {
+                return item.roll();
+            }
+        }
+
+        let consumeSpellSlot = true;
+        let selectedSlot = null;
+        if (configureDialog) {
+            try {
+                const dialogResponse = await SpellCastDialog.create(this, item);
+                const slotLevel = parseInt(dialogResponse.formData.get("level"));
+                consumeSpellSlot = Boolean(dialogResponse.formData.get("consume"));
+                selectedSlot = dialogResponse.spellLevels.find(x => parseInt(x.level) === slotLevel);
+                spellLevel = parseInt(selectedSlot?.level || item.system.level);
+
+                if (spellLevel !== item.system.level && item.system.level > spellLevel) {
+                    const newItemData = item.toObject();
+                    newItemData.system.level = spellLevel;
+
+                    if (this.type === "npc" || this.type === "npc2") {
+                        if (newItemData.system.save.dc && !Number.isNaN(newItemData.system.save.dc)) {
+                            newItemData.system.save.dc = newItemData.system.save.dc - item.system.level + spellLevel;
+                        }
+                    }
+
+                    item = new ItemSFRPG(newItemData, {parent: this});
+                }
+
+                // Run automation to ensure save DCs are correct.
+                item.prepareData();
+                if (item.system.actionType && item.system.save.type) {
+                    await item.processData();
+                }
+            } catch (error) {
+                console.error(error);
+                return null;
+            }
+        }
+
+        let processContext = null;
+        if (consumeSpellSlot && spellLevel > 0 && selectedSlot) {
+            const actor = this;
+            if (selectedSlot.source === "general") {
+                processContext = actor.update({
+                    [`system.spells.spell${spellLevel}.value`]: Math.max(parseInt(actor.system.spells[`spell${spellLevel}`].value) - 1, 0)
+                });
+            } else {
+                const selectedLevel = selectedSlot.level;
+                const selectedClass = selectedSlot.source;
+
+                processContext = actor.update({
+                    [`system.spells.spell${selectedLevel}.perClass.${selectedClass}.value`]: Math.max(parseInt(actor.system.spells[`spell${spellLevel}`].perClass[selectedClass].value) - 1, 0)
+                });
+            }
+        }
+
+        if (processContext) {
+            processContext.then(function() {
+                return item.roll();
             });
+
+            return processContext;
         }
 
         return item.roll();
@@ -163,181 +405,67 @@ export class ActorSFRPG extends Actor {
     /**
      * Edit a skill's fields
      * @param {string} skillId The skill id (e.g. "ins")
-     * @param {Object} options Options which configure how the skill is edited
      */
-    async editSkill(skillId, options = {}) {
-        // Keeping this here for later
-        // this.update({"data.skills.-=skillId": null});
-        // use this to delete any unwanted skills.
+    async editSkill(skillId) {
 
-        const skill = duplicate(this.data.data.skills[skillId]);
-        const isNpc = this.data.type === "npc";
-        const formData = await AddEditSkillDialog.create(skillId, skill, true, isNpc),
+        const skill = foundry.utils.deepClone(this.system.skills[skillId]);
+        const isNpc = this.type === "npc" || this.type === "npc2";
+        const formData = await AddEditSkillDialog.create(skillId, skill, true, isNpc, this.isOwner),
             isTrainedOnly = Boolean(formData.get('isTrainedOnly')),
             hasArmorCheckPenalty = Boolean(formData.get('hasArmorCheckPenalty')),
-            value = Boolean(formData.get('value')) ? 3 : 0,
+            value = formData.get('value') ? 3 : 0,
             misc = Number(formData.get('misc')),
+            notes = String(formData.get('notes')),
             ranks = Number(formData.get('ranks')),
             ability = formData.get('ability'),
             remove = Boolean(formData.get('remove'));
 
-        if (remove) return this.update({ [`data.skills.-=${skillId}`]: null });
+        if (remove) return this.update({ [`system.skills.-=${skillId}`]: null });
 
-        let updateObject = {
-            [`data.skills.${skillId}.ability`]: ability,
-            [`data.skills.${skillId}.ranks`]: ranks,
-            [`data.skills.${skillId}.value`]: value,
-            [`data.skills.${skillId}.misc`]: misc,
-            [`data.skills.${skillId}.isTrainedOnly`]: isTrainedOnly,
-            [`data.skills.${skillId}.hasArmorCheckPenalty`]: hasArmorCheckPenalty
+        const updateObject = {
+            [`system.skills.${skillId}.ability`]: ability,
+            [`system.skills.${skillId}.ranks`]: ranks,
+            [`system.skills.${skillId}.value`]: value,
+            [`system.skills.${skillId}.misc`]: misc,
+            [`system.skills.${skillId}.notes`]: notes,
+            [`system.skills.${skillId}.isTrainedOnly`]: isTrainedOnly,
+            [`system.skills.${skillId}.hasArmorCheckPenalty`]: hasArmorCheckPenalty
         };
 
-        if (isNpc) updateObject[`data.skills.${skillId}.enabled`] = Boolean(formData.get('enabled'));
+        if (isNpc) updateObject[`system.skills.${skillId}.enabled`] = Boolean(formData.get('enabled'));
 
         if ("subname" in skill) {
-            updateObject[`data.skills.${skillId}.subname`] = formData.get('subname');
+            updateObject[`system.skills.${skillId}.subname`] = formData.get('subname');
         }
 
         return this.update(updateObject);
-    }
-    
-    /**
-     * Add a modifier to this actor.
-     * 
-     * @param {Object}        data               The data needed to create the modifier
-     * @param {String}        data.name          The name of this modifier. Used to identify the modfier.
-     * @param {Number|String} data.modifier      The modifier value.
-     * @param {String}        data.type          The modifiers type. Used to determine stacking.
-     * @param {String}        data.modifierType  Used to determine if this modifier is a constant value (+2) or a Roll formula (1d4).
-     * @param {String}        data.effectType    The category of things that might be effected by this modifier.
-     * @param {String}        data.subtab        What subtab should this modifier show under on the character sheet.
-     * @param {String}        data.valueAffected The specific value being modified.
-     * @param {Boolean}       data.enabled       Is this modifier activated or not.
-     * @param {String}        data.source        Where did this modifier come from? An item, ability or something else?
-     * @param {String}        data.notes         Any notes or comments about the modifier.
-     * @param {String}        data.condition     The condition, if any, that this modifier is associated with.
-     * @param {String|null}   data.id            Override the randomly generated id with this.
-     */
-    async addModifier({
-        name = "", 
-        modifier = 0, 
-        type = SFRPGModifierTypes.UNTYPED, 
-        modifierType = SFRPGModifierType.CONSTANT, 
-        effectType = SFRPGEffectType.SKILL,
-        subtab = "misc",
-        valueAffected = "", 
-        enabled = true, 
-        source = "", 
-        notes = "",
-        condition = "",
-        id = null
-    } = {}) {
-        const data = this._ensureHasModifiers(duplicate(this.data.data));
-        const modifiers = data.modifiers;
-
-        modifiers.push(new SFRPGModifier({
-            name,
-            modifier,
-            type,
-            modifierType,
-            effectType,
-            valueAffected,
-            enabled,
-            source,
-            notes,
-            subtab,
-            condition,
-            id
-        }));
-
-        await this.update({["data.modifiers"]: modifiers});
-    }
-
-    /**
-     * Delete a modifier for this Actor.
-     * 
-     * @param {String} id The id for the modifier to delete
-     */
-    async deleteModifier(id) {
-        const modifiers = this.data.data.modifiers.filter(mod => mod._id !== id);
-        
-        await this.update({"data.modifiers": modifiers});
-    }
-
-    /**
-     * Edit a modifier for an Actor.
-     * 
-     * @param {String} id The id for the modifier to edit
-     */
-    editModifier(id) {
-        const modifiers = duplicate(this.data.data.modifiers);
-        const modifier = modifiers.find(mod => mod._id === id);
-
-        new SFRPGModifierApplication(modifier, this).render(true);
-    }
-
-    /**
-     * Returns an array of all modifiers on this actor. This will include items such as equipment, feat, classes, race, theme, etc.
-     * 
-     * @param {Boolean} ignoreTemporary Should we ignore temporary modifiers? Defaults to false.
-     * @param {Boolean} ignoreEquipment Should we ignore equipment modifiers? Defaults to false.
-     */
-    getAllModifiers(ignoreTemporary = false, ignoreEquipment = false) {
-        let allModifiers = this.data.data.modifiers.filter(mod => {
-            return (!ignoreTemporary || mod.subtab == "permanent");
-        });
-
-        for (let item of this.data.items) {
-            let modifiersToConcat = [];
-            switch (item.type) {
-                default:
-                    modifiersToConcat = item.data.modifiers;
-                    break;
-                case "feat":
-                    if (item.data.activation?.type === "") {
-                        modifiersToConcat = item.data.modifiers;
-                    }
-                    break;
-                case "equipment":
-                case "weapon":
-                    if (!ignoreEquipment && item.data.equipped) {
-                        modifiersToConcat = item.data.modifiers;
-                    }
-                    break;
-            }
-            if (modifiersToConcat && modifiersToConcat.length > 0) {
-                allModifiers = allModifiers.concat(modifiersToConcat);
-            }
-        }
-        return allModifiers;
     }
 
     /**
      * Toggles what NPC skills are shown on the sheet.
      */
     async toggleNpcSkills() {
-        const skills = duplicate(this.data.data.skills);
+        const skills = foundry.utils.deepClone(this.system.skills);
         const formData = await NpcSkillToggleDialog.create(skills);
         let enabledSkills = {};
         const delta = Object.entries(skills).reduce((obj, curr) => {
-            if (curr[1].enabled) obj[`data.skills.${curr[0]}.enabled`] = !curr[1].enabled;
+            if (curr[1].enabled) obj[`system.skills.${curr[0]}.enabled`] = !curr[1].enabled;
             return obj;
         }, {});
 
-        for (let [key, value] of formData.entries()) {
-            enabledSkills[`data.${key}`] = Boolean(value);
+        for (const [key, value] of formData.entries()) {
+            enabledSkills[`system.${key}`] = Boolean(value);
         }
-        
-        enabledSkills = mergeObject(enabledSkills, delta, {overwrite: false, inplace: false});
+
+        enabledSkills = foundry.utils.mergeObject(enabledSkills, delta, {overwrite: false, inplace: false});
 
         return await this.update(enabledSkills);
     }
 
     /**
      * Add a new skill
-     * @param {Object} options Options which configure how the skill is added
      */
-    async addSkill(options = {}) {
+    async addSkill() {
         const skill = {
             ability: "int",
             ranks: 0,
@@ -351,28 +479,135 @@ export class ActorSFRPG extends Actor {
         let skillId = "pro";
         let counter = 0;
 
-        while (this.data.data.skills[skillId]) {
+        while (this.system.skills[skillId]) {
             skillId = `pro${++counter}`;
         }
 
-        const formData = await AddEditSkillDialog.create(skillId, skill, false),
+        const formData = await AddEditSkillDialog.create(skillId, skill, false, this.hasPlayerOwner, this.isOwner),
             isTrainedOnly = Boolean(formData.get('isTrainedOnly')),
             hasArmorCheckPenalty = Boolean(formData.get('hasArmorCheckPenalty')),
-            value = Boolean(formData.get('value')) ? 3 : 0,
+            value = formData.get('value') ? 3 : 0,
             misc = Number(formData.get('misc')),
             ranks = Number(formData.get('ranks')),
             ability = formData.get('ability'),
             subname = formData.get('subname');
 
-        return this.update({
-            [`data.skills.${skillId}`]: {},
-            [`data.skills.${skillId}.isTrainedOnly`]: isTrainedOnly,
-            [`data.skills.${skillId}.hasArmorCheckPenalty`]: hasArmorCheckPenalty,
-            [`data.skills.${skillId}.value`]: value,
-            [`data.skills.${skillId}.misc`]: misc,
-            [`data.skills.${skillId}.ranks`]: ranks,
-            [`data.skills.${skillId}.ability`]: ability,
-            [`data.skills.${skillId}.subname`]: subname
+        const newSkillData = {
+            [`system.skills.${skillId}`]: {},
+            [`system.skills.${skillId}.isTrainedOnly`]: isTrainedOnly,
+            [`system.skills.${skillId}.hasArmorCheckPenalty`]: hasArmorCheckPenalty,
+            [`system.skills.${skillId}.value`]: value,
+            [`system.skills.${skillId}.misc`]: misc,
+            [`system.skills.${skillId}.ranks`]: ranks,
+            [`system.skills.${skillId}.ability`]: ability,
+            [`system.skills.${skillId}.subname`]: subname,
+            [`system.skills.${skillId}.mod`]: value + misc + ranks,
+            [`system.skills.${skillId}.enabled`]: true
+        };
+
+        return this.update(newSkillData);
+    }
+
+    /**
+     * Roll a Skill Check
+     * Prompt the user for input regarding Advantage/Disadvantage and any Situational Bonus
+     * @param {string} skillId      The skill id (e.g. "ins")
+     * @param {Object} options      Options which configure how the skill check is rolled
+     * @returns {Promise<RollResult?>}
+     */
+    async rollSkill(skillId, options = {}) {
+        const skl = this.system.skills[skillId];
+
+        if (!this.hasPlayerOwner) {
+            return this.rollSkillCheck(skillId, options);
+        } else if (skl.isTrainedOnly && !(skl.ranks > 0)) {
+            const content = game.i18n.format(
+                "SFRPG.SkillTrainedOnlyDialog.Content", { skill: CONFIG.SFRPG.skills[skillId.substring(0, 3)], name: this.name }
+            );
+
+            return new Promise(resolve => {
+                new Dialog({
+                    title: game.i18n.format(
+                        "SFRPG.SkillTrainedOnlyDialog.Title", { skill: CONFIG.SFRPG.skills[skillId.substring(0, 3)] }
+                    ),
+                    content: content,
+                    buttons: {
+                        yes: {
+                            label: game.i18n.localize("Yes"),
+                            callback: () => {
+                                this.rollSkillCheck(skillId, options)
+                                    .then(() => resolve());
+                            }
+                        },
+                        cancel: {
+                            label: game.i18n.localize("No")
+                        }
+                    },
+                    default: "cancel"
+                }).render(true);
+            });
+        } else {
+            return this.rollSkillCheck(skillId, options);
+        }
+    }
+
+    /**
+     * Roll a generic ability test.
+     *
+     * @param {String} abilityId The ability id (e.g. "str")
+     * @param {Object} options Options which configure how ability tests are rolled
+     * @returns {Promise<RollResult?>}
+     */
+    async rollAbility(abilityId, options = {}) {
+        return DiceSFRPG.d20Roll({
+            event: options.event,
+            rollContext: RollContext.createActorRollContext(this),
+            parts: [ `@abilities.${abilityId}.abilityCheckBonus` ],
+            title:  game.i18n.format("SFRPG.Rolls.Dice.AbilityCheckTitle", {label: CONFIG.SFRPG.abilities[abilityId]}),
+            flavor: null,
+            speaker: ChatMessage.getSpeaker({ actor: this }),
+            chatMessage: options.chatMessage,
+            onClose: options.onClose,
+            dialogOptions: {
+                skipUI: options.skipUI,
+                left: options.event ? options.event.clientX - 80 : null,
+                top: options.event ? options.event.clientY - 80 : null
+            },
+            rollType: "abilityCheck",
+            difficulty: options.dc
+        });
+    }
+
+    /**
+     * Roll a save check
+     *
+     * @param {String} saveId The save id (e.g. "will")
+     * @param {Object} options Options which configure how saves are rolled
+     * @returns {Promise<RollResult?>}
+     */
+    async rollSave(saveId, options = {}) {
+        const label = CONFIG.SFRPG.saves[saveId];
+
+        const rollContext = RollContext.createActorRollContext(this);
+
+        const parts = [`@attributes.${saveId}.bonus`];
+
+        return DiceSFRPG.d20Roll({
+            event: options.event,
+            rollContext: rollContext,
+            parts: parts,
+            title: game.i18n.format("SFRPG.Rolls.Dice.SaveTitle", {label: label}),
+            flavor: null,
+            speaker: ChatMessage.getSpeaker({ actor: this }),
+            chatMessage: options.chatMessage,
+            onClose: options.onClose,
+            dialogOptions: {
+                skipUI: options.skipUI,
+                left: options.event ? options.event.clientX - 80 : null,
+                top: options.event ? options.event.clientY - 80 : null
+            },
+            rollType: "save",
+            difficulty: options.dc
         });
     }
 
@@ -381,338 +616,643 @@ export class ActorSFRPG extends Actor {
      * Prompt the user for input regarding Advantage/Disadvantage and any Situational Bonus
      * @param {string} skillId      The skill id (e.g. "ins")
      * @param {Object} options      Options which configure how the skill check is rolled
+     * @returns {Promise<RollResult?>}
      */
-    rollSkill(skillId, options = {}) {
-        const skl = this.data.data.skills[skillId];
+    async rollSkillCheck(skillId, options = {}) {
+        const rollContext = RollContext.createActorRollContext(this);
+        const parts = [`@skills.${skillId}.mod`];
+        const skill = this.system.skills[skillId];
 
-        if (!this.isPC) {
-            this.rollSkillCheck(skillId, skl, options);
-            return;
+        const title = skillId.includes('pro')
+            ? game.i18n.format("SFRPG.Rolls.Dice.SkillCheckTitleWithProfession", { skill: CONFIG.SFRPG.skills[skillId.substring(0, 3)], profession: skill.subname })
+            : game.i18n.format("SFRPG.Rolls.Dice.SkillCheckTitle", { skill: CONFIG.SFRPG.skills[skillId.substring(0, 3)] });
+
+        const tags = [];
+
+        if (skill.value) {
+            tags.push({name: "classSkill", text: game.i18n.format("SFRPG.SkillProficiencyLevelClassSkill")});
         }
 
-        if (skl.isTrainedOnly && !(skl.ranks > 0)) {
-            let content = `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]} is a trained only skill, but ${this.name} is not trained in that skill.
-                Would you like to roll anyway?`;
-
-            new Dialog({
-                title: `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]} is trained only`,
-                content: content,
-                buttons: {
-                    yes: {
-                        label: "Yes",
-                        callback: () => this.rollSkillCheck(skillId, skl, options)
-                    },
-                    cancel: {
-                        label: "No"
-                    }
-                },
-                default: "cancel"
-            }).render(true);
+        if (skill.ranks) {
+            tags.push({name: "hasSkillRanks", text: game.i18n.format("SFRPG.SkillTrained")});
         } else {
-            this.rollSkillCheck(skillId, skl, options);
+            if (skill.isTrainedOnly) {tags.push({name: "isTrainedOnly", text: game.i18n.format("SFRPG.SkillTrainedOnly")});}
+            tags.push({name: "hasSkillRanks", text: game.i18n.format("SFRPG.SkillUntrained")});
         }
-    }
-
-    /**
-     * Roll a generic ability test.
-     * 
-     * @param {String} abilityId The ability id (e.g. "str")
-     * @param {Object} options Options which configure how ability tests are rolled
-     */
-    rollAbility(abilityId, options = {}) {
-        const label = CONFIG.SFRPG.abilities[abilityId];
-        const abl = this.data.data.abilities[abilityId];
 
         return DiceSFRPG.d20Roll({
             event: options.event,
-            actor: this,
-            parts: ["@mod"],
-            data: { mod: abl.mod },
-            flavor: game.settings.get('sfrpg', 'useCustomChatCard') ? `${label}` : `Ability Check - ${label}`,
-            title:  `Ability Check`,
-            speaker: ChatMessage.getSpeaker({ actor: this })
+            rollContext: rollContext,
+            parts: parts,
+            title: title,
+            flavor: await foundry.applications.ux.TextEditor.enrichHTML(skill.notes, {
+                async: true,
+                rollData: this.getRollData() ?? {}
+            }),
+            speaker: ChatMessage.getSpeaker({ actor: this }),
+            chatMessage: options.chatMessage,
+            onClose: options.onClose,
+            dialogOptions: {
+                skipUI: options.skipUI,
+                left: options.event ? options.event.clientX - 80 : null,
+                top: options.event ? options.event.clientY - 80 : null
+            },
+            rollType: "skillCheck",
+            difficulty: options.dc,
+            tags: tags
         });
     }
 
     /**
-     * Roll a save check
-     * 
-     * @param {String} saveId The save id (e.g. "will")
+     * Roll the Piloting skill of the pilot of a vehicle
+     *
      * @param {Object} options Options which configure how saves are rolled
+     * @returns {Promise<RollResult?>}
      */
-    rollSave(saveId, options = {}) {
-        const label = CONFIG.SFRPG.saves[saveId];
-        const save = this.data.data.attributes[saveId];
+    async rollVehiclePilotingSkill(role = null, actorId = null, system = null, options = {}) {
+
+        const parts = [];
+        const data = this.getRollData();
+
+        const rollContext = new RollContext();
+        rollContext.addContext("vehicle", this, data);
+        rollContext.setMainContext("vehicle");
+
+        // Add piloting modifier of vehicle
+        parts.push(`@attributes.modifiers.piloting`);
+
+        // Roll a piloting check with a specific system (usually Autopilot).
+        // Only takes vehicle and system piloting into account
+        if (system) {
+            rollContext.addContext("system", system, system.system);
+            parts.push(`@system.piloting.piloting`);
+        } else if (!role || !actorId) {
+            // Add pilot's piloting modifier
+            parts.push(`@pilot.skills.pil.mod`);
+        } else {
+            const passengerId = this.system.crew[role].actorIds.find(id => id === actorId);
+            const passenger = game.actors.get(passengerId);
+            let actorData = null;
+            if (passenger instanceof ActorSFRPG) {
+                actorData = passenger.system;
+            } else {
+                actorData = passenger.data;
+            }
+
+            rollContext.addContext("passenger", passenger, actorData);
+            parts.push(`@passenger.skills.pil.mod`);
+        }
+
+        this.setupRollContexts(rollContext);
 
         return DiceSFRPG.d20Roll({
             event: options.event,
-            actor: this,
-            parts: ["@mod"],
-            data: { mod: save.bonus },
-            title: `Save`,
-            flavor: game.settings.get('sfrpg', 'useCustomChatCard') ? `${label}` : `Save - ${label}`,
-            speaker: ChatMessage.getSpeaker({ actor: this })
+            rollContext: rollContext,
+            parts: parts,
+            title: game.i18n.format("SFRPG.Rolls.Dice.SkillCheckTitle", {skill: CONFIG.SFRPG.skills["pil"]}),
+            flavor: null,
+            speaker: ChatMessage.getSpeaker({ actor: this }),
+            chatMessage: options.chatMessage,
+            dialogOptions: {
+                skipUI: options.skipUI,
+                left: options.event ? options.event.clientX - 80 : null,
+                top: options.event ? options.event.clientY - 80 : null
+            },
+            rollType: "skillCheck",
+            onClose: options.onClose
         });
     }
 
-    rollSkillCheck(skillId, skill, options = {}) {
-        return DiceSFRPG.d20Roll({
-            actor: this,
-            event: options.event,
-            parts: ["@mod"],
-            data: { mod: skill.mod },
-            title: 'Skill Check',
-            flavor: game.settings.get('sfrpg', 'useCustomChatCard') ? `${CONFIG.SFRPG.skills[skillId.substring(0, 3)]}`: `Skill Check - ${CONFIG.SFRPG.skills[skillId.substring(0, 3)]}`,
-            speaker: ChatMessage.getSpeaker({ actor: this })
-        });
-    }
-
-    static async applyDamage(roll, multiplier) {
-        let value = Math.floor(parseFloat(roll.find('.dice-total').text()) * multiplier);
-        const promises = [];
-        for (let t of canvas.tokens.controlled) {
-            if (t.actor.data.type === "starship") {
-                ui.notifications.warn("Cannot currently apply damage to starships using the context menu");
-                continue;
-            } else if (t.actor.data.type === "vehicle") {
-                ui.notifications.warn("Cannot currently apply damage to vehicles using the context menu");
-                continue;
-            }
-
-            let a = t.actor,
-                hp = a.data.data.attributes.hp,
-                sp = a.data.data.attributes.sp,
-                tmp = parseInt(hp.temp) | 0,
-                dt = value > 0 ? Math.min(tmp, value) : 0,
-                tmpd = tmp - dt,
-                // stamina doesn't get healed like hit points do, so skip it if we're appling 
-                // healing instead of damage.
-                spd = value > 0 ? Math.clamped(sp.value - (value - dt), 0, sp.max) : sp.value;
-
-            dt = value > 0 ? value - Math.clamped((value - dt) - sp.value, 0, value) : 0;
-
-            let hpd = Math.clamped(hp.value - (value - dt), 0, hp.max);
-
-            promises.push(t.actor.update({
-                "data.attributes.hp.temp": tmpd,
-                "data.attributes.sp.value": spd,
-                "data.attributes.hp.value": hpd
-            }));
-        }
-
-        return Promise.all(promises);
-    }
-
-    /**
-     * Cause this Actor to take a Short 10 minute Rest
-     * During a Short Rest resources and limited item uses may be recovered
-     * @param {boolean} dialog  Present a dialog window which allows for spending Resolve Points as part of the Short Rest
-     * @param {boolean} chat    Summarize the results of the rest workflow as a chat message
-     * @return {Promise}        A Promise which resolves once the short rest workflow has completed
-     */
-    async shortRest({ dialog = true, chat = true } = {}) {
-        const data = this.data.data;
-
-        // Ask user to confirm if they want to rest, and if they want to restore stamina points
-        let sp = data.attributes.sp;
-        let rp = data.attributes.rp;
-        let canRestoreStaminaPoints = rp.value > 0 && sp.value < sp.max;
-
-        let restoreStaminaPoints = false;
-
-        if (dialog) {
-            const restingResults = await ShortRestDialog.shortRestDialog({ actor: this, canRestoreStaminaPoints: canRestoreStaminaPoints });
-            if (!restingResults.resting) return;
-            restoreStaminaPoints = restingResults.restoreStaminaPoints;
-        }
-        
-        let drp = 0;
-        let dsp = 0;
-        if (restoreStaminaPoints && canRestoreStaminaPoints) {
-            drp = 1;
-            let updatedRP = Math.max(rp.value - drp, 0);
-            dsp = Math.min(sp.max - sp.value, sp.max);
-            
-            this.update({ "data.attributes.sp.value": sp.max, "data.attributes.rp.value": updatedRP });
-        }
-
-        // Restore resources that reset on short rests
-        const updateData = {};
-        for (let [k, r] of Object.entries(data.resources)) {
-            if (r.max && r.sr) {
-                updateData[`data.resources.${k}.value`] = r.max;
-            }
-        }
-
-        await this.update(updateData);
-
-        // Reset items that restore their uses on a short rest
-        const items = this.items.filter(item => item.data.data.uses && (item.data.data.uses.per === "sr"));
-        const updateItems = items.map(item => {
-            return {
-                "id": item.data.id,
-                "data.uses.value": item.data.data.uses.max
-            }
-        });
-
-        await this.updateEmbeddedEntity("OwnedItem", updateItems);
-
-        // Notify chat what happened
-        if (chat) {
-            let msg = game.i18n.format("SFRPG.RestSChatMessage", { name: this.name });
-            if (drp > 0) {
-                msg = game.i18n.format("SFRPG.RestSChatMessageRestored", { name: this.name, spentRP: drp, regainedSP: dsp });
-            }
-            
-            ChatMessage.create({
-                user: game.user._id,
-                speaker: { actor: this, alias: this.name },
-                content: msg,
-                type: CONST.CHAT_MESSAGE_TYPES.OTHER
-            });
-        }
-
-        return {
-            drp: drp,
-            dsp: dsp,
-            updateData: updateData,
-            updateItems: updateItems
-        }
-    }
-
-    /**
-     * Cause this Actor to repair itself following drone repairing rules
-     * During a drone repair, some amount of drone HP may be recovered.
-     * @param {boolean} dialog  Present a dialog window which allows for utilizing the Repair Drone (Ex) feat while repairing.
-     * @param {boolean} chat    Summarize the results of the repair workflow as a chat message
-     * @return {Promise}        A Promise which resolves once the repair workflow has completed
-     */
-    async repairDrone({ dialog = true, chat = true } = {}) {
-        const data = this.data.data;
-
-        let hp = data.attributes.hp;
-        if (hp.value >= hp.max) {
-            let message = game.i18n.format("SFRPG.RepairDroneUnnecessary", { name: this.name });
-            ui.notifications.info(message);
+    /** Starship code */
+    async useStarshipAction(actionId) {
+        /** Bad entry; no action! */
+        if (!actionId) {
+            ui.notifications.error(game.i18n.format("SFRPG.Rolls.StarshipActions.ActionNotFoundError", {actionId: actionId}));
             return;
         }
 
-        let improvedRepairFeat = false;
-        if (dialog) {
-            const dialogResults = await DroneRepairDialog.droneRepairDialog({ actor: this, improvedRepairFeat: improvedRepairFeat });
-            if (!dialogResults.repairing) return;
-            improvedRepairFeat = dialogResults.improvedRepairFeat;
-        }
-        
-        let oldHP = hp.value;
-        let maxRepairAmount = Math.floor(improvedRepairFeat ? hp.max * 0.25 : hp.max * 0.1);
-        let newHP = Math.min(hp.max, hp.value + maxRepairAmount);
-        let dhp = newHP - oldHP;
+        const useNPCCrew = this.system.crew.useNPCCrew;
+        const starshipPackKey = game.settings.get("sfrpg", "starshipActionsSource");
+        const starshipActions = game.packs.get(starshipPackKey);
+        const actionEntryDocument = await starshipActions.getDocument(actionId);
+        const actionEntry = actionEntryDocument;
 
-        const updateData = {};
-        updateData["data.attributes.hp.value"] = newHP;
-        await this.update(updateData);
-
-        // Notify chat what happened
-        if (chat) {
-            let msg = game.i18n.format("SFRPG.RepairDroneChatMessage", { name: this.name, regainedHP: dhp });
-            
-            ChatMessage.create({
-                user: game.user._id,
-                speaker: { actor: this, alias: this.name },
-                content: msg,
-                type: CONST.CHAT_MESSAGE_TYPES.OTHER
-            });
+        /** Bad entry; no action! */
+        if (!actionEntry) {
+            ui.notifications.error(game.i18n.format("SFRPG.Rolls.StarshipActions.ActionNotFoundError", {actionId: actionId}));
+            return;
         }
 
-        return {
-            dhp: dhp,
-            updateData: updateData
-        };
-    }
+        /** Bad entry; no formula! */
+        if (actionEntry.system.formula.length < 1) {
+            ui.notifications.error(game.i18n.format("SFRPG.Rolls.StarshipActions.NoFormulaError", {name: actionEntry.name}));
+            return;
+        }
 
-    async removeFromCrew() {
-        await this.unsetFlag('sfrpg', 'crewMember');
-    }
+        let quadrant = "";
+        if (actionEntry.system.role === "gunner") {
+            const options = [
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Forward"),
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Port"),
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Starboard"),
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Aft")
+            ];
+            const results = await ChoiceDialog.show(
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Title", {name: actionEntry.name}),
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Message"),
+                {
+                    quadrant: {
+                        name: game.i18n.format("SFRPG.Rolls.StarshipActions.Quadrant.Quadrant"),
+                        options: options,
+                        default: options[0]
+                    }
+                }
+            );
 
-    async setCrewMemberRole(shipId, role) {
-        return this.setFlag('sfrpg', 'crewMember', {
-            shipId: shipId,
-            role: role
-        });
-    }
-
-    /**
-     * Take a long nights rest, recovering HP, SP, RP, resources, and spell slots
-     * @param {boolean} dialog  Present a confirmation dialog window whether or not to take a long rest
-     * @param {boolean} chat    Summarize the results of the rest workflow as a chat message
-     * @return {Promise}        A Promise which resolves once the long rest workflow has completed
-     */
-    async longRest({ dialog = true, chat = true } = {}) {
-        const data = duplicate(this.data.data);
-        const updateData = {};
-
-        if (dialog) {
-            try {
-                await ShortRestDialog.longRestDialog(this);
-            } catch (err) {
+            if (results.resolution === 'cancel') {
                 return;
             }
-        }
 
-        // Recover HP, SP, and RP
-        let dhp = data.attributes.hp.max === data.attributes.hp.value ? 0 :
-            data.details.level.value > (data.attributes.hp.max - data.attributes.hp.value) ?
-                data.attributes.hp.max - data.attributes.hp.value : data.details.level.value;
-        let dsp = data.attributes.sp.max - data.attributes.sp.value;
-        let drp = data.attributes.rp.max - data.attributes.rp.value;
-        updateData['data.attributes.hp.value'] = Math.min(data.attributes.hp.value + data.details.level.value, data.attributes.hp.max);
-        updateData['data.attributes.sp.value'] = data.attributes.sp.max;
-        updateData['data.attributes.rp.value'] = data.attributes.rp.max;
-
-        // Heal Ability damage
-        for (let [abl, ability] of Object.entries(data.abilities)) {
-            if (ability.damage && ability.damage > 0) {
-                updateData[`data.abilities.${abl}.damage`] = --ability.damage;
-            } 
-        }
-
-        for (let [k, r] of Object.entries(data.resources)) {
-            if (r.max && (r.sr || r.lr)) {
-                updateData[`data.resources.${k}.value`] = r.max;
+            const selectedOption = options.indexOf(results.result.quadrant);
+            if (selectedOption === 1) {
+                quadrant = "Port";
+            } else if (selectedOption === 2) {
+                quadrant = "Starboard";
+            } else if (selectedOption === 3) {
+                quadrant = "Aft";
+            } else {
+                quadrant = "Forward";
             }
         }
 
-        for (let [k, v] of Object.entries(data.spells)) {
-            if (!v.max) continue;
-            updateData[`data.spells.${k}.value`] = v.max;
+        let selectedFormula = actionEntry.system.formula[0];
+        if (actionEntry.system.formula.length > 1) {
+            const results = await ChoiceDialog.show(
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Choice.Title", {name: actionEntry.name}),
+                game.i18n.format("SFRPG.Rolls.StarshipActions.Choice.Message", {name: actionEntry.name}),
+                {
+                    roll: {
+                        name: game.i18n.format("SFRPG.Rolls.StarshipActions.Choice.AvailableRolls"),
+                        options: actionEntry.system.formula.map(x => x.name),
+                        default: actionEntry.system.formula[0].name
+                    }
+                }
+            );
+
+            if (results.resolution === 'cancel') {
+                return;
+            }
+
+            selectedFormula = actionEntry.system.formula.find(x => x.name === results.result.roll);
         }
 
-        const items = this.items.filter(i => i.data.data.uses && ["sr", "lr", "day"].includes(i.data.data.uses.per));
-        const updateItems = items.map(item => {
-            return {
-                "_id": item.data._id,
-                "data.uses.value": item.data.data.uses.max
+        // If it is an NPC crew the bonuses are baked into the modifier already
+        // Remove any piloting bonus from the starship
+        if (useNPCCrew) {
+            selectedFormula.formula = selectedFormula.formula.replace(/\s*\+\s*@ship\.attributes\.pilotingBonus\.value/, "");
+        }
+
+        const rollContext = new RollContext();
+        rollContext.addContext("ship", this);
+        rollContext.setMainContext("ship");
+
+        this.setupRollContexts(rollContext, actionEntry.system.selectors || []);
+
+        /** Create additional modifiers. */
+        const additionalModifiers = [
+            {bonus: {_id: "ComputerBonus", name: game.i18n.format("SFRPG.Rolls.Starship.ComputerBonus"), modifier: `${this.system?.attributes?.computer?.value ?? 0}`, enabled: false} },
+            {bonus: {_id: "CaptainDemand", name: game.i18n.format("SFRPG.Rolls.Starship.CaptainDemand"), modifier: "4", enabled: false} },
+            {bonus: {_id: "CaptainEncouragement", name: game.i18n.format("SFRPG.Rolls.Starship.CaptainEncouragement"), modifier: "2", enabled: false} }
+        ];
+        if (actionEntry.system.role === "gunner") {
+            additionalModifiers.push({bonus: {_id: "ScienceOfficerLockOn", name: game.i18n.format("SFRPG.Rolls.Starship.ScienceOfficerLockOn"), modifier: "2", enabled: false} });
+        }
+        rollContext.addContext("additional", {name: "additional"}, {modifiers: { bonus: "n/a", rolledMods: additionalModifiers } });
+
+        let systemBonus = "";
+        // Patch and Hold It Together are not affected by critical damage.
+        if (!["Patch", "Hold It Together"].includes(actionEntry.name)) {
+            // Gunners must select a quadrant.
+            if (actionEntry.system.role === "gunner") {
+                if (this.system?.attributes?.systems[`weaponsArray${quadrant}`]?.mod < 0) {
+                    systemBonus = ` + @ship.attributes.systems.weaponsArray${quadrant}.mod`;
+                }
+                if (this.system?.attributes?.systems?.powerCore?.modOther < 0) {
+                    systemBonus += ` + @ship.attributes.systems.powerCore.modOther`;
+                }
+            } else {
+                for (const [key, value] of Object.entries(this.system.attributes.systems)) {
+                    if (value.affectedRoles && value.affectedRoles[actionEntry.system.role]) {
+                        if (key === "powerCore" && actionEntry.system.role !== "engineer") {
+                            if (this.system.attributes.systems[key].modOther !== 0) {
+                                systemBonus += ` + @ship.attributes.systems.${key}.modOther`;
+                            }
+                        } else if (this.system.attributes.systems[key].mod !== 0) {
+                            systemBonus += ` + @ship.attributes.systems.${key}.mod`;
+                        }
+                    }
+                }
             }
+        }
+
+        const rollResult = await DiceSFRPG.createRoll({
+            rollContext: rollContext,
+            rollFormula: selectedFormula.formula + systemBonus + " + @additional.modifiers.bonus",
+            title: game.i18n.format("SFRPG.Rolls.StarshipAction", {action: actionEntry.name}),
+            actorContextKey: actionEntry.system.role
         });
 
-        await this.update(updateData);
-        await this.updateEmbeddedEntity("OwnedItem", updateItems);
+        if (!rollResult) {
+            return;
+        }
 
-        if (chat) {
-            ChatMessage.create({
-                user: game.user._id,
-                speaker: { actor: this, alias: this.name },
-                content: `${this.name} takes a night's rest and recovers ${dhp} Hit points, ${dsp} Stamina points, and ${drp} Resolve points.`
+        let speakerActor = this;
+        const roleKey = CONFIG.SFRPG.starshipRoles[actionEntry.system.role];
+        let roleName = game.i18n.format(roleKey);
+
+        const desiredKey = actionEntry.system.selectorKey;
+        if (desiredKey) {
+            const selectedContext = rollContext.allContexts[desiredKey];
+            if (!selectedContext) {
+                ui.notifications.error(game.i18n.format("SFRPG.Rolls.StarshipActions.NoActorError", {name: desiredKey}));
+                return;
+            }
+
+            speakerActor = selectedContext?.entity || this;
+
+            const actorRole = this.getCrewRoleForActor(speakerActor.id);
+            if (actorRole) {
+                const actorRoleKey = CONFIG.SFRPG.starshipRoles[actorRole];
+                roleName = game.i18n.format(actorRoleKey);
+            }
+        }
+
+        let flavor = "";
+        flavor += game.i18n.format("SFRPG.Rolls.StarshipActions.Chat.Role", {role: roleName, name: this.name});
+        flavor += "<br/>";
+        if (actionEntry.system.formula.length <= 1) {
+            flavor += `<h2>${actionEntry.name}</h2>`;
+        } else {
+            flavor += `<h2>${actionEntry.name} (${selectedFormula.name})</h2>`;
+        }
+
+        const dc = selectedFormula.dc || actionEntry.system.dc;
+        if (dc) {
+            if (dc.resolve) {
+                const dcRoll = await DiceSFRPG.createRoll({
+                    rollContext: rollContext,
+                    rollFormula: dc.value,
+                    mainDie: 'd0',
+                    title: game.i18n.format("SFRPG.Rolls.StarshipAction", {action: actionEntry.name}),
+                    dialogOptions: { skipUI: true },
+                    actorContextKey: actionEntry.system.role
+                });
+
+                flavor += `<p><strong>${game.i18n.format("SFRPG.Rolls.StarshipActions.Chat.DC")}: </strong>${dcRoll.roll.total}</p>`;
+            } else {
+                flavor += `<p><strong>${game.i18n.format("SFRPG.Rolls.StarshipActions.Chat.DC")}: </strong>${await foundry.applications.ux.TextEditor.enrichHTML(dc.value, {
+                    async: true,
+                    rollData: this.getRollData() ?? {}
+                })}</p>`;
+            }
+        }
+
+        flavor += `<p><strong>${game.i18n.format("SFRPG.Rolls.StarshipActions.Chat.NormalEffect")}: </strong>`;
+        flavor += await foundry.applications.ux.TextEditor.enrichHTML(selectedFormula.effectNormal || actionEntry.system.effectNormal, {
+            async: true,
+            rollData: this.getRollData() ?? {}
+        });
+        flavor += "</p>";
+
+        if (actionEntry.system.effectCritical) {
+            const critEffectDisplayState = game.settings.get("sfrpg", "starshipActionsCrit");
+            if (critEffectDisplayState !== 'never') {
+                if (critEffectDisplayState === 'always' || rollResult.roll.dice[0].values[0] === 20) {
+                    flavor += `<p><strong>${game.i18n.format("SFRPG.Rolls.StarshipActions.Chat.CriticalEffect")}: </strong>`;
+                    flavor += await foundry.applications.ux.TextEditor.enrichHTML(selectedFormula.effectCritical || actionEntry.system.effectCritical, {
+                        async: true,
+                        rollData: this.getRollData() ?? {}
+                    });
+                    flavor += "</p>";
+                }
+            }
+        }
+
+        const rollMode = rollResult.roll?.options?.rollMode ?? game.settings.get("core", "rollMode");
+        const preparedRollExplanation = DiceSFRPG.formatFormula(rollResult.formula.formula);
+        const rollContent = await rollResult.roll.render({ breakdown: preparedRollExplanation });
+
+        ChatMessage.create({
+            flavor: flavor,
+            speaker: ChatMessage.getSpeaker({ actor: speakerActor }),
+            content: rollContent,
+            rolls: [rollResult.roll],
+            style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+            sound: CONFIG.sounds.dice
+        }, { rollMode: rollMode});
+    }
+
+    levelUp(actorClassId) {
+        const targetClass = this.items.get(actorClassId);
+        if (targetClass) {
+            targetClass.update({["system.levels"]: targetClass.system.levels + 1});
+        }
+    }
+
+    _onTurnStart() {
+        for (const item of this.items) {
+            item._onTurnStart?.();
+        }
+    }
+
+    _onTurnEnd() {
+        for (const item of this.items) {
+            item._onTurnEnd?.();
+        }
+    }
+
+    /** Roll contexts */
+    setupRollContexts(rollContext, desiredSelectors = []) {
+        if (!this) {
+            return;
+        }
+
+        const crewData = this.system.crew;
+        const crewActorData = this.crew;
+
+        const actorData = this;
+        if (actorData.type === "vehicle") {
+            if (!crewData.useNPCCrew) {
+                /** Add player pilot if available. */
+                if (crewActorData.pilot?.actors?.length > 0) {
+                    const pilotActor = crewActorData.pilot.actors[0];
+                    let pilotData = null;
+                    if (pilotActor instanceof ActorSFRPG) {
+                        pilotData = pilotActor.system;
+                    } else {
+                        pilotData = pilotActor.data;
+                    }
+                    rollContext.addContext("pilot", pilotActor, pilotData);
+                }
+            }
+        } else if (actorData.type === "starship") {
+            if (!crewData.useNPCCrew) {
+                /** Add player captain if available. */
+                if (crewActorData.captain?.actors?.length > 0) {
+                    const actor = crewActorData.captain.actors[0];
+                    let crewMemberActorData = null;
+                    if (actor instanceof ActorSFRPG) {
+                        crewMemberActorData = actor.system;
+                    } else {
+                        crewMemberActorData = actor.data;
+                    }
+                    rollContext.addContext("captain", actor, crewMemberActorData);
+                }
+
+                /** Add player pilot if available. */
+                if (crewActorData.pilot?.actors?.length > 0) {
+                    const actor = crewActorData.pilot.actors[0];
+                    let crewMemberActorData = null;
+                    if (actor instanceof ActorSFRPG) {
+                        crewMemberActorData = actor.system;
+                    } else {
+                        crewMemberActorData = actor.data;
+                    }
+                    rollContext.addContext("pilot", actor, crewMemberActorData);
+                }
+
+                /** Add remaining roles if available. */
+                const crewMates = [
+                    ...Object.keys(CONFIG.SFRPG.starshipNormalCrewRoles),
+                    "passenger",
+                    ...Object.keys(CONFIG.SFRPG.starshipOtherRoles)
+                ];
+                const allCrewMates = Object.keys(CONFIG.SFRPG.starshipOtherRoles);
+                for (const crewType of crewMates) {
+                    let crewCount = 1;
+                    const crew = [];
+                    if (allCrewMates.includes(crewType)) {
+                        for (const crewEntries of Object.values(crewActorData)) {
+                            const crewList = crewEntries.actors;
+                            if (crewList && crewList.length > 0) {
+                                for (const actor of crewList) {
+                                    let crewMemberActorData = null;
+                                    if (actor instanceof ActorSFRPG) {
+                                        crewMemberActorData = actor.system;
+                                    } else {
+                                        crewMemberActorData = actor.data;
+                                    }
+
+                                    const contextId = crewType + crewCount;
+                                    rollContext.addContext(contextId, actor, crewMemberActorData);
+                                    crew.push(contextId);
+                                    crewCount += 1;
+                                }
+                            }
+                        }
+                    } else {
+                        const crewList = crewActorData[crewType].actors;
+                        if (crewList && crewList.length > 0) {
+                            for (const actor of crewList) {
+                                let crewMemberActorData = null;
+                                if (actor instanceof ActorSFRPG) {
+                                    crewMemberActorData = actor.system;
+                                } else {
+                                    crewMemberActorData = actor.data;
+                                }
+
+                                const contextId = crewType + crewCount;
+                                rollContext.addContext(contextId, actor, crewMemberActorData);
+                                crew.push(contextId);
+                                crewCount += 1;
+                            }
+                        }
+                    }
+
+                    if (desiredSelectors.includes(crewType)) {
+                        rollContext.addSelector(crewType, crew);
+                    }
+                }
+            } else {
+                /** Create 'fake' actors. */
+                const crewRoles = Object.keys(CONFIG.SFRPG.starshipCrewRoles);
+                const populatedRoles = [];
+                crewRoles.forEach((role) => {
+                    if (crewData.npcData[role]?.numberOfUses) {
+                        rollContext.addContext(
+                            role,
+                            { name: game.i18n.localize(SFRPG.starshipRoles[role]) },
+                            actorData.system.crew.npcData[role]
+                        );
+                        populatedRoles.push(role);
+                    }
+                });
+                const otherRoles = Object.keys(CONFIG.SFRPG.starshipOtherRoles);
+                otherRoles.forEach((role) => {
+                    if (desiredSelectors.includes(role)) {
+                        rollContext.addSelector(role, populatedRoles);
+                    }
+                });
+            }
+        }
+    }
+
+    /** -------------------
+    * Floating HP functions
+    ---------------------- */
+
+    /** Calculate deltas in the pre-method in order to access the old value.
+     * The delta is then passed onwards to the regular update method on the options object.
+     * @param {ActorSFRPG} doc The updated actor, containing the old values
+     * @param {Object} diff An update object containing the new values
+     * @param {Object} options An object, to which the delta is appended to
+     */
+    floatingHpOnPreUpdate(doc, diff, options) {
+        if (!game.settings.get("sfrpg", "floatingHP")) return;
+
+        const dhp = this.diffHealth(diff.system, doc.system, doc.type);
+        if (dhp && Object.keys(dhp).length) options._hpDiffs = dhp;
+    }
+
+    /** Initiate rendering of the floating numbers
+     * @param {ActorSFRPG} doc
+     * @param {Object} diff
+     * @param {Object} options
+     */
+    floatingHpOnUpdate(actor, _data, options) {
+        const dhp = options._hpDiffs;
+        if (!dhp) return;
+        const tokens = actor.getActiveTokens();
+        if (!tokens) return;
+
+        this.renderFloatingHp(tokens, dhp);
+    }
+
+    /**
+     * Build HP diffs.
+     * @param {Object} actorData The data of the updated actor, post-update
+     * @param {Object} old The data of the updated actor, pre-update
+     * @return {Object} An object containing the key of the updated value, and the diff
+     */
+    diffHealth(actorData, old) {
+        if (!actorData) return;
+
+        const diff = {};
+
+        const newhp = actorData.attributes?.hp || null;
+        const stamina = actorData.attributes?.sp || null;
+        const shields = actorData.quadrants || null;
+
+        if (newhp) {
+            const oldhp = old.attributes.hp;
+            SFRPG.floatingHPValues.hpKeys.forEach(k => { // Check in both standard and temp HP
+                const delta = this.getDelta(k, newhp, oldhp);
+                if (delta !== 0) diff[k] = delta;
+            });
+        }
+        if (stamina) {
+            const oldStamina = old.attributes.sp;
+            if (oldStamina) { // NPCs may not have stamina
+                const delta = this.getDelta('value', stamina, oldStamina);
+                if (delta !== 0) diff.stamina = delta;
+            }
+        }
+        if (shields) {
+            const oldShields = old.quadrants;
+            SFRPG.floatingHPValues.shieldKeys.forEach(k => { // Check in all shield quadrants
+                const delta = this.getDelta('value', shields[k]?.shields, oldShields[k].shields);
+                if (delta !== 0) diff[`shields.${k}`] = delta;
             });
         }
 
-        return {
-            dhp: dhp,
-            dsp: dsp,
-            drp: drp,
-            updateData: updateData,
-            updateItems: updateItems
+        return diff;
+    }
+
+    /**
+     *
+     * @param {String} key The key with which to access the value of the relevant object (e.g hp, stamina, shields)
+     * @param {Object} update The update object from the update method, containing only the updated value
+     * @param {Object} data The old data from the relevant object, containing the entire object
+     * @returns {Number} The difference between the old value and the new value
+     */
+
+    getDelta(key, update, data) {
+        if (update?.[key] === undefined) return 0;
+        const oldValue = data[key],
+            newValue = update[key] ?? oldValue,
+            delta = newValue - oldValue;
+        return delta;
+    }
+
+    /**
+     * Async to allow the calling functions to not care when this finishes
+     * @param {TokenSFRPG[]} tokens An array of tokens matching the updated actor
+     * @param {Object} hpDiffs An object containing the key of the updated value, and the diff
+     */
+    async renderFloatingHp(tokens, hpDiffs) {
+        const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        const getMaxPath = (key) => {
+            if (key === "stamina") return "attributes.sp.max";
+            else if (key.includes("shields")) return "attributes.shields.highest";
+            else return "attributes.hp.max";
+        };
+
+        for (const t of tokens) {
+            if (!this.testPermission(t)) continue;
+
+            for (const [key, value] of Object.entries(hpDiffs)) {
+                if (value === 0) continue; // Skip deltas of 0
+                const cfg = SFRPG.floatingHPValues[key];
+                const percentMax = Math.clamp(Math.abs(value) / foundry.utils.getProperty(t.actor.system, getMaxPath(key)), 0, 1);
+                const sign = (value < 0) ? 'negative' : 'positive';
+                const floaterData = {
+                    anchor: CONST.TEXT_ANCHOR_POINTS.CENTER,
+                    direction: (value < 0) ? CONST.TEXT_ANCHOR_POINTS.BOTTOM : CONST.TEXT_ANCHOR_POINTS.TOP,
+                    duration: 1000 + (1500 * percentMax),
+                    fontSize: 16 + (32 * percentMax),
+                    fill: cfg[sign].fill,
+                    stroke: 0x000000,
+                    strokeThickness: 4,
+                    jitter: 0.3
+                };
+
+                const localized = game.i18n.localize(
+                    `SFRPG.FloatingHP${game.settings.get("sfrpg", "verboseFloatyText") ? "Verbose" : ""}.${cfg.label}`
+                );
+                canvas.interface.createScrollingText(t.center, `${localized} ${value.signedString()}`, floaterData);
+                if (Object.keys(hpDiffs).length > 1) await sleep(1500 * percentMax);
+            }
         }
     }
+
+    /**
+     * @param {Token} token
+     * @returns {Boolean} Whether the user can see the floater, given the settings
+     */
+    testPermission(token) {
+        if (!token.actor) return false; // Sanity check
+
+        const limitByCriteria = game.settings.get("sfrpg", "limitByCriteria");
+        if (!limitByCriteria) return true;
+
+        const minPerm = game.settings.get("sfrpg", "minPerm");
+        const user = game.users.current;
+        if (token.actor.testUserPermission(user, CONST.DOCUMENT_OWNERSHIP_LEVELS[`${minPerm}`])) return true;
+
+        const visibleOptions = [CONST.TOKEN_DISPLAY_MODES.ALWAYS, CONST.TOKEN_DISPLAY_MODES.HOVER];
+        const canSeeBars = game.settings.get("sfrpg", "canSeeBars");
+        if (canSeeBars && visibleOptions.includes(token.document.displayBars)) return true;
+
+        const canSeeName = game.settings.get("sfrpg", "canSeeName");
+        if (canSeeName && visibleOptions.includes(token.document.displayName)) return true;
+
+        return false;
+    }
 }
+
+Hooks.on("afterClosureProcessed", async (closureName, fact) => {
+    if (closureName === "process-actors") {
+        await fact.actor.processItemData();
+    }
+});

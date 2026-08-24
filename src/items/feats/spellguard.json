@@ -1,73 +1,102 @@
 {
   "_id": "8pYxhV9qTaqUAzXF",
   "name": "Spellguard",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You can ward an ally against a spell at the cost of your own mystical defenses.<br><strong>Prerequisites</strong>: Mysticism 3 ranks.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: As a reaction when an adjacent ally is targeted by a spell or spell-like ability, you can create a minor protective ward, granting that ally a +2 insight bonus to their saving throw against that effect. This effect distracts you from your own defenses, and you take a –2 penalty to saving throws against spells and spell-like abilities until the beginning of your next turn. Once you use this ability, you can’t use it again until you regain Stamina Points with a 10-minute rest.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/spellguard.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "type": "reaction",
+      "condition": "Adjacent ally is targeted by a spell or spell-like ability.",
+      "cost": 1
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You can ward an ally against a spell at the cost of your own mystical defenses.</p>\n<p><strong>Prerequisites</strong>: Mysticism 3 ranks.</p>\n<hr />\n<p><strong>Benefit</strong>: As a reaction when an adjacent ally is targeted by a spell or spell-like ability, you can create a minor protective ward, granting that ally a +2 insight bonus to their saving throw against that effect. This effect distracts you from your own defenses, and you take a –2 penalty to saving throws against spells and spell-like abilities until the beginning of your next turn. Once you use this ability, you can’t use it again until you regain Stamina Points with a 10-minute rest.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": "Ally: that effect. Self: until the beginning of your next turn."
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "1e8a00f8-12a9-4230-901b-06ab9b374553",
+        "name": "Spellguard",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "saves",
+        "enabled": false,
+        "limitTo": null,
+        "max": -2,
+        "modifier": "-2",
+        "modifierType": "formula",
+        "notes": "Penalty to saving throws against spells and spell-like abilities after warding an ally.",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": ""
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Character Operations Manual",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "1",
+      "per": "sr",
+      "value": 1
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/spellguard.png"
+  }
 }

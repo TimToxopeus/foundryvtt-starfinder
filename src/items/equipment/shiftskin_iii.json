@@ -1,95 +1,151 @@
 {
+  "_id": "JDAcS2l90rljLFpW",
   "name": "Shiftskin III",
-  "permission": {
-    "default": 0,
-    "smJ4hgvpDSpFSLq0": 3
-  },
   "type": "equipment",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "AR",
-    "type": "",
-    "quantity": 1,
-    "bulk": "1",
-    "price": 886500,
-    "level": 20,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "systems/sfrpg/icons/default/kevlar-vest.svg",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": 0
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
-    },
+    "ammunitionType": "",
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
-    "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
-      "parts": []
-    },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "modifiers": [],
     "armor": {
-      "type": "Light",
+      "type": "light",
+      "acp": -1,
+      "dex": 7,
       "eac": 22,
       "kac": 24,
-      "dex": 7,
-      "acp": -1,
-      "speedAdjust": 0,
-      "upgradeSlots": 5,
-      "upgrades": []
+      "speedAdjust": 0
     },
-    "strength": 0,
-    "speed": "",
-    "size": "",
-    "reach": "",
-    "weaponSlots": 0,
-    "proficient": true,
-    "abilityMods": {
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "1",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "upgrade",
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 5,
+          "subtype": "armorUpgrade",
+          "weightProperty": "slots"
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 0,
+          "subtype": "weaponSlot",
+          "weightProperty": ""
+        }
+      ]
+    },
+    "critical": {
+      "effect": "",
       "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
+    "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 20,
+    "modifiers": [],
+    "price": 886500,
+    "proficient": false,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "reach": "",
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AR pg. 71",
+    "specialMaterials": {},
+    "speed": "",
+    "strength": 0,
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "JDAcS2l90rljLFpW"
+  }
 }

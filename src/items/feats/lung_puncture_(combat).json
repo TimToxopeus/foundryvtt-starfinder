@@ -1,73 +1,84 @@
 {
   "_id": "nCX0DWVmCucW4MWn",
   "name": "Lung Puncture (Combat)",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You can deliver particularly debilitating piercing attacks.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: When you score a critical hit with a weapon that deals piercing damage, in addition to any other critical hit effect you would apply, you also impose the fatigued condition on the target for 1d4 rounds.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/lung_puncture.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "type": "none",
+      "condition": "Score a critical hit with a weapon that deals piercing damage.",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You can deliver particularly debilitating piercing attacks.</p>\n<hr />\n<p><strong>Benefit</strong>: When you score a critical hit with a weapon that deals piercing damage, in addition to any other critical hit effect you would apply, you also impose the fatigued condition on the target for 1d4 rounds.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": true,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": "1d4 rounds."
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Character Operations Manual",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/lung_puncture.png"
+  }
 }

@@ -1,92 +1,96 @@
 {
   "_id": "YU10DAjsIV9NQkVN",
-  "name": "Nanite Form*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Nanite Form",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">The target and its gear are transformed into a cloud of nanites that fills a 5-foot cube. This cloud of nanites cannot attack or cast spells, but it has construct immunities and all-around vision; can’t be entangled, flanked, flat-footed, off-kilter, off-target, pinned, prone, or staggered; and has immunity to critical hits. It takes only half damage from any effect that targets only one creature. Automatic fire must hit the target as if it were three targets to deal it damage. In addition, the target loses its land speed and gains a fly speed of 20 feet (perfect maneuverability). It can move through openings 1 inch wide without squeezing, and it can squeeze to move through microscopic openings.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 138",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/nanite_form.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>The target and its gear are transformed into a cloud of nanites that fills a 5-foot cube. This cloud of nanites cannot attack or cast spells, but it has construct immunities and all-around vision; can’t be @UUID[Compendium.sfrpg.conditions.Item.nFBcsp5FS1Wi46Fc]{Entangled}, flanked, @UUID[Compendium.sfrpg.conditions.Item.MZ8OoH1GE9qDMyCD]{Flat-footed}, @UUID[Compendium.sfrpg.conditions.Item.QnGpBSHSTiszjPSb]{Off-Kilter}, @UUID[Compendium.sfrpg.conditions.Item.yUtkoIshf4dPruNd]{Off-Target}, @UUID[Compendium.sfrpg.conditions.Item.XgK4EdO5D3Fj3iWz]{Pinned}, @UUID[Compendium.sfrpg.conditions.Item.XeRGqHVtcZ7vsgJ0]{Prone}, or @UUID[Compendium.sfrpg.conditions.Item.aAQ6SW6iK0EVq8Ce]{Staggered}; and has immunity to critical hits. It takes only half damage from any effect that targets only one creature. Automatic fire must hit the target as if it were three targets to deal it damage. In addition, the target loses its land speed and gains a fly speed of 20 feet (perfect maneuverability). It can move through openings 1 inch wide without squeezing, and it can squeeze to move through microscopic openings.</p>"
+    },
+    "descriptors": {},
+    "dismissible": true,
+    "duration": {
+      "units": "minute",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 3,
-    "school": "trs",
-    "sr": false,
-    "dismissible": false,
-    "concentration": false,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "trs",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 138",
+    "sr": true,
+    "target": {
+      "value": "one wiling creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/nanite_form.png"
+  }
 }

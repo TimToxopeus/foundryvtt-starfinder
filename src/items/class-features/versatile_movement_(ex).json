@@ -1,77 +1,119 @@
 {
   "_id": "qfdLaLl6DqIG0oyC",
   "name": "Versatile Movement (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.On2ZrPJTe8FURsXY]{Operative Exploit}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl58_LabelName\">You gain a climb speed and a swim speed equal to your land speed. This speed is not increased by the quick movement class feature or improved quick movement exploit.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Operative Exploit",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/versatile_movement.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": null,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": ""
-    },
-    "target": {
-      "value": "",
-      "type": ""
+      "condition": "",
+      "cost": null
     },
     "area": {
-      "value": null,
-      "units": null,
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": null,
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.On2ZrPJTe8FURsXY]{Operative Exploit}</p>\n<p>You gain a climb speed and a swim speed equal to your land speed. This speed is not increased by the @UUID[Compendium.sfrpg.class-features.Item.cymsh0UZpmJB0cQK]{Quick Movement} class feature or @UUID[Compendium.sfrpg.class-features.Item.8D3x742G1EpW8yi5]{Improved Quick Movement} exploit.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "0f75a044-afbf-4739-9b0e-12e531dac4b8",
+        "name": "Versatile Movement - Climb",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "specific-speed",
+        "enabled": true,
+        "limitTo": null,
+        "max": 0,
+        "modifier": "@attributes.speed.land.base",
+        "modifierType": "constant",
+        "notes": "Does not stack with Quick Movement or Improved Quick Movement.",
+        "source": "Versatile Movement",
+        "subtab": "misc",
+        "valueAffected": "climbing"
+      },
+      {
+        "_id": "666820f3-0ad9-427c-912f-bdbc2c322723",
+        "name": "Versatile Movement - Swim",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "specific-speed",
+        "enabled": true,
+        "limitTo": null,
+        "max": 0,
+        "modifier": "@attributes.speed.land.base",
+        "modifierType": "constant",
+        "notes": "Does not stack with Quick Movement or Improved Quick Movement.",
+        "source": "Versatile Movement",
+        "subtab": "misc",
+        "valueAffected": "swimming"
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "10th Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "10th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Operative Exploit",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

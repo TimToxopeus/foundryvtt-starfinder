@@ -1,92 +1,96 @@
 {
   "_id": "NoIRRaiWVr8xxcJX",
-  "name": "Song Of The Cosmos, Greater*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Song Of The Cosmos, Greater",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">As&nbsp;song of the cosmos, except as noted above, and creatures that fail their Will saves are also dazzled for the duration.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/song_of_the_cosmo_greater.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
+      "effect": "spread",
+      "shapable": false,
+      "shape": "sphere",
       "units": "ft",
-      "additional": "",
-      "per": ""
+      "value": "20"
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 4,
-    "school": "abj",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>As&nbsp;song of the cosmos, except as noted above, and creatures that fail their Will saves are also @UUID[Compendium.sfrpg.conditions.Item.YjE6UGzwOTfO9p4g]{Dazzled} for the duration.</p>\n<h2>@UUID[Compendium.sfrpg.spells.Item.ZsRv2Vcl2iamrcCt]{Song Of The Cosmos}</h2>\n<p>You thrum a discordant tune that underlies existence and hints at the deep secrets of the universe. Creatures in the area must succeed at a Will saving throw or be fascinated for the duration.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": "1d4 +1 rounds"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 4,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "personal"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "enc",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 141",
+    "sr": true,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/song_of_the_cosmo_greater.PNG"
+  }
 }

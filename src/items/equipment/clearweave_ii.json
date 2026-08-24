@@ -1,95 +1,151 @@
 {
+  "_id": "Qzbn9FVpCvQi07Eb",
   "name": "Clearweave II",
-  "permission": {
-    "default": 0,
-    "smJ4hgvpDSpFSLq0": 3
-  },
   "type": "equipment",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "AR",
-    "type": "",
-    "quantity": 1,
-    "bulk": "L",
-    "price": 13150,
-    "level": 9,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "systems/sfrpg/icons/default/kevlar-vest.svg",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": 0
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
-    },
+    "ammunitionType": "",
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
-    "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
-      "parts": []
-    },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "modifiers": [],
     "armor": {
-      "type": "Light",
+      "type": "light",
+      "acp": 0,
+      "dex": 5,
       "eac": 12,
       "kac": 12,
-      "dex": 5,
-      "acp": 0,
-      "speedAdjust": 0,
-      "upgradeSlots": 2,
-      "upgrades": []
+      "speedAdjust": 0
     },
-    "strength": 0,
-    "speed": "",
-    "size": "",
-    "reach": "",
-    "weaponSlots": 0,
-    "proficient": true,
-    "abilityMods": {
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 42
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "L",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "upgrade",
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 2,
+          "subtype": "armorUpgrade",
+          "weightProperty": "slots"
+        },
+        {
+          "type": "slot",
+          "acceptsType": [
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 0,
+          "subtype": "weaponSlot",
+          "weightProperty": ""
+        }
+      ]
+    },
+    "critical": {
+      "effect": "",
       "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>The formfitting fabric of clearweave light armor is completely transparent to better display the fashion choices beneath it. Discrete force field generators along each side resemble intricate tattoos as much as they resemble circuitry. Clearweave darkens automatically when exposed to harmful solar radiation or laser fire.</p>\n<p>Clearweave II contains built-in microprojectors that allow the wearer to display glowing patterns, simple art, and even icons and logos through the armor’s fabric. These displays can be controlled via a personal comm unit or a more advanced computer. The glow emitted by the suit when displaying such patterns isn’t bright enough to provide useful illumination, but it does reveal the wearer’s position in darkness or dim light.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
+    "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 9,
+    "modifiers": [],
+    "price": 13150,
+    "proficient": false,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "reach": "",
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AR pg. 68",
+    "specialMaterials": {},
+    "speed": "",
+    "strength": 0,
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "Qzbn9FVpCvQi07Eb"
+  }
 }

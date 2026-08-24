@@ -1,92 +1,96 @@
 {
   "_id": "oqJ440LXz9T5pOOv",
-  "name": "Hoverdisk, Mass*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Hoverdisk, Mass",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">This spell functions as&nbsp;hoverdisk, except as noted above. As part of casting this spell, you can give a single set of instructions to all disks, or you can give separate instructions to each disk. You must spend a standard action to give new or additional instructions to any one disk, although you can give a group of disks the same instructions as part of the same action.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/hoverdisk_mass.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>This spell functions as @UUID[Compendium.sfrpg.spells.Item.azohU9n6WU7L9ado]{Hoverdisk}, except as noted above. As part of casting this spell, you can give a single set of instructions to all disks, or you can give separate instructions to each disk. You must spend a standard action to give new or additional instructions to any one disk, although you can give a group of disks the same instructions as part of the same action.</p>\n<h2>@UUID[Compendium.sfrpg.spells.Item.azohU9n6WU7L9ado]{Hoverdisk}</h2>\n<p>You create a thin, circular plane of force 3 feet in diameter and able to hover up to 3 feet above the ground. When you cast this spell, you can give the disk general instructions, such as “Take me across this field of lava,” or “Take the rescued shirren back to town.” You can tell the disk to go to any location you are familiar with, and it follows these instructions without error, even traveling beyond the spell’s range. If you give the disk no instructions, it follows 5 feet behind you. The disk can carry up to 20 bulk for each caster level you have, has a fly speed of 60 feet (no higher than 3 feet), and can move beyond the spell’s range. It moves at your command or the command of a creature you designate, as a move action, and it raises and lowers itself on similar command, so getting on or off the disk can be done as part of the move action to move into the disk’s space. As a standard action, you can give the disk new general instructions.</p>\n<p>If the spell ends before the disk completes its task, the disk completes as much as it can before disappearing. When the disk disappears, whatever it was carrying falls to the surface beneath it.</p>"
+    },
+    "descriptors": {},
+    "dismissible": true,
+    "duration": {
+      "units": "hour",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 5,
-    "school": "abj",
-    "sr": false,
-    "dismissible": false,
-    "concentration": false,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "enc",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 137",
+    "sr": false,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/hoverdisk_mass.png"
+  }
 }

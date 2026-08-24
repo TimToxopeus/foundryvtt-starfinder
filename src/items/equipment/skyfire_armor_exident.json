@@ -1,95 +1,141 @@
 {
+  "_id": "pKyNvGJ58Ocmu3S7",
   "name": "Skyfire armor, exident",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "equipment",
-  "data": {
-    "description": {
-      "value": "<p>These suits of interlocking metal and ceramic plates are usually highly decorated. Gold trim, exaggerated shoulder guards, and stylized Skyfire logos on the breastplates are common. These iconic outfits are worn by the storied members of the Skyfire Legion, though other groups and individuals have copied the Legion&rsquo;s distinctively decorated heavy armor. Skyfire armor ordinarily comes with force fields that encase the wearer&rsquo;s head when needed.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "SCR",
-    "type": "",
-    "quantity": 1,
-    "bulk": "2",
-    "price": 53600,
-    "level": 13,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "icons/equipment/chest/breastplate-layered-gold.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": 0
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
-    },
+    "ammunitionType": "",
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
-    "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
-      "parts": []
-    },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "modifiers": [],
     "armor": {
       "type": "heavy",
+      "acp": -2,
+      "dex": 4,
       "eac": 18,
       "kac": 20,
-      "dex": 4,
-      "acp": -2,
-      "speedAdjust": -5,
-      "upgradeSlots": 5,
-      "upgrades": []
+      "speedAdjust": -5
     },
-    "strength": 0,
-    "speed": "",
-    "size": "",
-    "reach": "",
-    "weaponSlots": 0,
-    "proficient": true,
-    "abilityMods": {
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": "5"
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": "31"
+      },
+      "hp": {
+        "max": "54",
+        "value": 54
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "2",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "upgrade",
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 5,
+          "subtype": "armorUpgrade",
+          "weightProperty": "slots"
+        }
+      ]
+    },
+    "critical": {
+      "effect": "",
       "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>These suits of interlocking metal and ceramic plates are usually highly decorated. Gold trim, exaggerated shoulder guards, and stylized Skyfire logos on the breastplates are common. These iconic outfits are worn by the storied members of the Skyfire Legion, though other groups and individuals have copied the Legion’s distinctively decorated heavy armor. Skyfire armor ordinarily comes with force fields that encase the wearer’s head when needed.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
+    "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 13,
+    "modifiers": [],
+    "price": 53600,
+    "proficient": false,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "reach": "",
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 198",
+    "specialMaterials": {},
+    "speed": "",
+    "strength": 0,
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "pKyNvGJ58Ocmu3S7"
+  }
 }

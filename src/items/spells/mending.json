@@ -1,97 +1,117 @@
 {
   "_id": "QAU3felak3Etp6t1",
   "name": "Mending",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">This spell repairs damaged objects and constructs, restoring 1d4 Hit Points. If the object has the broken condition, this condition is removed if the object is restored to at least half its original Hit Points. All of the pieces of an object must be present for this spell to function. A construct can benefit from this spell only once per day. Magic items can be repaired by this spell, but magic items that are destroyed don’t have their magic abilities restored. This spell doesn’t reverse effects that warp or otherwise transmute items, but it can still repair damage dealt to such items.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 364",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/mending.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "heal",
     "activation": {
       "type": "min",
-      "cost": 10,
-      "condition": ""
+      "condition": "",
+      "cost": 10
     },
-    "duration": {
-      "value": "instantaneous",
-      "units": ""
-    },
-    "target": {
-      "value": "one object of up to 1 bulk",
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "none",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": 10,
-      "units": "ft",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": ""
-    },
-    "ability": "",
-    "actionType": "heal",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
       "parts": [
-        [
-          "1f4",
-          ""
-        ]
-      ]
+        {
+          "name": "",
+          "formula": "1d4",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": true,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>This spell repairs damaged objects and constructs, restoring 1d4 Hit Points. If the object has the broken condition, this condition is removed if the object is restored to at least half its original Hit Points. All of the pieces of an object must be present for this spell to function. A construct can benefit from this spell only once per day. Magic items can be repaired by this spell, but magic items that are destroyed don’t have their magic abilities restored. This spell doesn’t reverse effects that warp or otherwise transmute items, but it can still repair damage dealt to such items.</p>"
+    },
+    "descriptors": {},
+    "dismissible": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": "negate"
-    },
-    "descriptors": [],
-    "modifiers": [],
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 0,
-    "school": "trs",
-    "sr": true,
-    "dismissible": false,
-    "concentration": false,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "ft",
+      "value": "10"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "trs",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 364",
+    "sr": true,
+    "target": {
+      "value": "one object of up to 1 bulk or one construct of up to Medium size"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/mending.png"
+  }
 }

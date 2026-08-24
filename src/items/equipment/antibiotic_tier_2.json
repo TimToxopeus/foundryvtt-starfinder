@@ -1,78 +1,99 @@
 {
+  "_id": "TAVBpp4kk4GzclWI",
   "name": "Antibiotic, Tier 2",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "consumable",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListOtherItems_ctl00_LabelName\">Antibiotics help patients fight off disease. When you take or are injected with an antibiotic, you gain a bonus (equal to 3 + the medicinal’s tier) to saving throws against disease for a number of days equal to 2 × the antibiotic’s tier.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operation Manual",
-    "type": "",
-    "quantity": 1,
-    "bulk": "L",
-    "price": 3000,
-    "level": 5,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "systems/sfrpg/icons/equipment/goods/antibiotic-tier-2.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null,
-      "autoUse": true,
-      "autoDestroy": true
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": false
     },
-    "damage": {
+    "bulk": "L",
+    "chatFlavor": "",
+    "consumableType": "medicne",
+    "critical": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Antibiotics help patients fight off disease. When you take or are injected with an antibiotic, you gain a bonus (equal to 3 + the medicinal’s tier) to saving throws against disease for a number of days equal to 2 × the antibiotic’s tier.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "level": 5,
+    "modifiers": [],
+    "price": 3000,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "consumableType": "medicne"
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/goods/antibiotic-tier-2.jpg",
-  "_id": "TAVBpp4kk4GzclWI"
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Character Operation Manual",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "autoDestroy": true,
+      "autoUse": true,
+      "max": "0",
+      "per": "",
+      "value": 0
+    }
+  }
 }

@@ -1,92 +1,96 @@
 {
   "_id": "muDgBqHYvCkPUEoZ",
-  "name": "Daegoxian Spore Cloud*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Daegoxian Spore Cloud",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You summon a concentrated cloud of Daegoxian spores, which renders living creatures docile and agreeable. Any creature that enters the cloud or begins its turn within the cloud must succeed at a Will save or be fascinated for 1d4 rounds. A creature that succeeds at this save is immune to the effects of&nbsp;Daegoxian spore cloud&nbsp;for 24 hours.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Near Space pg. 155",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/daegoxian_spore_cloud.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
-      "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": 100,
+      "effect": "spread",
+      "shapable": false,
+      "shape": "sphere",
       "units": "ft",
-      "additional": "10",
-      "per": "level"
+      "value": "20"
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You summon a concentrated cloud of Daegoxian spores, which renders living creatures docile and agreeable. Any creature that enters the cloud or begins its turn within the cloud must succeed at a Will save or be @UUID[Compendium.sfrpg.conditions.Item.7PPRS6krnvaTHbxh]{Fascinated} for [[/r 1d4]] rounds. A creature that succeeds at this save is immune to the effects of Daegoxian spore cloud for 24 hours.</p>"
+    },
+    "descriptors": {},
+    "dismissible": true,
+    "duration": {
+      "units": "round",
+      "value": "@details.cl.value"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
     "level": 3,
-    "school": "con",
-    "sr": false,
-    "dismissible": false,
-    "concentration": false,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "con",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "NS pg. 155",
+    "sr": false,
+    "target": {
+      "value": "all creatures in the cloud"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/daegoxian_spore_cloud.png"
+  }
 }

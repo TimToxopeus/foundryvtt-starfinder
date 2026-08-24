@@ -1,92 +1,116 @@
 {
   "_id": "rxkxVP2lYJep5lV9",
-  "name": "Inject Nanobots*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Inject Nanobots",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You concentrate key particles in your blood into tiny biological nanobots that you can inject into a foe with a touch, disrupting and damaging its natural processes. Make a melee attack against the target’s EAC; if you hit, the nanobots deal 4d8 damage and swarm through the target’s biological or mechanical systems, causing the creature to be confused, as per&nbsp;confusion, for 1 round per your caster level. If the target succeeds at a Fortitude save, it takes only half damage and negates the confusion effect. A confused target can attempt a Will saving throw at the beginning of its turn each round to end the confusion effect.<br><br>Casting this spell doesn’t provoke attacks of opportunity.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 361",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/inject_nanobot.webp",
+  "system": {
+    "ability": "str",
+    "actionTarget": "eac",
+    "actionType": "msak",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "touch",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [
+        {
+          "name": "",
+          "formula": "4d8",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 2,
-    "school": "nec",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You concentrate key particles in your blood into tiny biological nanobots that you can inject into a foe with a touch, disrupting and damaging its natural processes. Make a melee attack against the target’s EAC; if you hit, the nanobots deal 4d8 damage and swarm through the target’s biological or mechanical systems, causing the creature to be @UUID[Compendium.sfrpg.conditions.Item.8rIj0ewW4bL8Uph5]{Confused}, as per @UUID[Compendium.sfrpg.spells.Item.wSeE9HyAmM7lTdpo]{Confusion}, for 1 round per your caster level. If the target succeeds at a Fortitude save, it takes only half damage and negates the @UUID[Compendium.sfrpg.spells.Item.wSeE9HyAmM7lTdpo]{Confusion} effect. A @UUID[Compendium.sfrpg.conditions.Item.8rIj0ewW4bL8Uph5]{Confused} target can attempt a Will saving throw at the beginning of its turn each round to end the confusion effect.</p>\n<p>Casting this spell doesn’t provoke attacks of opportunity.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": "instantaneous and 1 round/level; see text"
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 2,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "touch"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "fort",
+      "dc": "",
+      "descriptor": "partial"
+    },
+    "school": "nec",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 361",
+    "sr": true,
+    "target": {
+      "value": "one living creature or construct"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/inject_nanobot.png"
+  }
 }

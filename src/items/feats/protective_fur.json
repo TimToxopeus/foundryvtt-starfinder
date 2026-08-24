@@ -1,73 +1,119 @@
 {
   "_id": "u6YPJLipzlR9Ey5i",
   "name": "Protective Fur",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>Your thick fur protects you from certain environmental hazards and makes you resistant to some types of poisons.<br><strong>Prerequisites</strong>: Skittermander or ysoki.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: You gain a +2 circumstance bonus to Fortitude saves against cold and heat dangers. In addition, you gain a +4 circumstance bonus to Fortitude saves made to avoid contracting contact diseases and poisons.<br></span></p>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Special</strong>: At the GM’s discretion, other furred races might meet the prerequisites for this feat.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/protective_fur.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Your thick fur protects you from certain environmental hazards and makes you resistant to some types of @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.ZaS9H4rwaFIQTUBC]{Poisons}.</p>\n<p><strong>Prerequisites</strong>: Skittermander or ysoki.</p>\n<hr />\n<p><strong>Benefit</strong>: You gain a +2 circumstance bonus to Fortitude saves against cold and heat dangers. In addition, you gain a +4 circumstance bonus to Fortitude saves made to avoid contracting contact @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.gBhZDjh30JEyh7DY]{Diseases} and @UUID[Compendium.sfrpg.rules.JaRMioj4isNp7r1P.JournalEntryPage.ZaS9H4rwaFIQTUBC]{Poisons}.</p>\n<p><strong>Special</strong>: At the GM’s discretion, other furred races might meet the prerequisites for this feat.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "658b6e49-032a-4b40-8733-1a7c73666cd8",
+        "name": "Protective Fur (cold and heat)",
+        "type": "circumstance",
+        "condition": "",
+        "damage": null,
+        "effectType": "save",
+        "enabled": false,
+        "limitTo": null,
+        "max": 2,
+        "modifier": "2",
+        "modifierType": "formula",
+        "notes": "Circumstance bonus to Fortitude saves against cold and heat dangers.",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": "fort"
+      },
+      {
+        "_id": "f1faf7fd-82ad-4855-b36d-e513a87fe3b2",
+        "name": "Protective Fur (contact diseases and poisons)",
+        "type": "circumstance",
+        "condition": "",
+        "damage": null,
+        "effectType": "save",
+        "enabled": false,
+        "limitTo": null,
+        "max": 4,
+        "modifier": "4",
+        "modifierType": "formula",
+        "notes": "You gain a circumstance bonus to Fortitude saves made to avoid contact diseases and poisons.",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": "fort"
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Character Operations Manual",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/protective_fur.png"
+  }
 }

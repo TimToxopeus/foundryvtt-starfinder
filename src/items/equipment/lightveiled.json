@@ -1,24 +1,29 @@
 {
+  "_id": "G15knSeVZAagV70U",
   "name": "Lightveiled",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "fusion",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListWeaponFusions_ctl00_LabelName\">The <em>lightveiled</em> fusion renders a weapon invisible in bright light. While the weapon is carried openly in an area of bright light, it is invisible, though attacking with the weapon renders it visible for 1 minute.</span></p>",
-      "chat": "",
-      "unidentified": ""
+  "img": "systems/sfrpg/icons/equipment/weapons/weapon-fusions-10.webp",
+  "system": {
+    "bulk": "L",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": []
     },
-    "source": "Alien Archive 3",
-    "type": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>The <em>lightveiled</em> fusion renders a weapon invisible in bright light. While the weapon is carried openly in an area of bright light, it is invisible, though attacking with the weapon renders it visible for 1 minute.</p>"
+    },
     "level": 10,
-    "damage": {
-      "parts": []
-    }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/weapons/weapon-fusions-10.jpg",
-  "_id": "G15knSeVZAagV70U"
+    "modifiers": [],
+    "price": 0,
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "slug": "",
+    "source": "AA3 pg. 71"
+  }
 }

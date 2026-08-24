@@ -1,92 +1,116 @@
 {
   "_id": "LS1E6dMx3k298dqb",
-  "name": "Hurl Forcedisk*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Hurl Forcedisk",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You create a spinning disk made of pure, shimmering force and hurl it at one opponent within range, potentially striking other nearby enemies as the disk ricochets. Choose the initial target, and make a ranged attack against its EAC. If the attack hits, the disk deals 3d6 force damage. The disk then ricochets to hit up to four more creatures of your choice, each no more than 15 feet from the last target. Make a ranged attack against each successive target’s EAC in turn; the disk deals 2d6 force damage to each secondary target struck (this damage is rolled separately for each target). The disk continues to ricochet in this way until it has attempted to strike five creatures, or until there are no more valid targets, or until you voluntarily end the spell. A creature can take damage only once from a single casting of this spell.<br><br>The forcedisk is subject to spell resistance, so you must attempt a caster level check (1d20 + your caster level) against each target with spell resistance before determining whether the target might take damage. If you fail this check, the spell ends.<br><br>The exact shape of the forcedisk is superficially changeable; as part of casting this spell, a spellcaster can decide to make it shaped differently from a traditional disk. For example, using this spell to create a starknife made of force is popular among Desna’s followers. The spell still deals the amount of damage described above regardless of the disk’s shape.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 360",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/hurl_forcedisk.webp",
+  "system": {
+    "ability": "dex",
+    "actionTarget": "eac",
+    "actionType": "rsak",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 100,
-      "units": "ft",
-      "additional": "10",
-      "per": "level"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [
+        {
+          "name": "",
+          "formula": "3d6",
+          "group": null,
+          "isPrimarySection": false,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": false,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 2,
-    "school": "evo",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You create a spinning disk made of pure, shimmering force and hurl it at one opponent within range, potentially striking other nearby enemies as the disk ricochets. Choose the initial target, and make a ranged attack against its EAC. If the attack hits, the disk deals 3d6 force damage. The disk then ricochets to hit up to four more creatures of your choice, each no more than 15 feet from the last target. Make a ranged attack against each successive target’s EAC in turn; the disk deals 2d6 force damage to each secondary target struck (this damage is rolled separately for each target). The disk continues to ricochet in this way until it has attempted to strike five creatures, or until there are no more valid targets, or until you voluntarily end the spell. A creature can take damage only once from a single casting of this spell.</p>\n<p>The forcedisk is subject to spell resistance, so you must attempt a caster level check (1d20 + your caster level) against each target with spell resistance before determining whether the target might take damage. If you fail this check, the spell ends.</p>\n<p>The exact shape of the forcedisk is superficially changeable; as part of casting this spell, a spellcaster can decide to make it shaped differently from a traditional disk. For example, using this spell to create a starknife made of force is popular among @UUID[Compendium.sfrpg.setting.Item.Jr4DAaJPRZYMAV1n]{Desna}’s followers. The spell still deals the amount of damage described above regardless of the disk’s shape.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 2,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "evo",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 360",
+    "sr": true,
+    "target": {
+      "value": "up to five creatures; see text"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/hurl_forcedisk.PNG"
+  }
 }

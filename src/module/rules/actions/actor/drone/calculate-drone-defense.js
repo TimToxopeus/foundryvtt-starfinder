@@ -1,22 +1,24 @@
 import { SFRPG } from "../../../../config.js";
 
-export default function (engine) {
-    engine.closures.add("calculateDroneDefense", (fact, context) => {
+export default function(engine) {
+    engine.closures.add("calculateDroneDefense", (fact) => {
         const data = fact.data;
 
+        if (!data.attributes.cmd) data.attributes.cmd = {value: 0};
+        if (!data.attributes.eac) data.attributes.eac = {value: 0};
+        if (!data.attributes.kac) data.attributes.kac = {value: 0};
+
         // We only care about the first chassis
-        let activeChassis = null;
-        for (const chassis of fact.classes) {
-            activeChassis = chassis;
-            break;
-        }
+        const activeChassis = fact.chassis && fact.chassis.length > 0 ? fact.chassis[0] : null;
 
         if (activeChassis) {
-            let droneLevel = activeChassis.data.levels;
+            const chassisData = activeChassis.system;
+
+            let droneLevel = chassisData.levels;
             droneLevel = Math.max(1, Math.min(droneLevel, 20));
 
-            data.attributes.eac.value = activeChassis.data.eac + SFRPG.droneACBonusPerLevel[droneLevel - 1];
-            data.attributes.kac.value = activeChassis.data.kac + SFRPG.droneACBonusPerLevel[droneLevel - 1];
+            data.attributes.eac.value = chassisData.eac + SFRPG.droneACBonusPerLevel[droneLevel - 1];
+            data.attributes.kac.value = chassisData.kac + SFRPG.droneACBonusPerLevel[droneLevel - 1];
         }
 
         data.attributes.eac.value += data.abilities.dex.mod;

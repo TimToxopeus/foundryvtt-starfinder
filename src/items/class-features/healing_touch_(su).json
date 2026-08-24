@@ -1,77 +1,105 @@
 {
   "_id": "emGD6wT4o7VbHx0O",
   "name": "Healing Touch (Su)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.classes.bItuvukGHbObTApr]{Mystic}</p>\n<p><span id=\"ctl00_MainContent_DataListClasses_ctl00_LabelName\">Once per day, you can spend 10 minutes to magically heal an ally up to 5 Hit Points per mystic level.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Mystic",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/healing_touch.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "heal",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "type": "min",
+      "condition": "",
+      "cost": 10
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "ft",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [
+        {
+          "name": "",
+          "formula": "@classes.mystic.levels*5",
+          "group": null,
+          "isPrimarySection": true,
+          "types": {
+            "acid": false,
+            "bludgeoning": false,
+            "cold": false,
+            "electricity": false,
+            "fire": false,
+            "healing": true,
+            "nonlethal": false,
+            "piercing": false,
+            "radiation": false,
+            "slashing": false,
+            "sonic": false
+          }
+        }
+      ],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.classes.Item.bItuvukGHbObTApr]{Mystic}</p>\n<p>Once per day, you can spend 10 minutes to magically heal an ally up to 5 Hit Points per mystic level.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "su"
+    },
+    "duration": {
+      "units": "text",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": "none",
+      "value": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "1st Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
-      "descriptor": ""
+      "dc": "",
+      "descriptor": "negate"
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "1st Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Mystic",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "1",
+      "per": "day",
+      "value": 1
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

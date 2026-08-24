@@ -1,95 +1,140 @@
 {
+  "_id": "VA9FF1Wl1msNqNHC",
   "name": "Formian plate, worker",
-  "permission": {
-    "default": 0,
-    "smJ4hgvpDSpFSLq0": 3
-  },
   "type": "equipment",
-  "data": {
-    "description": {
-      "value": "",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "AA2",
-    "type": "",
-    "quantity": 1,
-    "bulk": "3",
-    "price": 480,
-    "level": 2,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "icons/equipment/chest/breastplate-banded-simple-leather-brown.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": 0
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
-    },
+    "ammunitionType": "",
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
-    "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
-      "parts": []
-    },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "modifiers": [],
     "armor": {
-      "type": "Heavy",
+      "type": "heavy",
+      "acp": -3,
+      "dex": 1,
       "eac": 3,
       "kac": 6,
-      "dex": 1,
-      "acp": -3,
-      "speedAdjust": -5,
-      "upgradeSlots": 0,
-      "upgrades": []
+      "speedAdjust": -5
     },
-    "strength": 0,
-    "speed": "",
-    "size": "",
-    "reach": "",
-    "weaponSlots": 0,
-    "proficient": true,
-    "abilityMods": {
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": "5"
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": "9"
+      },
+      "hp": {
+        "max": "21",
+        "value": 21
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "3",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "upgrade"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 0,
+          "subtype": "armorUpgrade",
+          "weightProperty": "slots"
+        }
+      ]
+    },
+    "critical": {
+      "effect": "",
       "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>The exoskeletons of deceased formians can be crafted into armor that retains some of these creatures’ defenses. Taskmaster and myrmarch formian&nbsp;plate grant resistance to sonic 5.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
+    "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 2,
+    "modifiers": [],
+    "price": 480,
+    "proficient": false,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "reach": "",
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "AA2 pg. 53",
+    "specialMaterials": {},
+    "speed": "",
+    "strength": 0,
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg",
-  "_id": "VA9FF1Wl1msNqNHC"
+  }
 }

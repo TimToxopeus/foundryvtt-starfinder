@@ -1,30 +1,39 @@
 {
+  "_id": "AzcoiaW5ie2c7Izx",
   "name": "Flechette",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
-  "type": "goods",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\"><strong>Capacity:</strong> 25</span></p>",
-      "chat": "",
-      "unidentified": ""
+  "type": "ammunition",
+  "img": "systems/sfrpg/icons/equipment/weapons/flechette.webp",
+  "system": {
+    "ammunitionType": "flechettes",
+    "attributes": {
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "size": "medium",
+      "sturdy": false
     },
-    "source": "Pact Worlds",
-    "type": "",
-    "quantity": 1,
     "bulk": "L",
-    "price": 75,
-    "level": 1,
-    "attuned": false,
-    "equipped": false,
+    "capacity": {
+      "max": null,
+      "value": null
+    },
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p><strong>Capacity</strong>: 25</p>"
+    },
     "identified": true,
-    "damage": {
-      "parts": []
-    }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/weapons/flechette.jpg",
-  "_id": "AzcoiaW5ie2c7Izx"
+    "level": 1,
+    "modifiers": [],
+    "price": 75,
+    "quantity": 25,
+    "quantityPerPack": 25,
+    "slug": "",
+    "source": "PW pg. 194",
+    "specialMaterials": {},
+    "useCapacity": false
+  }
 }

@@ -1,92 +1,96 @@
 {
   "_id": "JcXW9UHQfFIdpSm8",
-  "name": "Optimize Technology*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Optimize Technology",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You expend 1 Resolve Point to render a vehicle, construct, or technological device immune to corrosive atmospheres, water, heat, radiation, and other natural environmental dangers. If the target regains Hit Points while affected, its Hit Points are restored to their maximum.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Character Operations Manual pg. 138",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/optimize_technology.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": false,
+      "precog": false,
+      "tech": true,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "",
+      "value": ""
     },
-    "range": {
-      "value": 100,
-      "units": "ft",
-      "additional": "10",
-      "per": "level"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 2,
-    "school": "trs",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You expend 1 Resolve Point to render a vehicle or technological device immune to corrosive atmospheres, water, heat, radiation, and other natural environmental dangers. If the target regains Hit Points while affected, its Hit Points are restored to their maximum.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
+    "duration": {
+      "units": "hour",
+      "value": "@details.cl.value"
     },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 2,
+    "materials": {
+      "consumed": true,
+      "cost": 0,
+      "supply": 0,
+      "value": "1 Resolve Point"
+    },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": false,
-      "tech": true,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "medium"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "trs",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "COM pg. 138",
+    "sr": true,
+    "target": {
+      "value": "one technological item of up to 1 bulk/level, or one technological vehicle of any size"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/optimize_technology.png"
+  }
 }

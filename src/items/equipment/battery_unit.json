@@ -1,40 +1,113 @@
 {
   "_id": "YoFArrBevXSidRDw",
   "name": "Battery Unit",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "upgrade",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListArmorUpgrades_ctl00_LabelName\">This upgrade, usually installed on the chest or back of the armor, has a compartment capable of storing any one battery. Power cables run from the battery slot to the palms of your hands. As a full action, you can install a battery in the compartment or remove a battery from it. When you attack with a powered weapon or use a technological item you are holding in your hand, you can expend charges from the battery stored in the upgrade rather than the weapon or item’s own battery, provided that the item is capable of using a battery of that capacity.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
+  "img": "systems/sfrpg/icons/equipment/armor/battery-unit.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
+    "activation": {
+      "type": "",
+      "condition": "",
+      "cost": 0
     },
-    "source": "Armory",
-    "type": "",
-    "quantity": 1,
+    "allowedArmorType": "any",
+    "ammunitionType": "",
+    "area": {
+      "effect": "",
+      "shapable": false,
+      "shape": "",
+      "units": "",
+      "value": "0"
+    },
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": ""
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": ""
+      },
+      "hp": {
+        "max": "",
+        "value": 6
+      },
+      "size": "medium",
+      "sturdy": false
+    },
     "bulk": "L",
-    "price": 12000,
-    "level": 9,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
     "capacity": {
-      "value": 0,
-      "max": 0
+      "max": 0,
+      "value": 0
     },
-    "usage": {
-      "value": 0,
-      "per": ""
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": []
+    },
+    "critical": {
+      "effect": "",
+      "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>This upgrade, usually installed on the chest or back of the armor, has a compartment capable of storing any one battery. Power cables run from the battery slot to the palms of your hands. As a full action, you can install a battery in the compartment or remove a battery from it. When you attack with a powered weapon or use a technological item you are holding in your hand, you can expend charges from the battery stored in the upgrade rather than the weapon or item’s own battery, provided that the item is capable of using a battery of that capacity.</p>"
+    },
+    "duration": {
+      "units": "text",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "level": 9,
+    "modifiers": [],
+    "price": 12000,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
     "slots": 1,
-    "armorType": "any",
-    "damage": {
-      "parts": []
+    "slug": "",
+    "source": "Armory",
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/armor/battery-unit.jpg"
+  }
 }

@@ -1,77 +1,84 @@
 {
   "_id": "clTAGasLWOe1pr4D",
   "name": "Ghost in the Machine (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.classes.HNCQFSPw4DVTATHv]{Mechanic}</p>\n<p>When using your override class feature to affect an android, drone, robot, or creature with the technological subtype, a target that fails its saving throw by any amount is not dazed, and you can instead dictate its actions for the next round. These actions can’t be obviously self-destructive. Once a creature has attempted a saving throw against this attack (regardless of the result), it is immune to this attack for 24 hours unless you spend 1 Resolve Point. You can continue to spend Resolve Points in this manner each round to make the creature susceptible to override again.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Mechanic",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/ghost_in_the_machine.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.classes.Item.HNCQFSPw4DVTATHv]{Mechanic}</p>\n<p>When using your override class feature to affect an @UUID[Compendium.sfrpg.races.Item.GHIntVN70xTt2Tlo]{Android}, drone, robot, or creature with the technological subtype, a target that fails its saving throw by any amount is not dazed, and you can instead dictate its actions for the next round. These actions can’t be obviously self-destructive. Once a creature has attempted a saving throw against this attack (regardless of the result), it is immune to this attack for 24 hours unless you spend 1 Resolve Point. You can continue to spend Resolve Points in this manner each round to make the creature susceptible to override again.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "19th Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "19th Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Mechanic",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }

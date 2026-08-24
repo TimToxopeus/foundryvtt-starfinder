@@ -1,73 +1,84 @@
 {
   "_id": "CCZQvnldDDY0JB8e",
   "name": "Connection Inkling",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>You gain a hint of mystic power.<br><strong>Prerequisites</strong>: Wis 15, character level 5th, no levels in mystic.</p>\n<hr>\n<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\"><strong>Benefit</strong>: Choose two 0-level mystic spells and one 1st-level mystic spell. You can cast the 0-level spells at will and the 1st-level spell once per day for every 3 character levels you have. Your caster level is equal to your character level, and the key ability score for these spells is Wisdom. If you later gain levels in mystic, you lose the benefits of this feat and can replace it with either Spell Focus or Spell Penetration.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Core Rulebook",
-    "type": "",
+  "img": "systems/sfrpg/icons/feats/connection_inkling.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You gain a hint of mystic power.</p>\n<p><strong>Prerequisites</strong>: Wis 15, character level 5th, no levels in @UUID[Compendium.sfrpg.classes.Item.bItuvukGHbObTApr]{Mystic}.</p>\n<hr />\n<p><strong>Benefit</strong>: Choose two 0-level mystic spells and one 1st-level mystic spell. You can cast the 0-level spells at will and the 1st-level spell once per day for every 3 character levels you have. For these spells, your caster level is equal to your character level and the key ability score is Wisdom. If you later gain levels in mystic, you lose the benefits of this feat and can replace it with either @UUID[Compendium.sfrpg.feats.Item.X0Vh8DqE3ZSpyXpC]{Spell Focus} or @UUID[Compendium.sfrpg.feats.Item.S5lEh2oJ8VW1gVlP]{Spell Penetration}.</p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "feat",
+      "combat": false,
+      "specialAbilityType": ""
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
     "formula": "",
+    "isActive": false,
+    "modifiers": [],
+    "properties": {},
+    "range": {
+      "units": ""
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "requirements": "",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "Core Rulebook",
+    "target": {
+      "value": null
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/feats/connection_inkling.png"
+  }
 }

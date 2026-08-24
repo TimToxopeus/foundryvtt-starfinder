@@ -1,95 +1,141 @@
 {
   "_id": "KytREcbR706ENMxi",
-  "name": "AbadarCorp travel suit, Gold",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "AbadarCorp Travel Suit, Gold",
   "type": "equipment",
-  "data": {
-    "description": {
-      "value": "<p>Executives popularized these light armor business suits for boardrooms and diplomatic meetings. Contingent force fields and concealed rebreathers protect the wearer in hostile environmental conditions. Higher grades of travel suits offer more protection&mdash;along with a designer label.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "",
-    "type": "",
-    "quantity": 1,
-    "bulk": "L",
-    "price": 12100,
-    "level": 9,
-    "attuned": false,
-    "equipped": false,
-    "identified": true,
+  "img": "systems/sfrpg/icons/equipment/armor/abadarcorp_travel_suit_gold.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
       "type": "",
-      "cost": 0,
-      "condition": ""
+      "condition": "",
+      "cost": 0
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
-    },
+    "ammunitionType": "",
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
-    },
-    "range": {
-      "value": null,
       "units": "",
-      "additional": "",
-      "per": ""
+      "value": ""
     },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
-    "attackBonus": 0,
-    "chatFlavor": "",
-    "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
-      "parts": []
-    },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
-    },
-    "descriptors": [],
-    "modifiers": [],
     "armor": {
       "type": "light",
+      "acp": 0,
+      "dex": 8,
       "eac": 9,
       "kac": 10,
-      "dex": 8,
-      "acp": 0,
-      "speedAdjust": 0,
-      "upgradeSlots": 0,
-      "upgrades": []
+      "speedAdjust": 0
     },
-    "strength": 0,
-    "speed": "",
-    "size": "",
-    "reach": "",
-    "weaponSlots": 0,
-    "proficient": true,
-    "abilityMods": {
+    "attackBonus": 0,
+    "attributes": {
+      "ac": {
+        "value": "5"
+      },
+      "customBuilt": false,
+      "dex": {
+        "mod": ""
+      },
+      "hardness": {
+        "value": "23"
+      },
+      "hp": {
+        "max": "42",
+        "value": 42
+      },
+      "size": "medium",
+      "sturdy": true
+    },
+    "bulk": "L",
+    "capacity": {
+      "max": 0,
+      "value": 0
+    },
+    "chatFlavor": "",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": [
+        {
+          "type": "slot",
+          "acceptsType": [
+            "upgrade",
+            "weapon"
+          ],
+          "affectsEncumbrance": true,
+          "amount": 0,
+          "subtype": "armorUpgrade",
+          "weightProperty": "slots"
+        }
+      ]
+    },
+    "critical": {
+      "effect": "",
       "parts": []
+    },
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>Executives popularized these light armor business suits for boardrooms and diplomatic meetings. Contingent force fields and concealed rebreathers protect the wearer in hostile environmental conditions. Higher grades of travel suits offer more protection—along with a designer label.</p>"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
+    },
+    "equippable": true,
+    "equipped": false,
+    "equippedBulkMultiplier": 1,
+    "formula": "",
+    "identified": true,
+    "isActive": false,
+    "isEquipment": true,
+    "level": 9,
+    "modifiers": [],
+    "price": 12100,
+    "proficient": false,
+    "properties": {},
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "range": {
+      "units": ""
+    },
+    "reach": "",
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 197",
+    "specialMaterials": {},
+    "speed": "",
+    "strength": 0,
+    "target": {
+      "value": null
+    },
+    "usage": {
+      "per": "",
+      "value": 0
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/armor/abadarcorp_travel_suit_gold.jpg"
+  }
 }

@@ -1,92 +1,96 @@
 {
   "_id": "YnRDHb216HdROPeo",
-  "name": "Vision*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Vision",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You pose a question about some person, place, or object while casting this spell. If the person or object is at hand or if you are in the place in question and you succeed at a caster level check (1d20 + your caster level, DC 20), you receive a vision about that person, place, or object. The information gained includes everything available about the target that could be discovered by spending weeks in dedicated research with excellent-quality but standard reference works.<br><br>If the person or object is not at hand or you are not in the place and you know only detailed information about the person, place, or object, the DC of the caster level check is 25 and the information gained is incomplete (though it often provides enough information to help you find the person, place, or thing, thus allowing a better&nbsp;vision&nbsp;result next time). If you know only rumors, the DC is 30 and the information gained is vague (though it often directs you to more detailed information, thus allowing a better&nbsp;vision&nbsp;result next time). In most circumstances, you can’t glean information about what occurred during the Gap with this spell.<br><br>Casting this spell requires access to a computer or similar device, which displays the information gained. Additionally, casting this spell places considerable strain on you, requiring you to spend 1 Resolve Point.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 384",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/vision.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "action",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": false
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "personal",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 6,
-    "school": "div",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You pose a question about some person, place, or object while casting this spell. If the person or object is at hand or if you are in the place in question and you succeed at a caster level check (<strong>1d20 + your caster level, DC 20</strong>), you receive a vision about that person, place, or object. The information gained includes everything available about the target that could be discovered by spending weeks in dedicated research with excellent-quality but standard reference works.</p>\n<p>If the person or object is not at hand or you are not in the place and you know only detailed information about the person, place, or object, the DC of the caster level check is 25 and the information gained is incomplete (though it often provides enough information to help you find the person, place, or thing, thus allowing a better vision result next time). If you know only rumors, the DC is 30 and the information gained is vague (though it often directs you to more detailed information, thus allowing a better vision result next time). In most circumstances, you can’t glean information about what occurred during the Gap with this spell.</p>\n<p>Casting this spell requires access to a computer or similar device, which displays the information gained. Additionally, casting this spell places considerable strain on you, requiring you to spend 1 Resolve Point.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": false,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
+    "duration": {
+      "units": "instantaneous",
+      "value": "see text"
     },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 6,
+    "materials": {
+      "consumed": true,
+      "cost": 0,
+      "supply": 0,
+      "value": "1 Resolve Point"
+    },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": false
+    "properties": {},
+    "range": {
+      "units": "personal"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "",
+      "dc": "",
+      "descriptor": ""
+    },
+    "school": "div",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 384",
+    "sr": false,
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/vision.png"
+  }
 }

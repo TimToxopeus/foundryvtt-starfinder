@@ -1,24 +1,47 @@
 {
   "_id": "kik62O94yL8ABQ19",
   "name": "Soulfire",
-  "permission": {
-    "default": 0,
-    "umHu8DFnCrMQVZ37": 3
-  },
   "type": "fusion",
-  "data": {
-    "description": {
-      "value": "<p><span id=\"ctl00_MainContent_DataListWeaponFusions_ctl00_LabelName\">The <em>soulfire</em> fusion (and <em>soulfire</em> fusion seals) can only be applied to solarian weapon crystals. When you hit a target with a solar weapon augmented by a solarian weapon crystal with the <em>soulfire</em> fusion, you add your Charisma bonus to the damage done, in addition to your Strength bonus.&nbsp;</span></p>",
-      "chat": "",
-      "unidentified": ""
+  "img": "systems/sfrpg/icons/equipment/weapons/weapon-fusions-1.webp",
+  "system": {
+    "bulk": "-",
+    "container": {
+      "contents": [],
+      "includeContentsInWealthCalculation": true,
+      "isOpen": true,
+      "storage": []
     },
-    "source": "Armory",
-    "type": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>The <em>soulfire</em> fusion (and <em>soulfire</em> fusion seals) can only be applied to solarian weapon crystals. When you hit a target with a solar weapon augmented by a solarian weapon crystal with the <em>soulfire</em> fusion, you add your Charisma bonus to the damage done, in addition to your Strength bonus.</p>"
+    },
     "level": 1,
-    "damage": {
-      "parts": []
-    }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/equipment/weapons/weapon-fusions-1.jpg"
+    "modifiers": [
+      {
+        "_id": "97fe915c-e5b5-4883-898f-64e55bf5fa7a",
+        "name": "Soulfire",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "all-damage",
+        "enabled": false,
+        "limitTo": null,
+        "max": 0,
+        "modifier": "@abilities.cha.mod",
+        "modifierType": "formula",
+        "notes": "When you hit a target with a solar weapon augmented by a solarian weapon crystal with the soulfire fusion, you add your Charisma bonus to the damage done, in addition to your Strength bonus.",
+        "source": "Weapon Fusion",
+        "subtab": "misc",
+        "valueAffected": ""
+      }
+    ],
+    "price": 0,
+    "quantity": 1,
+    "quantityPerPack": 1,
+    "slug": "",
+    "source": "AR pg. 65"
+  }
 }

@@ -1,92 +1,96 @@
 {
   "_id": "DcELEg3BAXH3NtsI",
-  "name": "Modify Memory*",
-  "permission": {
-    "default": 0,
-    "EgDbkW0aYa1c3C2f": 3
-  },
+  "name": "Modify Memory",
   "type": "spell",
-  "data": {
-    "description": {
-      "value": "<p style=\"text-align: justify;\">You reach into the target’s mind and modify up to 5 minutes of its memories in one of the following ways.</p>\n<ul style=\"text-align: justify;\">\n<li>Eliminate all memory of an event the target actually experienced. This spell cannot negate&nbsp;charm person,&nbsp;suggestion, or similar spells.</li>\n<li>Allow the target to recall with perfect clarity an event it actually experienced.</li>\n<li>Change the details of an event the target actually experienced.</li>\n<li>Implant a memory of an event the target never experienced.</li>\n</ul>\n<p style=\"text-align: justify;\">Casting the spell takes 1 round. If the target fails its saving throw, you proceed with the spell by spending as much as 5 minutes (a period of time equal to the amount of memory you want to modify) visualizing the memory you wish to modify in the target. If your concentration is disturbed before the visualization is complete, or if the target moves beyond the spell’s range at any point during this time, the spell fails.<br><br>A modified memory does not necessarily affect the target’s actions, particularly if it contradicts the creature’s natural inclinations. An illogical modified memory is usually dismissed as a bad dream, a hallucination, or another similar excuse.</p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Starfinder Core Rulebook pg. 366",
-    "type": "",
+  "img": "systems/sfrpg/icons/spells/modify_memory.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "save",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
+      "type": "round",
+      "condition": "",
+      "cost": 1
     },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+    "allowedClasses": {
+      "myst": true,
+      "precog": false,
+      "tech": false,
+      "wysh": true
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": 25,
-      "units": "ft",
-      "additional": "5",
-      "per": "2 levels"
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
+    "concentration": false,
     "critical": {
-      "parts": [],
-      "effect": ""
-    },
-    "damage": {
+      "effect": "",
       "parts": []
     },
-    "formula": "",
-    "save": {
-      "type": "",
-      "dc": null,
-      "descriptor": ""
+    "damage": {
+      "parts": [],
+      "primaryGroup": null
     },
-    "descriptors": [],
-    "modifiers": [],
-    "level": 5,
-    "school": "enc",
-    "sr": false,
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>You reach into the target’s mind and modify up to 5 minutes of its memories in one of the following ways.</p>\n<ul>\n<li>Eliminate all memory of an event the target actually experienced. This spell cannot negate&nbsp;@UUID[Compendium.sfrpg.spells.Item.3nFCrisRp2GIjbR3]{Charm Person},&nbsp;suggestion, or similar spells.</li>\n<li>Allow the target to recall with perfect clarity an event it actually experienced.</li>\n<li>Change the details of an event the target actually experienced.</li>\n<li>Implant a memory of an event the target never experienced.</li>\n</ul>\n<p>Casting the spell takes 1 round. If the target fails its saving throw, you proceed with the spell by spending as much as 5 minutes (a period of time equal to the amount of memory you want to modify) visualizing the memory you wish to modify in the target. If your concentration is disturbed before the visualization is complete, or if the target moves beyond the spell’s range at any point during this time, the spell fails.</p>\n<p>A modified memory does not necessarily affect the target’s actions, particularly if it contradicts the creature’s natural inclinations. An illogical modified memory is usually dismissed as a bad dream, a hallucination, or another similar excuse.</p>"
+    },
+    "descriptors": {},
     "dismissible": false,
-    "concentration": true,
+    "duration": {
+      "units": "permanent",
+      "value": ""
+    },
+    "formula": "",
+    "isActive": false,
+    "isVariableLevel": false,
+    "level": 5,
     "materials": {
-      "value": "",
       "consumed": false,
       "cost": 0,
-      "supply": 0
+      "supply": 0,
+      "value": ""
     },
+    "modifiers": [],
     "preparation": {
       "mode": "",
       "prepared": false
     },
-    "allowedClasses": {
-      "myst": true,
-      "tech": false,
-      "wysh": true
+    "properties": {},
+    "range": {
+      "units": "close"
     },
-    "abilityMods": {
-      "parts": []
+    "rollNotes": "",
+    "save": {
+      "type": "will",
+      "dc": "",
+      "descriptor": "negate"
+    },
+    "school": "enc",
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
+    },
+    "slug": "",
+    "source": "CRB pg. 366",
+    "sr": true,
+    "target": {
+      "value": "one living creature"
+    },
+    "uses": {
+      "max": "",
+      "per": "",
+      "value": null
     }
-  },
-  "flags": {},
-  "img": "systems/sfrpg/icons/spells/modify_memory.png"
+  }
 }

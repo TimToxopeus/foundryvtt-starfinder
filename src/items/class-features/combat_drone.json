@@ -1,53 +1,57 @@
 {
   "_id": "fqPvefrdTRleRF81",
   "name": "Combat Drone",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "chassis",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.Y4ajp13ACVnzaS5s]{Drone Chassis}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">Bigger than other chassis options, the combat drone moves along the ground and is outfitted with wheels, tracks, legs, or a similar form of propulsion. This drone is designed specifically for battle. It has an armored body and multiple weapon mounts, allowing it to pack a variety of armaments.</span></p>\n<h2>Initial Mods</h2>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl00_LabelName\">@Compendium[sfrpg.class-features.mWgbjM9nJrFGfwbz]{Reductive Plating (Ex)}, @Compendium[sfrpg.class-features.dDZLj7L4psee7UZc]{Weapon Mount (Ex)} or @Compendium[sfrpg.class-features.jhrcNqb8XKqUYp7P]{Melee Weapon Arm (Ex)} (up to 2 in any combination), @Compendium[sfrpg.class-features.vNquSwcfuyifFgQs]{Weapon Proficiency (Ex)}</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "",
-    "type": "",
-    "modifiers": [],
-    "levels": 1,
-    "size": "medium",
-    "speed": {
-      "value": 30,
-      "special": ""
-    },
-    "eac": 10,
-    "kac": 13,
-    "fort": "fast",
-    "ref": "slow",
-    "will": "slow",
-    "abilityScores": {
-      "str": 14,
-      "dex": 12,
-      "con": "-",
-      "int": 6,
-      "wis": 10,
-      "cha": 6
-    },
+  "img": "systems/sfrpg/icons/classes/combat_drone.webp",
+  "system": {
     "abilityIncreaseStats": {
       "first": "str",
       "second": "dex"
     },
-    "damage": {
-      "parts": []
+    "abilityScores": {
+      "cha": 6,
+      "con": "-",
+      "dex": 12,
+      "int": 6,
+      "str": 14,
+      "wis": 10
     },
-    "critical": {
-      "parts": []
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.Y4ajp13ACVnzaS5s]{Drone Chassis}</p>\n<p>Bigger than other chassis options, the combat drone moves along the ground and is outfitted with wheels, tracks, legs, or a similar form of propulsion. This drone is designed specifically for battle. It has an armored body and multiple weapon mounts, allowing it to pack a variety of armaments.</p>\n<h2>Initial Mods</h2>\n<p>@UUID[Compendium.sfrpg.class-features.Item.mWgbjM9nJrFGfwbz]{Reductive Plating (Ex)},</p>\n<p>@UUID[Compendium.sfrpg.class-features.Item.dDZLj7L4psee7UZc]{Weapon Mount (Ex)} or @UUID[Compendium.sfrpg.class-features.Item.jhrcNqb8XKqUYp7P]{Melee Weapon Arm (Ex)} (up to 2 in any combination),</p>\n<p>@UUID[Compendium.sfrpg.class-features.Item.vNquSwcfuyifFgQs]{Weapon Proficiency (Ex)}</p>"
     },
-    "abilityMods": {
-      "parts": []
-    }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+    "eac": 10,
+    "fort": "fast",
+    "kac": 13,
+    "levels": 1,
+    "modifiers": [],
+    "ref": "slow",
+    "size": "medium",
+    "slug": "",
+    "source": "",
+    "speed": {
+      "burrowing": {
+        "base": 0
+      },
+      "climbing": {
+        "base": 0
+      },
+      "flying": {
+        "base": 0,
+        "baseManeuverability": 0
+      },
+      "land": {
+        "base": 30
+      },
+      "mainMovement": "land",
+      "special": "",
+      "swimming": {
+        "base": 0
+      }
+    },
+    "will": "slow"
+  }
 }

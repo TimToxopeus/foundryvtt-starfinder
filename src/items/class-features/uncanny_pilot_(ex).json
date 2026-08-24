@@ -1,77 +1,102 @@
 {
   "_id": "NaGCVIyrwQsH8bV5",
   "name": "Uncanny Pilot (Ex)",
-  "permission": {
-    "default": 0,
-    "QqVQDajn5ZN4kl25": 3
-  },
   "type": "feat",
-  "data": {
-    "description": {
-      "value": "<p>&gt;@Compendium[sfrpg.class-features.On2ZrPJTe8FURsXY]{Operative Exploit}</p>\n<p><span id=\"ctl00_MainContent_DataListTalentsAll_ctl20_LabelName\">When you attack while you’re driving a vehicle, you halve the vehicle’s penalty to your attack roll (to a minimum of no penalty if the vehicle normally imposes a –1 penalty). When you’re in a chase, you gain a +2 bonus to skill checks you attempt when taking the evade or trick pilot actions.</span></p>",
-      "chat": "",
-      "unidentified": ""
-    },
-    "source": "Operative Exploit",
-    "type": "",
+  "img": "systems/sfrpg/icons/classes/uncanny_pilot.webp",
+  "system": {
+    "ability": "",
+    "actionTarget": "",
+    "actionType": "",
     "activation": {
-      "type": "",
-      "cost": 0,
-      "condition": ""
-    },
-    "duration": {
-      "value": null,
-      "units": ""
-    },
-    "target": {
-      "value": null,
-      "type": ""
+      "type": "none",
+      "condition": "",
+      "cost": 0
     },
     "area": {
-      "value": null,
-      "units": "",
+      "effect": "",
+      "shapable": false,
       "shape": "",
-      "effect": ""
+      "units": "none",
+      "value": ""
     },
-    "range": {
-      "value": null,
-      "units": "",
-      "additional": "",
-      "per": ""
-    },
-    "uses": {
-      "value": 0,
-      "max": 0,
-      "per": null
-    },
-    "ability": null,
-    "actionType": "",
     "attackBonus": 0,
     "chatFlavor": "",
     "critical": {
-      "parts": [],
-      "effect": ""
+      "effect": "",
+      "parts": []
     },
     "damage": {
-      "parts": []
+      "parts": [],
+      "primaryGroup": null
+    },
+    "damageNotes": "",
+    "description": {
+      "chat": "",
+      "gmnotes": "",
+      "short": "",
+      "unidentified": "",
+      "value": "<p>&gt;@UUID[Compendium.sfrpg.class-features.Item.On2ZrPJTe8FURsXY]{Operative Exploit}</p>\n<p>When you attack while you’re driving a vehicle, you halve the vehicle’s penalty to your attack roll (to a minimum of no penalty if the vehicle normally imposes a –1 penalty). When you’re in a chase, you gain a +2 bonus to skill checks you attempt when taking the evade or trick pilot actions.</p>\n<p><em>The ability to halve the vehicle's penalty is not currently automated.</em></p>"
+    },
+    "descriptors": {},
+    "details": {
+      "category": "classFeature",
+      "combat": false,
+      "specialAbilityType": "ex"
+    },
+    "duration": {
+      "units": "instantaneous",
+      "value": ""
     },
     "formula": "",
+    "isActive": false,
+    "modifiers": [
+      {
+        "_id": "863433c3-d5af-427b-962e-6a067c303159",
+        "name": "Uncanny Pilot (Ex)",
+        "type": "untyped",
+        "condition": "",
+        "damage": null,
+        "effectType": "all-skills",
+        "enabled": false,
+        "limitTo": null,
+        "max": 2,
+        "modifier": "2",
+        "modifierType": "formula",
+        "notes": "When you’re in a chase, you gain a +2 bonus to skill checks you attempt when taking the evade or trick pilot actions.",
+        "source": "",
+        "subtab": "misc",
+        "valueAffected": ""
+      }
+    ],
+    "properties": {},
+    "range": {
+      "units": "none"
+    },
+    "recharge": {
+      "charged": false,
+      "value": ""
+    },
+    "requirements": "2nd Level",
+    "rollNotes": "",
     "save": {
       "type": "",
-      "dc": null,
+      "dc": "",
       "descriptor": ""
     },
-    "descriptors": [],
-    "modifiers": [],
-    "requirements": "2nd Level",
-    "recharge": {
-      "value": null,
-      "charged": false
+    "skillCheck": {
+      "type": "",
+      "dc": "",
+      "variable": false
     },
-    "abilityMods": {
-      "parts": []
+    "slug": "",
+    "source": "Operative Exploit",
+    "target": {
+      "value": ""
+    },
+    "uses": {
+      "max": "0",
+      "per": "",
+      "value": 0
     }
-  },
-  "flags": {},
-  "img": "icons/svg/mystery-man.svg"
+  }
 }
